@@ -6684,6 +6684,47 @@ var $;
 })($ || ($ = {}));
 
 ;
+	($.$mol_icon_script) = class $mol_icon_script extends ($.$mol_icon) {
+		path(){
+			return "M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2H8C6.3,2 5,3.3 5,5V16H16V17C16,17.6 16.4,18 17,18H18V5C18,4.4 18.4,4 19,4C19.6,4 20,4.4 20,5V6H22V5C22,3.3 20.7,2 19,2Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_icon_script_text) = class $mol_icon_script_text extends ($.$mol_icon) {
+		path(){
+			return "M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2C20.7,2 22,3.3 22,5V6H20V5C20,4.4 19.6,4 19,4C18.4,4 18,4.4 18,5V18H17C16.4,18 16,17.6 16,17V16H5V5C5,3.3 6.3,2 8,2H19M8,6V8H15V6H8M8,10V12H14V10H8Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_link_source) = class $mol_link_source extends ($.$mol_link) {
+		Icon(){
+			const obj = new this.$.$mol_icon_script_text();
+			return obj;
+		}
+		hint(){
+			return (this.$.$mol_locale.text("$mol_link_source_hint"));
+		}
+		sub(){
+			return [(this.Icon())];
+		}
+	};
+	($mol_mem(($.$mol_link_source.prototype), "Icon"));
+
+
+;
+"use strict";
+
+;
 "use strict";
 var $;
 (function ($) {
@@ -13642,6 +13683,11 @@ var $;
 			const obj = new this.$.$mol_lights_toggle();
 			return obj;
 		}
+		Sources(){
+			const obj = new this.$.$mol_link_source();
+			(obj.uri) = () => ("https://github.com/hyoo-ru/budget.hyoo.ru/");
+			return obj;
+		}
 		fund(id){
 			const obj = new this.$.$hyoo_budget_fund();
 			return obj;
@@ -13676,7 +13722,7 @@ var $;
 			return obj;
 		}
 		menu_foot(){
-			return [(this.Lights())];
+			return [(this.Lights()), (this.Sources())];
 		}
 		Spread(id){
 			return (this.Fund_page(id));
@@ -13689,6 +13735,7 @@ var $;
 	($mol_mem(($.$hyoo_budget_app.prototype), "Fund_make_icon"));
 	($mol_mem(($.$hyoo_budget_app.prototype), "Fund_make"));
 	($mol_mem(($.$hyoo_budget_app.prototype), "Lights"));
+	($mol_mem(($.$hyoo_budget_app.prototype), "Sources"));
 	($mol_mem_key(($.$hyoo_budget_app.prototype), "fund"));
 	($mol_mem_key(($.$hyoo_budget_app.prototype), "fund_visible"));
 	($mol_mem_key(($.$hyoo_budget_app.prototype), "Fund_page"));

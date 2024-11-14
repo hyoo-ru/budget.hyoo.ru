@@ -2557,6 +2557,35 @@ declare namespace $.$$ {
 }
 
 declare namespace $ {
+
+	export class $mol_icon_script extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=script.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_icon_script_text extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=text.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_link_source extends $mol_link {
+		Icon( ): $mol_icon_script_text
+		hint( ): string
+		sub( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=source.view.tree.d.ts.map
+declare namespace $ {
     enum $hyoo_crus_part {
         land = 3,
         face = 11,
@@ -6490,22 +6519,27 @@ declare namespace $ {
 		,
 		ReturnType< $mol_button_minor['sub'] >
 	>
-	type $hyoo_budget_fund_book__fund_hyoo_budget_app_4 = $mol_type_enforce<
+	type $mol_link_source__uri_hyoo_budget_app_4 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_link_source['uri'] >
+	>
+	type $hyoo_budget_fund_book__fund_hyoo_budget_app_5 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_app['fund'] >
 		,
 		ReturnType< $hyoo_budget_fund_book['fund'] >
 	>
-	type $hyoo_budget_fund_book__menu_addon_hyoo_budget_app_5 = $mol_type_enforce<
+	type $hyoo_budget_fund_book__menu_addon_hyoo_budget_app_6 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $hyoo_budget_fund_book['menu_addon'] >
 	>
-	type $hyoo_budget_fund_book__visible_hyoo_budget_app_6 = $mol_type_enforce<
+	type $hyoo_budget_fund_book__visible_hyoo_budget_app_7 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_app['fund_visible'] >
 		,
 		ReturnType< $hyoo_budget_fund_book['visible'] >
 	>
-	type $mol_status__title_hyoo_budget_app_7 = $mol_type_enforce<
+	type $mol_status__title_hyoo_budget_app_8 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_status['title'] >
@@ -6515,6 +6549,7 @@ declare namespace $ {
 		Fund_make_icon( ): $mol_icon_plus
 		Fund_make( ): $mol_button_minor
 		Lights( ): $mol_lights_toggle
+		Sources( ): $mol_link_source
 		fund( id: any): $hyoo_budget_fund
 		fund_visible( id: any, next?: boolean ): boolean
 		Fund_page( id: any): $hyoo_budget_fund_book
