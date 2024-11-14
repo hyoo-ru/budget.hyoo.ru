@@ -18,6 +18,7 @@
 	"$hyoo_budget_transfer_row_Amount_hint": "amount",
 	"$hyoo_budget_transfer_row_Description_hint": "description",
 	"$mol_book2_catalog_Spread_close_hint": "Close page",
+	"$mol_lights_toggle_hint": "Toggle lights",
 	"$mol_search_Clear_hint": "Clear",
 	"$mol_search_hint": "Search..."
 }
