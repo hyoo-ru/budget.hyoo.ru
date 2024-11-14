@@ -8,8 +8,12 @@ $hyoo_budget_app $mol_book2_catalog
 			sub /
 				<= Fund_make_icon $mol_icon_plus
 	Menu_links_empty $mol_status title @ \Add one fund ☝️
+	menu_foot /
+		<= Lights $mol_lights_toggle
 	Spread* <= Fund_page* $hyoo_budget_fund_book
 		fund <= fund* $hyoo_budget_fund
 		menu_addon /
 			<= Spread_close
 		visible? <=> fund_visible*? true
+	plugins /
+		<= Theme $mol_theme_auto
