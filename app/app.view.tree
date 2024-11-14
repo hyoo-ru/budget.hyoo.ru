@@ -10,6 +10,8 @@ $hyoo_budget_app $mol_book2_catalog
 	Menu_links_empty $mol_status title @ \Add one fund ☝️
 	menu_foot /
 		<= Lights $mol_lights_toggle
+		<= Sources $mol_link_source
+			uri \https://github.com/hyoo-ru/budget.hyoo.ru/
 	Spread* <= Fund_page* $hyoo_budget_fund_book
 		fund <= fund* $hyoo_budget_fund
 		menu_addon /
