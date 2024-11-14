@@ -1,11 +1,9 @@
-# Template Repo
+# Private Budget
 
-Template repo to fast make new $hyoo apps.
+" Веб-приложение для ведения личного бюджета.
 
-## After Make
+# Особенности
 
-- [ ] [Rename app then update index.html and CNAME](./app).
-- [ ] [Update GitHub Workflow](.github/workflows).
-- [ ] Update repo description and link to app at the GitHub.
-- [ ] [Add this repo to $hyoo namespace](https://github.com/hyoo-ru/mam_hyoo/blob/master/hyoo.meta.tree).
-- [ ] Rewrite this readme.
+🔒 **Безопасность**: Все данные хранятся в зашифрованном виде.
+✈️ **Оффлайн**: Полная работоспособность даже без сети.
+🚀 **Реактивность**: Мгновенная синхронизация между девайсами.
