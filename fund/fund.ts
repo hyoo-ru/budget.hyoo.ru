@@ -6,7 +6,7 @@ namespace $ {
 	}) {
 		
 		limit( next?: number ) {
-			return this.Limit( next )?.val( next ) ?? 0
+			return this.Limit( next )?.val( next ) ?? null
 		}
 		
 		@ $mol_mem
