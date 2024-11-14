@@ -1,0 +1,40 @@
+$hyoo_budget_category_page $mol_page
+	category $hyoo_budget_category
+	title <= category_title
+	Title $mol_string_button
+		hint @ \category title
+		value? <=> category_title? \
+	tools /
+		<= Transfer_make $mol_button_minor
+			hint @ \New transfer
+			click? <=> transfer_make? null
+			sub /
+				<= Transfer_make_icon $mol_icon_plus
+		^ addon /
+	foot /
+		<= Visible $mol_check_icon
+			hint @ \Visible in menu
+			checked? <=> visible? true
+			sub /
+				<= Visible_icon $mol_icon_eye
+		<= Ballance $mol_status
+			title <= ballance @ \{value} ¤ total
+		<= Limit $mol_number
+			hint @ \limit
+			value? <=> limit? null number
+			Inc null
+			Dec null
+	body /
+		<= Transfers $mol_labeler
+			title @ \Transfers
+			Content <= Transfer_list $mol_list
+				rows <= transfer_list /
+					<= Transfer_row*0 $hyoo_budget_transfer_row
+						transfer <= transfer* $hyoo_budget_transfer
+						addon /
+							<= Delete* $mol_button_minor
+								hint @ \Delete
+								click? <=> delete*? null
+								sub /
+									<= Delete_icon* $mol_icon_delete
+				Empty <= Transfer_list_empty $mol_status title @ \Add one transfer ☝️

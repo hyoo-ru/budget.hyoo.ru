@@ -1,0 +1,15 @@
+$hyoo_budget_app $mol_book2_catalog
+	param \fund
+	menu_title @ \Private Budget
+	menu_tools /
+		<= Fund_make $mol_button_minor
+			hint @ \New fund
+			click? <=> fund_make? null
+			sub /
+				<= Fund_make_icon $mol_icon_plus
+	Menu_links_empty $mol_status title @ \Add one fund ☝️
+	Spread* <= Fund_page* $hyoo_budget_fund_book
+		fund <= fund* $hyoo_budget_fund
+		menu_addon /
+			<= Spread_close
+		visible? <=> fund_visible*? true

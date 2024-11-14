@@ -1,0 +1,33 @@
+$hyoo_budget_fund_book $mol_book2_catalog
+	param \category
+	fund $hyoo_budget_fund
+	menu_title <= fund_title
+	Menu_title $mol_string_button
+		hint @ \fund title
+		value? <=> fund_title? \
+	menu_tools /
+		<= Category_make $mol_button_minor
+			hint @ \New category
+			click? <=> category_make? null
+			sub /
+				<= Category_make_icon $mol_icon_plus
+		^ menu_addon
+	Menu_links_empty $mol_status title @ \Add one category ☝️
+	menu_foot /
+		<= Visible $mol_check_icon
+			hint @ \Visible in menu
+			checked? <=> visible? true
+			sub /
+				<= Visible_icon $mol_icon_eye
+		<= Ballance $mol_status
+			title <= ballance \{value} ¤ total
+		<= Limit $mol_number
+			hint @ \limit
+			value? <=> limit? null number
+			Inc null
+			Dec null
+	Spread* <= Category_page* $hyoo_budget_category_page
+		category <= category* $hyoo_budget_category
+		addon /
+			<= Spread_close
+		visible? <=> category_visible*? true

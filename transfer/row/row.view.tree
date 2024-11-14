@@ -1,0 +1,14 @@
+$hyoo_budget_transfer_row $mol_view
+	transfer $hyoo_budget_transfer
+		amount? => amount?
+		description? => description?
+	sub /
+		<= Amount $mol_number
+			hint @ \amount
+			value? <=> amount?
+			Inc null
+			Dec null
+		<= Description $mol_string_button
+			hint @ \description
+			value? <=> description?
+		^ addon /
