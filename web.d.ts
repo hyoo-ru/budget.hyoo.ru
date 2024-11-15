@@ -6113,6 +6113,44 @@ declare namespace $ {
 }
 
 declare namespace $ {
+    type $mol_blob = Blob;
+    let $mol_blob: {
+        prototype: Blob;
+        new (blobParts?: readonly BlobPart[], options?: BlobPropertyBag): Blob;
+    };
+}
+
+declare namespace $ {
+
+	export class $mol_icon_download extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=download.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_button_download extends $.$mol_button_download {
+        uri(): string;
+        click(): void;
+    }
+}
+
+declare namespace $ {
+
+	export class $mol_button_download extends $mol_button_minor {
+		Icon( ): $mol_icon_download
+		title( ): string
+		blob( ): any
+		uri( ): string
+		file_name( ): string
+		sub( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=download.view.tree.d.ts.map
+declare namespace $ {
 
 	export class $mol_portion_indicator extends $mol_view {
 		width_style( ): string
@@ -7037,104 +7075,126 @@ declare namespace $ {
 }
 
 declare namespace $ {
+    function $mol_csv_serial(data: Record<string, any>[], delimiter?: string): string;
+}
 
-	type $mol_button_minor__hint_hyoo_budget_fund_book_1 = $mol_type_enforce<
+declare namespace $ {
+
+	type $mol_button_download__hint_hyoo_budget_fund_book_1 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_button_download['hint'] >
+	>
+	type $mol_button_download__file_name_hyoo_budget_fund_book_2 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_fund_book['export_file_name'] >
+		,
+		ReturnType< $mol_button_download['file_name'] >
+	>
+	type $mol_button_download__blob_hyoo_budget_fund_book_3 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_fund_book['export_blob'] >
+		,
+		ReturnType< $mol_button_download['blob'] >
+	>
+	type $mol_button_minor__hint_hyoo_budget_fund_book_4 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_button_minor['hint'] >
 	>
-	type $mol_button_minor__click_hyoo_budget_fund_book_2 = $mol_type_enforce<
+	type $mol_button_minor__click_hyoo_budget_fund_book_5 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['category_make'] >
 		,
 		ReturnType< $mol_button_minor['click'] >
 	>
-	type $mol_button_minor__sub_hyoo_budget_fund_book_3 = $mol_type_enforce<
+	type $mol_button_minor__sub_hyoo_budget_fund_book_6 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_minor['sub'] >
 	>
-	type $mol_view__sub_hyoo_budget_fund_book_4 = $mol_type_enforce<
+	type $mol_view__sub_hyoo_budget_fund_book_7 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_portion__portion_hyoo_budget_fund_book_5 = $mol_type_enforce<
+	type $mol_portion__portion_hyoo_budget_fund_book_8 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['category_portion'] >
 		,
 		ReturnType< $mol_portion['portion'] >
 	>
-	type $mol_check_icon__hint_hyoo_budget_fund_book_6 = $mol_type_enforce<
+	type $mol_check_icon__hint_hyoo_budget_fund_book_9 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_check_icon['hint'] >
 	>
-	type $mol_check_icon__checked_hyoo_budget_fund_book_7 = $mol_type_enforce<
+	type $mol_check_icon__checked_hyoo_budget_fund_book_10 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['visible'] >
 		,
 		ReturnType< $mol_check_icon['checked'] >
 	>
-	type $mol_check_icon__sub_hyoo_budget_fund_book_8 = $mol_type_enforce<
+	type $mol_check_icon__sub_hyoo_budget_fund_book_11 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_check_icon['sub'] >
 	>
-	type $mol_chip__title_hyoo_budget_fund_book_9 = $mol_type_enforce<
+	type $mol_chip__title_hyoo_budget_fund_book_12 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['ballance'] >
 		,
 		ReturnType< $mol_chip['title'] >
 	>
-	type $mol_number__hint_hyoo_budget_fund_book_10 = $mol_type_enforce<
+	type $mol_number__hint_hyoo_budget_fund_book_13 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_number['hint'] >
 	>
-	type $mol_number__value_hyoo_budget_fund_book_11 = $mol_type_enforce<
+	type $mol_number__value_hyoo_budget_fund_book_14 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['limit'] >
 		,
 		ReturnType< $mol_number['value'] >
 	>
-	type $mol_number__Inc_hyoo_budget_fund_book_12 = $mol_type_enforce<
+	type $mol_number__Inc_hyoo_budget_fund_book_15 = $mol_type_enforce<
 		any
 		,
 		ReturnType< $mol_number['Inc'] >
 	>
-	type $mol_number__Dec_hyoo_budget_fund_book_13 = $mol_type_enforce<
+	type $mol_number__Dec_hyoo_budget_fund_book_16 = $mol_type_enforce<
 		any
 		,
 		ReturnType< $mol_number['Dec'] >
 	>
-	type $hyoo_budget_category_page__category_hyoo_budget_fund_book_14 = $mol_type_enforce<
+	type $hyoo_budget_category_page__category_hyoo_budget_fund_book_17 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['category'] >
 		,
 		ReturnType< $hyoo_budget_category_page['category'] >
 	>
-	type $hyoo_budget_category_page__addon_hyoo_budget_fund_book_15 = $mol_type_enforce<
+	type $hyoo_budget_category_page__addon_hyoo_budget_fund_book_18 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $hyoo_budget_category_page['addon'] >
 	>
-	type $hyoo_budget_category_page__visible_hyoo_budget_fund_book_16 = $mol_type_enforce<
+	type $hyoo_budget_category_page__visible_hyoo_budget_fund_book_19 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['category_visible'] >
 		,
 		ReturnType< $hyoo_budget_category_page['visible'] >
 	>
-	type $mol_string_button__hint_hyoo_budget_fund_book_17 = $mol_type_enforce<
+	type $mol_string_button__hint_hyoo_budget_fund_book_20 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_string_button['hint'] >
 	>
-	type $mol_string_button__value_hyoo_budget_fund_book_18 = $mol_type_enforce<
+	type $mol_string_button__value_hyoo_budget_fund_book_21 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['fund_title'] >
 		,
 		ReturnType< $mol_string_button['value'] >
 	>
-	type $mol_status__title_hyoo_budget_fund_book_19 = $mol_type_enforce<
+	type $mol_status__title_hyoo_budget_fund_book_22 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_status['title'] >
 	>
 	export class $hyoo_budget_fund_book extends $mol_book2_catalog {
 		fund_title( next?: string ): string
+		export_file_name( ): string
+		export_blob( ): $mol_blob
+		Export( ): $mol_button_download
 		category_make( next?: any ): any
 		Category_make_icon( ): $mol_icon_plus
 		Category_make( ): $mol_button_minor
@@ -7178,6 +7238,7 @@ declare namespace $.$$ {
         category_ballance(id: string): number;
         category_portion(id: string): number;
         ballance(): string;
+        export_blob(): Blob;
     }
 }
 
@@ -7405,14 +7466,6 @@ declare namespace $.$$ {
 }
 
 declare namespace $.$$ {
-}
-
-declare namespace $ {
-    type $mol_blob = Blob;
-    let $mol_blob: {
-        prototype: Blob;
-        new (blobParts?: readonly BlobPart[], options?: BlobPropertyBag): Blob;
-    };
 }
 
 declare namespace $ {

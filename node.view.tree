@@ -434,6 +434,16 @@ $mol_link_source $mol_link
 	sub /
 		<= Icon $mol_icon_script_text
 
+$mol_icon_download $mol_icon path \M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z
+
+$mol_button_download $mol_button_minor
+	blob null
+	uri \
+	file_name \blob.bin
+	sub /
+		<= Icon $mol_icon_download
+		<= title \
+
 $mol_portion_indicator $mol_view
 	style *
 		^
@@ -673,6 +683,10 @@ $hyoo_budget_fund_book $mol_book2_catalog
 		hint @ \fund title
 		value? <=> fund_title? \
 	menu_tools /
+		<= Export $mol_button_download
+			hint @ \Download fund data
+			file_name <= export_file_name \xxx.csv
+			blob <= export_blob $mol_blob
 		<= Category_make $mol_button_minor
 			hint @ \New category
 			click? <=> category_make? null

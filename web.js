@@ -13337,6 +13337,74 @@ var $;
 })($ || ($ = {}));
 
 ;
+"use strict";
+var $;
+(function ($) {
+    $.$mol_blob = ($node.buffer?.Blob ?? $mol_dom_context.Blob);
+})($ || ($ = {}));
+
+;
+	($.$mol_icon_download) = class $mol_icon_download extends ($.$mol_icon) {
+		path(){
+			return "M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_button_download) = class $mol_button_download extends ($.$mol_button_minor) {
+		Icon(){
+			const obj = new this.$.$mol_icon_download();
+			return obj;
+		}
+		title(){
+			return "";
+		}
+		blob(){
+			return null;
+		}
+		uri(){
+			return "";
+		}
+		file_name(){
+			return "blob.bin";
+		}
+		sub(){
+			return [(this.Icon()), (this.title())];
+		}
+	};
+	($mol_mem(($.$mol_button_download.prototype), "Icon"));
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_button_download extends $.$mol_button_download {
+            uri() {
+                return URL.createObjectURL(this.blob());
+            }
+            click() {
+                const a = $mol_jsx("a", { href: this.uri(), download: this.file_name() });
+                a.click();
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $mol_button_download.prototype, "uri", null);
+        $$.$mol_button_download = $mol_button_download;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
 	($.$mol_portion_indicator) = class $mol_portion_indicator extends ($.$mol_view) {
 		width_style(){
 			return "0";
@@ -14858,6 +14926,20 @@ var $;
 			if(next !== undefined) return next;
 			return "";
 		}
+		export_file_name(){
+			return "xxx.csv";
+		}
+		export_blob(){
+			const obj = new this.$.$mol_blob();
+			return obj;
+		}
+		Export(){
+			const obj = new this.$.$mol_button_download();
+			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_fund_book_Export_hint")));
+			(obj.file_name) = () => ((this.export_file_name()));
+			(obj.blob) = () => ((this.export_blob()));
+			return obj;
+		}
 		category_make(next){
 			if(next !== undefined) return next;
 			return null;
@@ -14956,7 +15038,11 @@ var $;
 			return obj;
 		}
 		menu_tools(){
-			return [(this.Category_make()), ...(this.menu_addon())];
+			return [
+				(this.Export()), 
+				(this.Category_make()), 
+				...(this.menu_addon())
+			];
 		}
 		menu_link_content(id){
 			return [
@@ -14982,6 +15068,8 @@ var $;
 		}
 	};
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "fund_title"));
+	($mol_mem(($.$hyoo_budget_fund_book.prototype), "export_blob"));
+	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Export"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "category_make"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Category_make_icon"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Category_make"));
@@ -15040,6 +15128,31 @@ var $;
 
 ;
 "use strict";
+var $;
+(function ($) {
+    function $mol_csv_serial(data, delimiter = ',') {
+        const fields = new Set();
+        for (const item of data) {
+            for (const field of Object.keys(item)) {
+                fields.add(field);
+            }
+        }
+        const rows = [[...fields]];
+        for (const item of data) {
+            const row = [];
+            rows.push(row);
+            for (const field of fields) {
+                const val = String(item[field] ?? '');
+                row.push('"' + val.replace(/"/g, '""') + '"');
+            }
+        }
+        return rows.map(row => row.join(delimiter)).join('\n');
+    }
+    $.$mol_csv_serial = $mol_csv_serial;
+})($ || ($ = {}));
+
+;
+"use strict";
 
 ;
 "use strict";
@@ -15081,6 +15194,17 @@ var $;
             ballance() {
                 return super.ballance().replace('{value}', this.fund().ballance().toLocaleString());
             }
+            export_blob() {
+                const data = this.fund().category_list().flatMap(category => category.transfer_list().map(transfer => ({
+                    id: transfer.ref().description,
+                    category: category.title(),
+                    amount: transfer.amount(),
+                    description: transfer.description(),
+                    moment: transfer.moment(),
+                })));
+                const csv = this.$.$mol_csv_serial(data, '\t');
+                return new $mol_blob([csv]);
+            }
         }
         __decorate([
             $mol_mem
@@ -15097,6 +15221,9 @@ var $;
         __decorate([
             $mol_mem_key
         ], $hyoo_budget_fund_book.prototype, "category_portion", null);
+        __decorate([
+            $mol_mem
+        ], $hyoo_budget_fund_book.prototype, "export_blob", null);
         $$.$hyoo_budget_fund_book = $hyoo_budget_fund_book;
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));
@@ -15579,13 +15706,6 @@ var $;
             },
         });
     })($$ = $.$$ || ($.$$ = {}));
-})($ || ($ = {}));
-
-;
-"use strict";
-var $;
-(function ($) {
-    $.$mol_blob = ($node.buffer?.Blob ?? $mol_dom_context.Blob);
 })($ || ($ = {}));
 
 ;

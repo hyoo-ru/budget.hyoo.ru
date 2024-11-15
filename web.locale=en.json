@@ -10,6 +10,7 @@
 	"$hyoo_budget_category_page_Visible_hint": "Visible in menu",
 	"$hyoo_budget_category_page_ballance": "{value} ¤ total",
 	"$hyoo_budget_fund_book_Category_make_hint": "New category",
+	"$hyoo_budget_fund_book_Export_hint": "Download fund data",
 	"$hyoo_budget_fund_book_Limit_hint": "limit",
 	"$hyoo_budget_fund_book_Menu_links_empty_title": "Add new category ⤴️",
 	"$hyoo_budget_fund_book_Menu_title_hint": "fund title",
