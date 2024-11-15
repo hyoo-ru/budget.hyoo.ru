@@ -13350,44 +13350,6 @@ var $;
 })($ || ($ = {}));
 
 ;
-	($.$mol_labeler) = class $mol_labeler extends ($.$mol_list) {
-		label(){
-			return [(this.title())];
-		}
-		Label(){
-			const obj = new this.$.$mol_view();
-			(obj.minimal_height) = () => (32);
-			(obj.sub) = () => ((this.label()));
-			return obj;
-		}
-		content(){
-			return [];
-		}
-		Content(){
-			const obj = new this.$.$mol_view();
-			(obj.minimal_height) = () => (24);
-			(obj.sub) = () => ((this.content()));
-			return obj;
-		}
-		rows(){
-			return [(this.Label()), (this.Content())];
-		}
-	};
-	($mol_mem(($.$mol_labeler.prototype), "Label"));
-	($mol_mem(($.$mol_labeler.prototype), "Content"));
-
-
-;
-"use strict";
-var $;
-(function ($) {
-    $mol_style_attach("mol/labeler/labeler.view.css", "[mol_labeler] {\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: stretch;\n\tcursor: inherit;\n}\n\n[mol_labeler_label] {\n\tmin-height: 2rem;\n\tcolor: var(--mol_theme_shade);\n\tpadding: .5rem .75rem 0;\n\tgap: 0 var(--mol_gap_block);\n\tflex-wrap: wrap;\n}\n\n[mol_labeler_content] {\n\tdisplay: flex;\n\tpadding: var(--mol_gap_text);\n}\n");
-})($ || ($ = {}));
-
-;
-"use strict";
-
-;
 	($.$hyoo_budget_category_page) = class $hyoo_budget_category_page extends ($.$mol_page) {
 		category_title(next){
 			if(next !== undefined) return next;
@@ -13485,12 +13447,6 @@ var $;
 			(obj.Empty) = () => ((this.Transfer_list_empty()));
 			return obj;
 		}
-		Transfers(){
-			const obj = new this.$.$mol_labeler();
-			(obj.title) = () => ((this.$.$mol_locale.text("$hyoo_budget_category_page_Transfers_title")));
-			(obj.Content) = () => ((this.Transfer_list()));
-			return obj;
-		}
 		category(){
 			const obj = new this.$.$hyoo_budget_category();
 			return obj;
@@ -13515,7 +13471,7 @@ var $;
 			];
 		}
 		body(){
-			return [(this.Transfers())];
+			return [(this.Transfer_list())];
 		}
 	};
 	($mol_mem(($.$hyoo_budget_category_page.prototype), "category_title"));
@@ -13535,7 +13491,6 @@ var $;
 	($mol_mem_key(($.$hyoo_budget_category_page.prototype), "Transfer_row"));
 	($mol_mem(($.$hyoo_budget_category_page.prototype), "Transfer_list_empty"));
 	($mol_mem(($.$hyoo_budget_category_page.prototype), "Transfer_list"));
-	($mol_mem(($.$hyoo_budget_category_page.prototype), "Transfers"));
 	($mol_mem(($.$hyoo_budget_category_page.prototype), "category"));
 	($mol_mem(($.$hyoo_budget_category_page.prototype), "Title"));
 

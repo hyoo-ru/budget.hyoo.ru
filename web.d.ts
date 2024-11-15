@@ -6032,42 +6032,6 @@ declare namespace $.$$ {
 }
 
 declare namespace $ {
-}
-
-declare namespace $ {
-
-	type $mol_view__minimal_height_mol_labeler_1 = $mol_type_enforce<
-		number
-		,
-		ReturnType< $mol_view['minimal_height'] >
-	>
-	type $mol_view__sub_mol_labeler_2 = $mol_type_enforce<
-		ReturnType< $mol_labeler['label'] >
-		,
-		ReturnType< $mol_view['sub'] >
-	>
-	type $mol_view__minimal_height_mol_labeler_3 = $mol_type_enforce<
-		number
-		,
-		ReturnType< $mol_view['minimal_height'] >
-	>
-	type $mol_view__sub_mol_labeler_4 = $mol_type_enforce<
-		ReturnType< $mol_labeler['content'] >
-		,
-		ReturnType< $mol_view['sub'] >
-	>
-	export class $mol_labeler extends $mol_list {
-		label( ): readonly($mol_view_content)[]
-		Label( ): $mol_view
-		content( ): readonly(any)[]
-		Content( ): $mol_view
-		rows( ): readonly(any)[]
-	}
-	
-}
-
-//# sourceMappingURL=labeler.view.tree.d.ts.map
-declare namespace $ {
 
 	type $mol_button_minor__hint_hyoo_budget_category_page_1 = $mol_type_enforce<
 		string
@@ -6164,22 +6128,12 @@ declare namespace $ {
 		,
 		ReturnType< $mol_list['Empty'] >
 	>
-	type $mol_labeler__title_hyoo_budget_category_page_20 = $mol_type_enforce<
-		string
-		,
-		ReturnType< $mol_labeler['title'] >
-	>
-	type $mol_labeler__Content_hyoo_budget_category_page_21 = $mol_type_enforce<
-		ReturnType< $hyoo_budget_category_page['Transfer_list'] >
-		,
-		ReturnType< $mol_labeler['Content'] >
-	>
-	type $mol_string_button__hint_hyoo_budget_category_page_22 = $mol_type_enforce<
+	type $mol_string_button__hint_hyoo_budget_category_page_20 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_string_button['hint'] >
 	>
-	type $mol_string_button__value_hyoo_budget_category_page_23 = $mol_type_enforce<
+	type $mol_string_button__value_hyoo_budget_category_page_21 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_category_page['category_title'] >
 		,
 		ReturnType< $mol_string_button['value'] >
@@ -6205,7 +6159,6 @@ declare namespace $ {
 		transfer_list( ): readonly(any)[]
 		Transfer_list_empty( ): $mol_status
 		Transfer_list( ): $mol_list
-		Transfers( ): $mol_labeler
 		category( ): $hyoo_budget_category
 		title( ): ReturnType< $hyoo_budget_category_page['category_title'] >
 		Title( ): $mol_string_button

@@ -262,7 +262,6 @@
     "$mol_icon_delete",
     "$hyoo_budget_transfer_row",
     "$mol_string_button",
-    "$mol_labeler",
     "$mol_wait_timeout",
     "$mol_wait",
     "$mol_promise_promise",
