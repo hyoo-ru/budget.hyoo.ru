@@ -450,7 +450,7 @@ $hyoo_budget_category_page $mol_page
 							click? <=> delete*? null
 							sub /
 								<= Delete_icon* $mol_icon_delete
-			Empty <= Transfer_list_empty $mol_status title @ \Add one transfer ☝️
+			Empty <= Transfer_list_empty $mol_status title @ \Add new expanse ⤴️
 
 $hyoo_budget_fund_book $mol_book2_catalog
 	param \category
@@ -466,7 +466,7 @@ $hyoo_budget_fund_book $mol_book2_catalog
 			sub /
 				<= Category_make_icon $mol_icon_plus
 		^ menu_addon
-	Menu_links_empty $mol_status title @ \Add one category ☝️
+	Menu_links_empty $mol_status title @ \Add new category ⤴️
 	menu_foot /
 		<= Visible $mol_check_icon
 			hint @ \Visible in menu
@@ -474,7 +474,7 @@ $hyoo_budget_fund_book $mol_book2_catalog
 			sub /
 				<= Visible_icon $mol_icon_eye
 		<= Ballance $mol_status
-			title <= ballance \{value} ¤ total
+			title <= ballance @ \{value} ¤ total
 		<= Limit $mol_number
 			hint @ \limit
 			value? <=> limit? null number
@@ -498,7 +498,7 @@ $hyoo_budget_app $mol_book2_catalog
 			click? <=> fund_make? null
 			sub /
 				<= Fund_make_icon $mol_icon_plus
-	Menu_links_empty $mol_status title @ \Add one fund ☝️
+	Menu_links_empty $mol_status title @ \Add new fund ⤴️
 	menu_foot /
 		<= Lights $mol_lights_toggle
 		<= Sources $mol_link_source

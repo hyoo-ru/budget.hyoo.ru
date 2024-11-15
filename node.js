@@ -13601,7 +13601,7 @@ var $;
 			return obj;
 		}
 		ballance(){
-			return "{value} ¤ total";
+			return (this.$.$mol_locale.text("$hyoo_budget_fund_book_ballance"));
 		}
 		Ballance(){
 			const obj = new this.$.$mol_status();
