@@ -48,6 +48,24 @@ namespace $.$$ {
 		ballance() {
 			return super.ballance().replace( '{value}', this.fund().ballance().toLocaleString() )
 		}
+
+		@ $mol_mem
+		export_blob() {
+			
+			const data = this.fund().category_list().flatMap(
+				category => category.transfer_list().map( transfer => ({
+					id: transfer.ref().description!,
+					category: category.title(),
+					amount: transfer.amount(),
+					description: transfer.description(),
+					moment: transfer.moment(),
+				}) )
+			)
+
+			const csv = this.$.$mol_csv_serial( data, '\t' )
+			return new $mol_blob([ csv ])
+
+		}
 		
 	}
 }

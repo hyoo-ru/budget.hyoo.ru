@@ -6,6 +6,10 @@ $hyoo_budget_fund_book $mol_book2_catalog
 		hint @ \fund title
 		value? <=> fund_title? \
 	menu_tools /
+		<= Export $mol_button_download
+			hint @ \Download fund data
+			file_name <= export_file_name \xxx.csv
+			blob <= export_blob $mol_blob
 		<= Category_make $mol_button_minor
 			hint @ \New category
 			click? <=> category_make? null
