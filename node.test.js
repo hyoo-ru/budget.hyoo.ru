@@ -14648,7 +14648,7 @@ var $;
             '--mol_theme_hue': `530deg`,
             Menu: {
                 flex: {
-                    basis: `15rem`,
+                    basis: `20rem`,
                 },
             },
         });
