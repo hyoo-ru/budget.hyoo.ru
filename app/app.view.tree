@@ -9,6 +9,7 @@ $hyoo_budget_app $mol_book2_catalog
 				<= Fund_make_icon $mol_icon_plus
 	Menu_links_empty $mol_status title @ \Add new fund ⤴️
 	menu_foot /
+		<= Status $hyoo_crus_status
 		<= Lights $mol_lights_toggle
 		<= Sources $mol_link_source
 			uri \https://github.com/hyoo-ru/budget.hyoo.ru/
