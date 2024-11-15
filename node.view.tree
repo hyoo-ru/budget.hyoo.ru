@@ -447,12 +447,9 @@ $mol_portion $mol_view
 
 $mol_icon_eye $mol_icon path \M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z
 
-$mol_status $mol_view
-	status <= title
-	minimal_height 24
-	minimal_width 0
+$mol_chip $mol_view
 	sub /
-		<= message \
+		<= title
 
 $mol_icon_minus $mol_icon path \M19,13H5V11H19V13Z
 
@@ -500,6 +497,13 @@ $hyoo_budget_transfer_row $mol_view
 			value? <=> description?
 		^ addon /
 
+$mol_status $mol_view
+	status <= title
+	minimal_height 24
+	minimal_width 0
+	sub /
+		<= message \
+
 $hyoo_budget_category_page $mol_page
 	category $hyoo_budget_category
 	title <= category_title
@@ -519,7 +523,7 @@ $hyoo_budget_category_page $mol_page
 			checked? <=> visible? true
 			sub /
 				<= Visible_icon $mol_icon_eye
-		<= Ballance $mol_status
+		<= Ballance $mol_chip
 			title <= ballance @ \{value} ¤ total
 		<= Limit $mol_number
 			hint @ \limit
@@ -567,7 +571,7 @@ $hyoo_budget_fund_book $mol_book2_catalog
 			checked? <=> visible? true
 			sub /
 				<= Visible_icon $mol_icon_eye
-		<= Ballance $mol_status
+		<= Ballance $mol_chip
 			title <= ballance @ \{value} ¤ total
 		<= Limit $mol_number
 			hint @ \limit

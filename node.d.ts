@@ -6138,24 +6138,14 @@ declare namespace $ {
 //# sourceMappingURL=eye.view.tree.d.ts.map
 declare namespace $ {
 
-	export class $mol_status extends $mol_view {
-		message( ): string
-		status( ): ReturnType< $mol_status['title'] >
-		minimal_height( ): number
-		minimal_width( ): number
+	export class $mol_chip extends $mol_view {
 		sub( ): readonly(any)[]
 	}
 	
 }
 
-//# sourceMappingURL=status.view.tree.d.ts.map
+//# sourceMappingURL=chip.view.tree.d.ts.map
 declare namespace $.$$ {
-    class $mol_status extends $.$mol_status {
-        message(): any;
-    }
-}
-
-declare namespace $ {
 }
 
 declare namespace $ {
@@ -6346,6 +6336,28 @@ declare namespace $.$$ {
 
 declare namespace $ {
 
+	export class $mol_status extends $mol_view {
+		message( ): string
+		status( ): ReturnType< $mol_status['title'] >
+		minimal_height( ): number
+		minimal_width( ): number
+		sub( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=status.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_status extends $.$mol_status {
+        message(): any;
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+
 	type $mol_button_minor__hint_hyoo_budget_category_page_1 = $mol_type_enforce<
 		string
 		,
@@ -6376,10 +6388,10 @@ declare namespace $ {
 		,
 		ReturnType< $mol_check_icon['sub'] >
 	>
-	type $mol_status__title_hyoo_budget_category_page_7 = $mol_type_enforce<
+	type $mol_chip__title_hyoo_budget_category_page_7 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_category_page['ballance'] >
 		,
-		ReturnType< $mol_status['title'] >
+		ReturnType< $mol_chip['title'] >
 	>
 	type $mol_number__hint_hyoo_budget_category_page_8 = $mol_type_enforce<
 		string
@@ -6461,7 +6473,7 @@ declare namespace $ {
 		Visible_icon( ): $mol_icon_eye
 		Visible( ): $mol_check_icon
 		ballance( ): string
-		Ballance( ): $mol_status
+		Ballance( ): $mol_chip
 		limit( next?: number | null ): number | null
 		Limit( ): $mol_number
 		transfer( id: any): $hyoo_budget_transfer
@@ -6558,10 +6570,10 @@ declare namespace $ {
 		,
 		ReturnType< $mol_check_icon['sub'] >
 	>
-	type $mol_status__title_hyoo_budget_fund_book_9 = $mol_type_enforce<
+	type $mol_chip__title_hyoo_budget_fund_book_9 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['ballance'] >
 		,
-		ReturnType< $mol_status['title'] >
+		ReturnType< $mol_chip['title'] >
 	>
 	type $mol_number__hint_hyoo_budget_fund_book_10 = $mol_type_enforce<
 		string
@@ -6626,7 +6638,7 @@ declare namespace $ {
 		Visible_icon( ): $mol_icon_eye
 		Visible( ): $mol_check_icon
 		ballance( ): string
-		Ballance( ): $mol_status
+		Ballance( ): $mol_chip
 		limit( next?: number | null ): number | null
 		Limit( ): $mol_number
 		category( id: any): $hyoo_budget_category

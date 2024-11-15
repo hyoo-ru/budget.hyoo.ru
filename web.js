@@ -13392,21 +13392,9 @@ var $;
 "use strict";
 
 ;
-	($.$mol_status) = class $mol_status extends ($.$mol_view) {
-		message(){
-			return "";
-		}
-		status(){
-			return (this.title());
-		}
-		minimal_height(){
-			return 24;
-		}
-		minimal_width(){
-			return 0;
-		}
+	($.$mol_chip) = class $mol_chip extends ($.$mol_view) {
 		sub(){
-			return [(this.message())];
+			return [(this.title())];
 		}
 	};
 
@@ -13420,27 +13408,16 @@ var $;
 (function ($) {
     var $$;
     (function ($$) {
-        class $mol_status extends $.$mol_status {
-            message() {
-                try {
-                    return this.status() ?? null;
-                }
-                catch (error) {
-                    if (error instanceof Promise)
-                        $mol_fail_hidden(error);
-                    return error.message;
-                }
-            }
-        }
-        $$.$mol_status = $mol_status;
+        $mol_style_define($mol_chip, {
+            padding: $mol_gap.text,
+            border: {
+                radius: $mol_gap.round,
+            },
+            background: {
+                color: $mol_theme.card,
+            },
+        });
     })($$ = $.$$ || ($.$$ = {}));
-})($ || ($ = {}));
-
-;
-"use strict";
-var $;
-(function ($) {
-    $mol_style_attach("mol/status/status.view.css", "[mol_status] {\n\tpadding: var(--mol_gap_text);\n\tborder-radius: var(--mol_gap_round);\n\tdisplay: block;\n}\n\n[mol_status]:not([mol_view_error=\"Promise\"]) {\n\tcolor: var(--mol_theme_focus);\n}\n\n[mol_status]:not([mol_view_error=\"Promise\"]):empty {\n\tdisplay: none;\n}\n");
 })($ || ($ = {}));
 
 ;
@@ -13716,6 +13693,58 @@ var $;
 })($ || ($ = {}));
 
 ;
+	($.$mol_status) = class $mol_status extends ($.$mol_view) {
+		message(){
+			return "";
+		}
+		status(){
+			return (this.title());
+		}
+		minimal_height(){
+			return 24;
+		}
+		minimal_width(){
+			return 0;
+		}
+		sub(){
+			return [(this.message())];
+		}
+	};
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_status extends $.$mol_status {
+            message() {
+                try {
+                    return this.status() ?? null;
+                }
+                catch (error) {
+                    if (error instanceof Promise)
+                        $mol_fail_hidden(error);
+                    return error.message;
+                }
+            }
+        }
+        $$.$mol_status = $mol_status;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/status/status.view.css", "[mol_status] {\n\tpadding: var(--mol_gap_text);\n\tborder-radius: var(--mol_gap_round);\n\tdisplay: block;\n}\n\n[mol_status]:not([mol_view_error=\"Promise\"]) {\n\tcolor: var(--mol_theme_focus);\n}\n\n[mol_status]:not([mol_view_error=\"Promise\"]):empty {\n\tdisplay: none;\n}\n");
+})($ || ($ = {}));
+
+;
 	($.$hyoo_budget_category_page) = class $hyoo_budget_category_page extends ($.$mol_page) {
 		category_title(next){
 			if(next !== undefined) return next;
@@ -13758,7 +13787,7 @@ var $;
 			return (this.$.$mol_locale.text("$hyoo_budget_category_page_ballance"));
 		}
 		Ballance(){
-			const obj = new this.$.$mol_status();
+			const obj = new this.$.$mol_chip();
 			(obj.title) = () => ((this.ballance()));
 			return obj;
 		}
@@ -13986,7 +14015,7 @@ var $;
 			return (this.$.$mol_locale.text("$hyoo_budget_fund_book_ballance"));
 		}
 		Ballance(){
-			const obj = new this.$.$mol_status();
+			const obj = new this.$.$mol_chip();
 			(obj.title) = () => ((this.ballance()));
 			return obj;
 		}
