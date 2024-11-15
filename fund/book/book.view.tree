@@ -26,7 +26,7 @@ $hyoo_budget_fund_book $mol_book2_catalog
 			checked? <=> visible? true
 			sub /
 				<= Visible_icon $mol_icon_eye
-		<= Ballance $mol_status
+		<= Ballance $mol_chip
 			title <= ballance @ \{value} ¤ total
 		<= Limit $mol_number
 			hint @ \limit
