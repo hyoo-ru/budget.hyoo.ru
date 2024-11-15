@@ -29,8 +29,8 @@ namespace $.$$ {
 		
 		transfer_make() {
 			const category = this.category().transfer_make()
-			// this.$.$mol_wait_timeout( 700 )
-			// this.Category_page( category.ref().description! ).Title().focused( true )
+			this.$.$mol_wait_rest()
+			this.transfer_list()[0].Amount().focused( true )
 		}
 
 		ballance() {

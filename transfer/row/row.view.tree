@@ -2,13 +2,17 @@ $hyoo_budget_transfer_row $mol_view
 	transfer $hyoo_budget_transfer
 		amount? => amount?
 		description? => description?
+		moment? => moment?
 	sub /
 		<= Amount $mol_number
-			hint @ \amount
+			hint @ \Amount
 			value? <=> amount?
 			Inc null
 			Dec null
 		<= Description $mol_string_button
-			hint @ \description
+			hint @ \Description
 			value? <=> description?
+		<= Moment $mol_date
+			hint @ \Expense moment
+			value_moment? <=> moment?
 		^ addon /

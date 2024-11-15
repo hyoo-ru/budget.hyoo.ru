@@ -6,7 +6,7 @@ $hyoo_budget_category_page $mol_page
 		value? <=> category_title? \
 	tools /
 		<= Transfer_make $mol_button_minor
-			hint @ \New expanse
+			hint @ \New expense
 			click? <=> transfer_make? null
 			sub /
 				<= Transfer_make_icon $mol_icon_plus
@@ -35,4 +35,4 @@ $hyoo_budget_category_page $mol_page
 							click? <=> delete*? null
 							sub /
 								<= Delete_icon* $mol_icon_delete
-			Empty <= Transfer_list_empty $mol_status title @ \Add new expanse ⤴️
+			Empty <= Transfer_list_empty $mol_status title @ \Add new expense ⤴️

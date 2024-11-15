@@ -14,8 +14,11 @@ namespace $ {
 			return this.Transfer()?.remote_list() ?? []
 		}
 
+		@ $mol_action
 		transfer_make() {
-			return this.Transfer( null )!.make( null )
+			const transfer = this.Transfer( null )!.make( null )
+			transfer.moment( new( $mol_wire_sync( $mol_time_moment ) ) )
+			return transfer
 		}
 		
 		transfer_visible( transfer: $hyoo_budget_transfer, next?: boolean ) {
