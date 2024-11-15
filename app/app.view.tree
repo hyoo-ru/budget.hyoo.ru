@@ -7,7 +7,7 @@ $hyoo_budget_app $mol_book2_catalog
 			click? <=> fund_make? null
 			sub /
 				<= Fund_make_icon $mol_icon_plus
-	Menu_links_empty $mol_status title @ \Add one fund ☝️
+	Menu_links_empty $mol_status title @ \Add new fund ⤴️
 	menu_foot /
 		<= Lights $mol_lights_toggle
 		<= Sources $mol_link_source

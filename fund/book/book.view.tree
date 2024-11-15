@@ -12,7 +12,7 @@ $hyoo_budget_fund_book $mol_book2_catalog
 			sub /
 				<= Category_make_icon $mol_icon_plus
 		^ menu_addon
-	Menu_links_empty $mol_status title @ \Add one category ☝️
+	Menu_links_empty $mol_status title @ \Add new category ⤴️
 	menu_foot /
 		<= Visible $mol_check_icon
 			hint @ \Visible in menu
@@ -20,7 +20,7 @@ $hyoo_budget_fund_book $mol_book2_catalog
 			sub /
 				<= Visible_icon $mol_icon_eye
 		<= Ballance $mol_status
-			title <= ballance \{value} ¤ total
+			title <= ballance @ \{value} ¤ total
 		<= Limit $mol_number
 			hint @ \limit
 			value? <=> limit? null number
