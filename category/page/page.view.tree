@@ -25,16 +25,14 @@ $hyoo_budget_category_page $mol_page
 			Inc null
 			Dec null
 	body /
-		<= Transfers $mol_labeler
-			title @ \Transfers
-			Content <= Transfer_list $mol_list
-				rows <= transfer_list /
-					<= Transfer_row*0 $hyoo_budget_transfer_row
-						transfer <= transfer* $hyoo_budget_transfer
-						addon /
-							<= Delete* $mol_button_minor
-								hint @ \Delete
-								click? <=> delete*? null
-								sub /
-									<= Delete_icon* $mol_icon_delete
-				Empty <= Transfer_list_empty $mol_status title @ \Add one transfer ☝️
+		<= Transfer_list $mol_list
+			rows <= transfer_list /
+				<= Transfer_row*0 $hyoo_budget_transfer_row
+					transfer <= transfer* $hyoo_budget_transfer
+					addon /
+						<= Delete* $mol_button_minor
+							hint @ \Delete
+							click? <=> delete*? null
+							sub /
+								<= Delete_icon* $mol_icon_delete
+			Empty <= Transfer_list_empty $mol_status title @ \Add one transfer ☝️
