@@ -1,12 +1,12 @@
 {
 	"$hyoo_budget_app_Fund_make_hint": "New fund",
 	"$hyoo_budget_app_Menu_links_empty_title": "Add new fund ⤴️",
-	"$hyoo_budget_app_menu_title": "Private Budget",
+	"$hyoo_budget_app_menu_title": "Funds",
 	"$hyoo_budget_category_page_Delete_hint": "Delete",
 	"$hyoo_budget_category_page_Limit_hint": "limit",
 	"$hyoo_budget_category_page_Title_hint": "category title",
 	"$hyoo_budget_category_page_Transfer_list_empty_title": "Add new expanse ⤴️",
-	"$hyoo_budget_category_page_Transfer_make_hint": "New transfer",
+	"$hyoo_budget_category_page_Transfer_make_hint": "New expanse",
 	"$hyoo_budget_category_page_Visible_hint": "Visible in menu",
 	"$hyoo_budget_category_page_ballance": "{value} ¤ total",
 	"$hyoo_budget_fund_book_Category_make_hint": "New category",
@@ -15,6 +15,8 @@
 	"$hyoo_budget_fund_book_Menu_title_hint": "fund title",
 	"$hyoo_budget_fund_book_Visible_hint": "Visible in menu",
 	"$hyoo_budget_fund_book_ballance": "{value} ¤ total",
+	"$hyoo_budget_intro_Description_text": "\" Keep track of your finances by grouping your expenses into categories within non-overlapping funds.\n⬅️ Start by creating a fund, category, and first expense.",
+	"$hyoo_budget_intro_title": "Private Budgets",
 	"$hyoo_budget_transfer_row_Amount_hint": "amount",
 	"$hyoo_budget_transfer_row_Description_hint": "description",
 	"$mol_book2_catalog_Spread_close_hint": "Close page",
@@ -24,5 +26,7 @@
 	"$mol_search_hint": "Search...",
 	"$mol_select_filter_hint": "Filter..",
 	"$mol_select_hint": "Pick..",
-	"$mol_select_no_options_message": "No options"
+	"$mol_select_no_options_message": "No options",
+	"$mol_text_code_Copy_hint": "Copy whole code",
+	"$mol_text_header_Link_hint": "Permalink to this section"
 }
