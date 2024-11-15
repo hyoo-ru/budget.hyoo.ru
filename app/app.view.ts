@@ -27,6 +27,10 @@ namespace $.$$ {
 		fund_visible( id: string, next?: boolean ) {
 			return this.person().fund_visible( this.fund( id ), next )
 		}
+
+		lang( next?: string ) {
+			return this.$.$mol_locale.lang( next )
+		} 
 		
 	}
 }

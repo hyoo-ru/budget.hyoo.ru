@@ -6,7 +6,7 @@ $hyoo_budget_category_page $mol_page
 		value? <=> category_title? \
 	tools /
 		<= Transfer_make $mol_button_minor
-			hint @ \New transfer
+			hint @ \New expanse
 			click? <=> transfer_make? null
 			sub /
 				<= Transfer_make_icon $mol_icon_plus

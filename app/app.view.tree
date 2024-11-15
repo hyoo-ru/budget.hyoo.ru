@@ -1,6 +1,6 @@
 $hyoo_budget_app $mol_book2_catalog
 	param \fund
-	menu_title @ \Private Budget
+	menu_title @ \Funds
 	menu_tools /
 		<= Fund_make $mol_button_minor
 			hint @ \New fund
@@ -10,6 +10,11 @@ $hyoo_budget_app $mol_book2_catalog
 	Menu_links_empty $mol_status title @ \Add new fund ⤴️
 	menu_foot /
 		<= Status $hyoo_crus_status
+		<= Lang $mol_select
+			value? <=> lang? \en
+			dictionary *
+				ru \RU
+				en \EN
 		<= Lights $mol_lights_toggle
 		<= Sources $mol_link_source
 			uri \https://github.com/hyoo-ru/budget.hyoo.ru/
@@ -18,5 +23,6 @@ $hyoo_budget_app $mol_book2_catalog
 		menu_addon /
 			<= Spread_close
 		visible? <=> fund_visible*? true
+	Spread_default $hyoo_budget_intro
 	plugins /
 		<= Theme $mol_theme_auto
