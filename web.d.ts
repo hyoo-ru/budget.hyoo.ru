@@ -6111,6 +6111,39 @@ declare namespace $ {
 
 declare namespace $ {
 
+	export class $mol_portion_indicator extends $mol_view {
+		width_style( ): string
+		style( ): ({ 
+			'width': ReturnType< $mol_portion_indicator['width_style'] >,
+		})  & ReturnType< $mol_view['style'] >
+	}
+	
+	type $mol_portion_indicator__width_style_mol_portion_1 = $mol_type_enforce<
+		ReturnType< $mol_portion['indicator_width_style'] >
+		,
+		ReturnType< $mol_portion_indicator['width_style'] >
+	>
+	export class $mol_portion extends $mol_view {
+		indicator_width_style( ): string
+		indicator( ): $mol_portion_indicator
+		portion( ): number
+		sub( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=portion.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_portion extends $.$mol_portion {
+        indicator_width_style(): string;
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+
 	export class $mol_icon_eye extends $mol_icon {
 		path( ): string
 	}
@@ -6515,72 +6548,82 @@ declare namespace $ {
 		,
 		ReturnType< $mol_button_minor['sub'] >
 	>
-	type $mol_check_icon__hint_hyoo_budget_fund_book_4 = $mol_type_enforce<
+	type $mol_view__sub_hyoo_budget_fund_book_4 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_portion__portion_hyoo_budget_fund_book_5 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_fund_book['category_portion'] >
+		,
+		ReturnType< $mol_portion['portion'] >
+	>
+	type $mol_check_icon__hint_hyoo_budget_fund_book_6 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_check_icon['hint'] >
 	>
-	type $mol_check_icon__checked_hyoo_budget_fund_book_5 = $mol_type_enforce<
+	type $mol_check_icon__checked_hyoo_budget_fund_book_7 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['visible'] >
 		,
 		ReturnType< $mol_check_icon['checked'] >
 	>
-	type $mol_check_icon__sub_hyoo_budget_fund_book_6 = $mol_type_enforce<
+	type $mol_check_icon__sub_hyoo_budget_fund_book_8 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_check_icon['sub'] >
 	>
-	type $mol_status__title_hyoo_budget_fund_book_7 = $mol_type_enforce<
+	type $mol_status__title_hyoo_budget_fund_book_9 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['ballance'] >
 		,
 		ReturnType< $mol_status['title'] >
 	>
-	type $mol_number__hint_hyoo_budget_fund_book_8 = $mol_type_enforce<
+	type $mol_number__hint_hyoo_budget_fund_book_10 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_number['hint'] >
 	>
-	type $mol_number__value_hyoo_budget_fund_book_9 = $mol_type_enforce<
+	type $mol_number__value_hyoo_budget_fund_book_11 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['limit'] >
 		,
 		ReturnType< $mol_number['value'] >
 	>
-	type $mol_number__Inc_hyoo_budget_fund_book_10 = $mol_type_enforce<
+	type $mol_number__Inc_hyoo_budget_fund_book_12 = $mol_type_enforce<
 		any
 		,
 		ReturnType< $mol_number['Inc'] >
 	>
-	type $mol_number__Dec_hyoo_budget_fund_book_11 = $mol_type_enforce<
+	type $mol_number__Dec_hyoo_budget_fund_book_13 = $mol_type_enforce<
 		any
 		,
 		ReturnType< $mol_number['Dec'] >
 	>
-	type $hyoo_budget_category_page__category_hyoo_budget_fund_book_12 = $mol_type_enforce<
+	type $hyoo_budget_category_page__category_hyoo_budget_fund_book_14 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['category'] >
 		,
 		ReturnType< $hyoo_budget_category_page['category'] >
 	>
-	type $hyoo_budget_category_page__addon_hyoo_budget_fund_book_13 = $mol_type_enforce<
+	type $hyoo_budget_category_page__addon_hyoo_budget_fund_book_15 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $hyoo_budget_category_page['addon'] >
 	>
-	type $hyoo_budget_category_page__visible_hyoo_budget_fund_book_14 = $mol_type_enforce<
+	type $hyoo_budget_category_page__visible_hyoo_budget_fund_book_16 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['category_visible'] >
 		,
 		ReturnType< $hyoo_budget_category_page['visible'] >
 	>
-	type $mol_string_button__hint_hyoo_budget_fund_book_15 = $mol_type_enforce<
+	type $mol_string_button__hint_hyoo_budget_fund_book_17 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_string_button['hint'] >
 	>
-	type $mol_string_button__value_hyoo_budget_fund_book_16 = $mol_type_enforce<
+	type $mol_string_button__value_hyoo_budget_fund_book_18 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['fund_title'] >
 		,
 		ReturnType< $mol_string_button['value'] >
 	>
-	type $mol_status__title_hyoo_budget_fund_book_17 = $mol_type_enforce<
+	type $mol_status__title_hyoo_budget_fund_book_19 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_status['title'] >
@@ -6590,6 +6633,10 @@ declare namespace $ {
 		category_make( next?: any ): any
 		Category_make_icon( ): $mol_icon_plus
 		Category_make( ): $mol_button_minor
+		category_ballance( id: any): number
+		Category_ballance( id: any): $mol_view
+		category_portion( id: any): number
+		Category_portion( id: any): $mol_portion
 		visible( next?: boolean ): boolean
 		Visible_icon( ): $mol_icon_eye
 		Visible( ): $mol_check_icon
@@ -6605,6 +6652,7 @@ declare namespace $ {
 		menu_title( ): ReturnType< $hyoo_budget_fund_book['fund_title'] >
 		Menu_title( ): $mol_string_button
 		menu_tools( ): readonly(any)[]
+		menu_link_content( id: any): readonly(any)[]
 		Menu_links_empty( ): $mol_status
 		menu_foot( ): readonly(any)[]
 		Spread( id: any): ReturnType< $hyoo_budget_fund_book['Category_page'] >
@@ -6622,6 +6670,8 @@ declare namespace $.$$ {
         category_make(): void;
         category(id: string): $hyoo_budget_category;
         category_visible(id: string, next?: boolean): boolean;
+        category_ballance(id: string): number;
+        category_portion(id: string): number;
         ballance(): string;
     }
 }

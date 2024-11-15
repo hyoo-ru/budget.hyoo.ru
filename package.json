@@ -262,6 +262,7 @@
     "$hyoo_budget_category",
     "$hyoo_budget_transfer",
     "$hyoo_budget_fund_book",
+    "$mol_portion",
     "$mol_icon_eye",
     "$mol_status",
     "$mol_number",

@@ -13536,6 +13536,59 @@ var $;
 })($ || ($ = {}));
 
 ;
+	($.$mol_portion_indicator) = class $mol_portion_indicator extends ($.$mol_view) {
+		width_style(){
+			return "0";
+		}
+		style(){
+			return {...(super.style()), "width": (this.width_style())};
+		}
+	};
+	($.$mol_portion) = class $mol_portion extends ($.$mol_view) {
+		indicator_width_style(){
+			return "0";
+		}
+		indicator(){
+			const obj = new this.$.$mol_portion_indicator();
+			(obj.width_style) = () => ((this.indicator_width_style()));
+			return obj;
+		}
+		portion(){
+			return 0;
+		}
+		sub(){
+			return [(this.indicator())];
+		}
+	};
+	($mol_mem(($.$mol_portion.prototype), "indicator"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_portion extends $.$mol_portion {
+            indicator_width_style() {
+                return this.portion() * 100 + '%';
+            }
+        }
+        $$.$mol_portion = $mol_portion;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/portion/portion.view.css", "[mol_portion] {\n\tdisplay: inline-flex;\n\tflex: 0 1 8rem;\n\twidth: 8rem;\n\tmax-height: calc( 1rem + 1.5em );\n\talign-self: stretch;\n\tvertical-align: inherit;\n\tborder-radius: var(--mol_gap_round);\n\tbackground: var(--mol_theme_line);\n}\n\n[mol_portion_indicator] {\n\tpadding: .25rem 0 0;\n\tbackground-color: var(--mol_theme_control);\n\tcolor: var(--mol_theme_control);\n\tborder-radius: var(--mol_gap_round);\n}\n");
+})($ || ($ = {}));
+
+;
 	($.$mol_icon_eye) = class $mol_icon_eye extends ($.$mol_icon) {
 		path(){
 			return "M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z";
@@ -14106,6 +14159,22 @@ var $;
 			(obj.sub) = () => ([(this.Category_make_icon())]);
 			return obj;
 		}
+		category_ballance(id){
+			return 0;
+		}
+		Category_ballance(id){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.category_ballance(id))]);
+			return obj;
+		}
+		category_portion(id){
+			return 0;
+		}
+		Category_portion(id){
+			const obj = new this.$.$mol_portion();
+			(obj.portion) = () => ((this.category_portion(id)));
+			return obj;
+		}
 		visible(next){
 			if(next !== undefined) return next;
 			return true;
@@ -14175,6 +14244,13 @@ var $;
 		menu_tools(){
 			return [(this.Category_make()), ...(this.menu_addon())];
 		}
+		menu_link_content(id){
+			return [
+				(this.Menu_link_title(id)), 
+				(this.Category_ballance(id)), 
+				(this.Category_portion(id))
+			];
+		}
 		Menu_links_empty(){
 			const obj = new this.$.$mol_status();
 			(obj.title) = () => ((this.$.$mol_locale.text("$hyoo_budget_fund_book_Menu_links_empty_title")));
@@ -14195,6 +14271,8 @@ var $;
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "category_make"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Category_make_icon"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Category_make"));
+	($mol_mem_key(($.$hyoo_budget_fund_book.prototype), "Category_ballance"));
+	($mol_mem_key(($.$hyoo_budget_fund_book.prototype), "Category_portion"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "visible"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Visible_icon"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Visible"));
@@ -14280,6 +14358,12 @@ var $;
             category_visible(id, next) {
                 return this.fund().category_visible(this.category(id), next);
             }
+            category_ballance(id) {
+                return this.category(id).ballance();
+            }
+            category_portion(id) {
+                return this.category_ballance(id) / this.fund().ballance();
+            }
             ballance() {
                 return super.ballance().replace('{value}', this.fund().ballance().toLocaleString());
             }
@@ -14293,6 +14377,12 @@ var $;
         __decorate([
             $mol_mem_key
         ], $hyoo_budget_fund_book.prototype, "category_visible", null);
+        __decorate([
+            $mol_mem_key
+        ], $hyoo_budget_fund_book.prototype, "category_ballance", null);
+        __decorate([
+            $mol_mem_key
+        ], $hyoo_budget_fund_book.prototype, "category_portion", null);
         $$.$hyoo_budget_fund_book = $hyoo_budget_fund_book;
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));
@@ -14316,7 +14406,22 @@ var $;
             },
             Menu: {
                 flex: {
-                    basis: `20rem`,
+                    basis: `25rem`,
+                },
+            },
+            Menu_link: {
+                gap: $mol_gap.block,
+            },
+            Menu_link_title: {
+                flex: {
+                    grow: 1,
+                },
+            },
+            Category_portion: {
+                flex: {
+                    grow: 0,
+                    shrink: 0,
+                    basis: `5rem`,
                 },
             },
         });

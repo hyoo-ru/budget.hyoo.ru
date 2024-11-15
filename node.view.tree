@@ -434,6 +434,17 @@ $mol_link_source $mol_link
 	sub /
 		<= Icon $mol_icon_script_text
 
+$mol_portion_indicator $mol_view
+	style *
+		^
+		width <= width_style \0
+
+$mol_portion $mol_view
+	portion 0
+	sub /
+		<= indicator $mol_portion_indicator
+			width_style <= indicator_width_style \0
+
 $mol_icon_eye $mol_icon path \M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z
 
 $mol_status $mol_view
@@ -542,7 +553,14 @@ $hyoo_budget_fund_book $mol_book2_catalog
 			sub /
 				<= Category_make_icon $mol_icon_plus
 		^ menu_addon
-	Menu_links_empty $mol_status title @ \Add new category ⤴️
+	menu_link_content* /
+		<= Menu_link_title*
+		<= Category_ballance* $mol_view
+			sub / <= category_ballance* 0
+		<= Category_portion* $mol_portion
+			portion <= category_portion* 0
+	Menu_links_empty $mol_status
+		title @ \Add new category ⤴️
 	menu_foot /
 		<= Visible $mol_check_icon
 			hint @ \Visible in menu
