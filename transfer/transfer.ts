@@ -15,7 +15,7 @@ namespace $ {
 		}
 
 		moment( next?: $mol_time_moment | null ) {
-			return this.Moment( next )?.val( next ) ?? null
+			return this.Moment( next )?.val( next )?.mask( '0000-00-00' ) ?? null
 		}
 
 	}
