@@ -35,6 +35,16 @@ namespace $.$$ {
 			return this.fund().category_visible( this.category( id ), next )
 		}
 
+		@ $mol_mem_key
+		category_ballance( id: string ) {
+			return this.category( id ).ballance()
+		}
+
+		@ $mol_mem_key
+		category_portion( id: string ) {
+			return this.category_ballance( id ) / this.fund().ballance()
+		}
+
 		ballance() {
 			return super.ballance().replace( '{value}', this.fund().ballance().toLocaleString() )
 		}

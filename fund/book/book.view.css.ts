@@ -16,7 +16,25 @@ namespace $.$$ {
 		
 		Menu: {
 			flex: {
-				basis: `20rem`,
+				basis: `25rem`,
+			},
+		},
+
+		Menu_link: {
+			gap: $mol_gap.block,
+		},
+		
+		Menu_link_title: {
+			flex: {
+				grow: 1,
+			},
+		},
+		
+		Category_portion: {
+			flex: {
+				grow: 0,
+				shrink: 0,
+				basis: `5rem`,
 			},
 		},
 		

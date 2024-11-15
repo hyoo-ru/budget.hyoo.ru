@@ -12,7 +12,14 @@ $hyoo_budget_fund_book $mol_book2_catalog
 			sub /
 				<= Category_make_icon $mol_icon_plus
 		^ menu_addon
-	Menu_links_empty $mol_status title @ \Add new category ⤴️
+	menu_link_content* /
+		<= Menu_link_title*
+		<= Category_ballance* $mol_view
+			sub / <= category_ballance* 0
+		<= Category_portion* $mol_portion
+			portion <= category_portion* 0
+	Menu_links_empty $mol_status
+		title @ \Add new category ⤴️
 	menu_foot /
 		<= Visible $mol_check_icon
 			hint @ \Visible in menu
