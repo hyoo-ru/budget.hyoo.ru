@@ -9152,7 +9152,12 @@ declare namespace $ {
 		,
 		ReturnType< $mol_form_field['Content'] >
 	>
-	type $mol_string_button__value_hyoo_budget_person_page_12 = $mol_type_enforce<
+	type $mol_string_button__hint_hyoo_budget_person_page_12 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_string_button['hint'] >
+	>
+	type $mol_string_button__value_hyoo_budget_person_page_13 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_person_page['title'] >
 		,
 		ReturnType< $mol_string_button['value'] >

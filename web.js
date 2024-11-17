@@ -18432,6 +18432,7 @@ var $;
 		}
 		Title(){
 			const obj = new this.$.$mol_string_button();
+			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_person_page_Title_hint")));
 			(obj.value) = (next) => ((this.title(next)));
 			return obj;
 		}
