@@ -2,6 +2,7 @@ $hyoo_budget_person_page $mol_page
 	person $hyoo_budget_person
 		title? => title?
 	Title $mol_string_button
+		hint @ \Name
 		value? <=> title?
 	tools /
 		<= Close $mol_link
