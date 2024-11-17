@@ -8956,6 +8956,12 @@ declare namespace $ {
 }
 
 //# sourceMappingURL=list.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $hyoo_budget_intro extends $.$hyoo_budget_intro {
+        readme(): string;
+    }
+}
+
 declare namespace $ {
 
 	type $mol_text__text_hyoo_budget_intro_1 = $mol_type_enforce<
@@ -8963,8 +8969,15 @@ declare namespace $ {
 		,
 		ReturnType< $mol_text['text'] >
 	>
+	type $mol_text__text_hyoo_budget_intro_2 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_intro['readme'] >
+		,
+		ReturnType< $mol_text['text'] >
+	>
 	export class $hyoo_budget_intro extends $mol_page {
-		Description( ): $mol_text
+		Hint( ): $mol_text
+		readme( ): string
+		Readme( ): $mol_text
 		title( ): string
 		body( ): readonly(any)[]
 	}

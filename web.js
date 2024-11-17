@@ -18105,19 +18105,28 @@ var $;
 
 ;
 	($.$hyoo_budget_intro) = class $hyoo_budget_intro extends ($.$mol_page) {
-		Description(){
+		Hint(){
 			const obj = new this.$.$mol_text();
-			(obj.text) = () => ((this.$.$mol_locale.text("$hyoo_budget_intro_Description_text")));
+			(obj.text) = () => ((this.$.$mol_locale.text("$hyoo_budget_intro_Hint_text")));
+			return obj;
+		}
+		readme(){
+			return "";
+		}
+		Readme(){
+			const obj = new this.$.$mol_text();
+			(obj.text) = () => ((this.readme()));
 			return obj;
 		}
 		title(){
 			return (this.$.$mol_locale.text("$hyoo_budget_intro_title"));
 		}
 		body(){
-			return [(this.Description())];
+			return [(this.Hint()), (this.Readme())];
 		}
 	};
-	($mol_mem(($.$hyoo_budget_intro.prototype), "Description"));
+	($mol_mem(($.$hyoo_budget_intro.prototype), "Hint"));
+	($mol_mem(($.$hyoo_budget_intro.prototype), "Readme"));
 
 
 ;
@@ -18158,6 +18167,24 @@ var $;
 
 ;
 "use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $hyoo_budget_intro extends $.$hyoo_budget_intro {
+            readme() {
+                return this.$.$mol_fetch.text('hyoo/budget/readme.md');
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $hyoo_budget_intro.prototype, "readme", null);
+        $$.$hyoo_budget_intro = $hyoo_budget_intro;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
 
 ;
 "use strict";

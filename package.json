@@ -302,6 +302,7 @@
     "$mol_theme_auto",
     "$hyoo_budget_person",
     "$hyoo_budget_intro",
+    "$mol_fetch",
     "$mol_text_text",
     "$mol_text",
     "$mol_text_list",
@@ -340,6 +341,7 @@
   "dependencies": {
     "jsdom": "*",
     "chokidar": "*",
-    "pg": "*"
+    "pg": "*",
+    "undici": "*"
   }
 }

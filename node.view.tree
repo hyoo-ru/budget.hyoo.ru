@@ -1160,10 +1160,10 @@ $mol_text_list_item $mol_paragraph
 $hyoo_budget_intro $mol_page
 	title @ \Private Budgets
 	body /
-		<= Description $mol_text
-			text @ \
-				\" Keep track of your finances by grouping your expenses into categories within non-overlapping funds.
-				\⬅️ Start by creating a fund, category, and first expense.
+		<= Hint $mol_text
+			text @ \⬅️ Start by creating a fund, category, and first expense.
+		<= Readme $mol_text
+			text <= readme \
 
 $mol_labeler $mol_list
 	rows /

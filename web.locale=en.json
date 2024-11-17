@@ -18,7 +18,7 @@
 	"$hyoo_budget_fund_book_Menu_title_hint": "fund title",
 	"$hyoo_budget_fund_book_Visible_hint": "Visible in menu",
 	"$hyoo_budget_fund_book_ballance": "{value} ¤ total",
-	"$hyoo_budget_intro_Description_text": "\" Keep track of your finances by grouping your expenses into categories within non-overlapping funds.\n⬅️ Start by creating a fund, category, and first expense.",
+	"$hyoo_budget_intro_Hint_text": "⬅️ Start by creating a fund, category, and first expense.",
 	"$hyoo_budget_intro_title": "Private Budgets",
 	"$hyoo_budget_person_page_Close_hint": "Close panel",
 	"$hyoo_budget_person_page_Title_hint": "Name",
