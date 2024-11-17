@@ -1,13 +1,16 @@
 $hyoo_budget_category_page $mol_page
 	category $hyoo_budget_category
+		can_change => editable
 	title <= category_title
 	Title $mol_string_button
 		hint @ \category title
 		value? <=> category_title? \
+		enabled <= editable
 	tools /
 		<= Transfer_make $mol_button_minor
 			hint @ \New expense
 			click? <=> transfer_make? null
+			enabled <= editable
 			sub /
 				<= Transfer_make_icon $mol_icon_plus
 		^ addon /
@@ -15,11 +18,12 @@ $hyoo_budget_category_page $mol_page
 		<= Visible $mol_check_icon
 			hint @ \Visible in menu
 			checked? <=> visible? true
+			enabled <= editable
 			sub /
 				<= Visible_icon $mol_icon_eye
 		<= Ballance $mol_chip
 			title <= ballance @ \{value} ¤ total
-		<= Limit $mol_number
+		- <= Limit $mol_number
 			hint @ \limit
 			value? <=> limit? null number
 			Inc null
@@ -33,6 +37,7 @@ $hyoo_budget_category_page $mol_page
 						<= Delete* $mol_button_minor
 							hint @ \Delete
 							click? <=> delete*? null
+							enabled <= editable
 							sub /
 								<= Delete_icon* $mol_icon_delete
 			Empty <= Transfer_list_empty $mol_status title @ \Add new expense ⤴️

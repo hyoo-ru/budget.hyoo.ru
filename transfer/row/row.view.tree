@@ -3,16 +3,20 @@ $hyoo_budget_transfer_row $mol_view
 		amount? => amount?
 		description? => description?
 		moment? => moment?
+		can_change => editable
 	sub /
 		<= Amount $mol_number
 			hint @ \Amount
 			value? <=> amount?
+			enabled <= editable
 			Inc null
 			Dec null
 		<= Description $mol_string_button
 			hint @ \Description
 			value? <=> description?
+			enabled <= editable
 		<= Moment $mol_date
 			hint @ \Expense moment
 			value_moment? <=> moment?
+			enabled <= editable
 		^ addon /

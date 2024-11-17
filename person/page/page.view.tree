@@ -1,0 +1,21 @@
+$hyoo_budget_person_page $mol_page
+	person $hyoo_budget_person
+		title? => title?
+	Title $mol_string_button
+		value? <=> title?
+	tools /
+		<= Close $mol_link
+			hint @ \Close panel
+			arg <= close_arg *
+			sub /
+				<= Close_icon $mol_icon_close
+	body /
+		<= Id_block $mol_form_field
+			name \Id
+			Content <= Id $mol_chip
+				title <= id \
+		<= Key_block $mol_form_field
+			name \Public Key
+			Content <= Key $mol_text_code
+				sidebar_showed true
+				text <= key \

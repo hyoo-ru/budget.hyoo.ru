@@ -66,6 +66,26 @@ namespace $.$$ {
 			return new $mol_blob([ csv ])
 
 		}
+
+		@ $mol_mem
+		access() {
+			return this.$.$mol_state_arg.value( 'access' ) !== null
+		}
+
+		@ $mol_mem_key
+		override menu_link_arg( id: string ) {
+			return {
+				... super.menu_link_arg( id ),
+				access: null,
+			}
+		}
+
+		pages() {
+			return [
+				... super.pages(),
+				... this.access() ? [ this.Access_page() ] : [],
+			]
+		}
 		
 	}
 }

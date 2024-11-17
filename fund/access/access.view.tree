@@ -1,0 +1,13 @@
+$hyoo_budget_fund_access $mol_page
+	title @ \Access
+	fund $hyoo_budget_fund
+		land => land
+	tools /
+		<= Close $mol_link
+			hint @ \Close panel
+			arg <= close_arg *
+			sub /
+				<= Close_icon $mol_icon_close
+	body /
+		<= Rights $hyoo_crus_land_rights
+			land <= land

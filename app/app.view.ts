@@ -7,6 +7,11 @@ namespace $.$$ {
 		}
 		
 		@ $mol_mem
+		person_id() {
+			return this.person().ref().description!
+		}
+		
+		@ $mol_mem
 		spread_ids() {
 			return this.person().fund_list().map( budget => budget.ref().description! ).reverse()
 		}
@@ -30,7 +35,33 @@ namespace $.$$ {
 
 		lang( next?: string ) {
 			return this.$.$mol_locale.lang( next )
-		} 
+		}
+
+		@ $mol_mem_key
+		override menu_link_arg( id: string ) {
+			return {
+				... super.menu_link_arg( id ),
+				profile: null,
+			}
+		}
+
+		@ $mol_mem
+		profile() {
+			
+			const id = this.$.$mol_state_arg.value( 'profile' )
+			if( !id ) return null!
+
+			const ref = $hyoo_crus_ref( id )
+			return this.$.$hyoo_crus_glob.Node( ref, $hyoo_budget_person )
+
+		}
+
+		pages() {
+			return [
+				... super.pages(),
+				... this.profile() ? [ this.Profile_page( this.profile() ) ] : [],
+			]
+		}
 		
 	}
 }

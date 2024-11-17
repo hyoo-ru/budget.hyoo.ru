@@ -2,6 +2,13 @@ $hyoo_budget_app $mol_book2_catalog
 	param \fund
 	menu_title @ \Funds
 	menu_tools /
+		<= Profile_link $mol_link
+			hint @ \Profile
+			arg *
+				profile <= person_id \
+				fund null
+			sub /
+				<= Profile_icon $mol_icon_account
 		<= Fund_make $mol_button_minor
 			hint @ \New fund
 			click? <=> fund_make? null
@@ -9,6 +16,8 @@ $hyoo_budget_app $mol_book2_catalog
 				<= Fund_make_icon $mol_icon_plus
 	Menu_links_empty $mol_status title @ \Add new fund ⤴️
 	menu_foot /
+		<= Sources $mol_link_source
+			uri \https://github.com/hyoo-ru/budget.hyoo.ru/
 		<= Status $hyoo_crus_status
 		<= Lang $mol_select
 			value? <=> lang? \en
@@ -16,8 +25,6 @@ $hyoo_budget_app $mol_book2_catalog
 				ru \RU
 				en \EN
 		<= Lights $mol_lights_toggle
-		<= Sources $mol_link_source
-			uri \https://github.com/hyoo-ru/budget.hyoo.ru/
 	Spread* <= Fund_page* $hyoo_budget_fund_book
 		fund <= fund* $hyoo_budget_fund
 		menu_addon /
@@ -26,3 +33,8 @@ $hyoo_budget_app $mol_book2_catalog
 	Spread_default $hyoo_budget_intro
 	plugins /
 		<= Theme $mol_theme_auto
+	Profile_page* $hyoo_budget_person_page
+		close_arg *
+			profile null
+		person <= profile* $hyoo_budget_person
+	Placeholder null
