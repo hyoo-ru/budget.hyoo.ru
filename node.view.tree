@@ -313,7 +313,7 @@ $mol_book2_catalog $mol_book2
 					Empty <= Menu_links_empty $mol_view
 					rows <= menu_links /
 						<= Menu_link*0 $mol_link
-							arg <= arg* *
+							arg <= menu_link_arg* <= arg* *
 							sub <= menu_link_content* /
 								<= Menu_link_title* $mol_dimmer
 									needle <= menu_filter
@@ -325,7 +325,18 @@ $mol_book2_catalog $mol_book2
 		sub /
 			<= Spread_close_icon $mol_icon_close
 
+$mol_icon_account $mol_icon path \M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z
+
 $mol_icon_plus $mol_icon path \M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z
+
+$mol_icon_script $mol_icon path \M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2H8C6.3,2 5,3.3 5,5V16H16V17C16,17.6 16.4,18 17,18H18V5C18,4.4 18.4,4 19,4C19.6,4 20,4.4 20,5V6H22V5C22,3.3 20.7,2 19,2Z
+
+$mol_icon_script_text $mol_icon path \M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2C20.7,2 22,3.3 22,5V6H20V5C20,4.4 19.6,4 19,4C18.4,4 18,4.4 18,5V18H17C16.4,18 16,17.6 16,17V16H5V5C5,3.3 6.3,2 8,2H19M8,6V8H15V6H8M8,10V12H14V10H8Z
+
+$mol_link_source $mol_link
+	hint @ \Source code
+	sub /
+		<= Icon $mol_icon_script_text
 
 $mol_check $mol_button_minor
 	attr *
@@ -425,14 +436,7 @@ $mol_lights_toggle $mol_check_icon
 	hint @ \Toggle lights
 	checked? <=> lights? false
 
-$mol_icon_script $mol_icon path \M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2H8C6.3,2 5,3.3 5,5V16H16V17C16,17.6 16.4,18 17,18H18V5C18,4.4 18.4,4 19,4C19.6,4 20,4.4 20,5V6H22V5C22,3.3 20.7,2 19,2Z
-
-$mol_icon_script_text $mol_icon path \M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2C20.7,2 22,3.3 22,5V6H20V5C20,4.4 19.6,4 19,4C18.4,4 18,4.4 18,5V18H17C16.4,18 16,17.6 16,17V16H5V5C5,3.3 6.3,2 8,2H19M8,6V8H15V6H8M8,10V12H14V10H8Z
-
-$mol_link_source $mol_link
-	hint @ \Source code
-	sub /
-		<= Icon $mol_icon_script_text
+$mol_icon_security $mol_icon path \M12,12H19C18.47,16.11 15.72,19.78 12,20.92V12H5V6.3L12,3.19M12,1L3,5V11C3,16.55 6.84,21.73 12,23C17.16,21.73 21,16.55 21,11V5L12,1Z
 
 $mol_icon_download $mol_icon path \M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z
 
@@ -461,6 +465,8 @@ $mol_chip $mol_view
 	sub /
 		<= title
 
+$mol_icon_delete $mol_icon path \M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z
+
 $mol_icon_minus $mol_icon path \M19,13H5V11H19V13Z
 
 $mol_number $mol_view
@@ -487,8 +493,6 @@ $mol_number $mol_view
 			event_click? <=> event_inc? null
 			enabled <= inc_enabled <= enabled
 			sub / <= inc_icon $mol_icon_plus
-
-$mol_icon_delete $mol_icon path \M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z
 
 $mol_string_button $mol_string
 
@@ -615,18 +619,22 @@ $hyoo_budget_transfer_row $mol_view
 		amount? => amount?
 		description? => description?
 		moment? => moment?
+		can_change => editable
 	sub /
 		<= Amount $mol_number
 			hint @ \Amount
 			value? <=> amount?
+			enabled <= editable
 			Inc null
 			Dec null
 		<= Description $mol_string_button
 			hint @ \Description
 			value? <=> description?
+			enabled <= editable
 		<= Moment $mol_date
 			hint @ \Expense moment
 			value_moment? <=> moment?
+			enabled <= editable
 		^ addon /
 
 $mol_status $mol_view
@@ -638,14 +646,17 @@ $mol_status $mol_view
 
 $hyoo_budget_category_page $mol_page
 	category $hyoo_budget_category
+		can_change => editable
 	title <= category_title
 	Title $mol_string_button
 		hint @ \category title
 		value? <=> category_title? \
+		enabled <= editable
 	tools /
 		<= Transfer_make $mol_button_minor
 			hint @ \New expense
 			click? <=> transfer_make? null
+			enabled <= editable
 			sub /
 				<= Transfer_make_icon $mol_icon_plus
 		^ addon /
@@ -653,11 +664,12 @@ $hyoo_budget_category_page $mol_page
 		<= Visible $mol_check_icon
 			hint @ \Visible in menu
 			checked? <=> visible? true
+			enabled <= editable
 			sub /
 				<= Visible_icon $mol_icon_eye
 		<= Ballance $mol_chip
 			title <= ballance @ \{value} ¤ total
-		<= Limit $mol_number
+		- <= Limit $mol_number
 			hint @ \limit
 			value? <=> limit? null number
 			Inc null
@@ -671,18 +683,70 @@ $hyoo_budget_category_page $mol_page
 						<= Delete* $mol_button_minor
 							hint @ \Delete
 							click? <=> delete*? null
+							enabled <= editable
 							sub /
 								<= Delete_icon* $mol_icon_delete
 			Empty <= Transfer_list_empty $mol_status title @ \Add new expense ⤴️
 
+$hyoo_crus_land_rights $mol_list
+	land $hyoo_crus_land
+	rows /
+		<= Add $mol_view sub /
+			<= Add_key $mol_string
+				hint @ \public key
+				value? <=> add_key? \
+				commit? <=> add_commit? null
+			<= Add_commit $mol_button_minor
+				click? <=> add_commit? null
+				sub /
+					<= Add_commit_icon $mol_icon_plus
+		^ gifts /
+			<= Gift*0 $mol_view sub /
+				<= Gift_peer* $mol_view sub /
+					<= Gift_avatar* $mol_avatar
+						id <= peer_id* \
+					<= Gift_name* $mol_paragraph
+						title <= peer_name* \
+				<= Gift_rank* $mol_select
+					value? <=> gift_rank*? \nil
+					dictionary *
+						nil @ \🛑 Deny
+						get @ \👀 Read
+						reg @ \📢 Auth
+						mod @ \✍ Post
+						law @ \👑 Rule
+
+$hyoo_budget_fund_access $mol_page
+	title @ \Access
+	fund $hyoo_budget_fund
+		land => land
+	tools /
+		<= Close $mol_link
+			hint @ \Close panel
+			arg <= close_arg *
+			sub /
+				<= Close_icon $mol_icon_close
+	body /
+		<= Rights $hyoo_crus_land_rights
+			land <= land
+
 $hyoo_budget_fund_book $mol_book2_catalog
 	param \category
 	fund $hyoo_budget_fund
+		can_change => editable
 	menu_title <= fund_title
 	Menu_title $mol_string_button
 		hint @ \fund title
 		value? <=> fund_title? \
+		enabled <= editable
 	menu_tools /
+		<= Access_link $mol_link
+			hint @ \Access
+			arg *
+				access \
+				category null
+			sub /
+				<= Access_icon $mol_icon_security
 		<= Export $mol_button_download
 			hint @ \Download fund data
 			file_name <= export_file_name \xxx.csv
@@ -690,6 +754,7 @@ $hyoo_budget_fund_book $mol_book2_catalog
 		<= Category_make $mol_button_minor
 			hint @ \New category
 			click? <=> category_make? null
+			enabled <= editable
 			sub /
 				<= Category_make_icon $mol_icon_plus
 		^ menu_addon
@@ -709,7 +774,7 @@ $hyoo_budget_fund_book $mol_book2_catalog
 				<= Visible_icon $mol_icon_eye
 		<= Ballance $mol_chip
 			title <= ballance @ \{value} ¤ total
-		<= Limit $mol_number
+		- <= Limit $mol_number
 			hint @ \limit
 			value? <=> limit? null number
 			Inc null
@@ -719,6 +784,9 @@ $hyoo_budget_fund_book $mol_book2_catalog
 		addon /
 			<= Spread_close
 		visible? <=> category_visible*? true
+	Access_page $hyoo_budget_fund_access
+		fund <= fund
+		close_arg * access null
 
 $mol_theme_auto $mol_plugin
 	attr * mol_theme <= theme \
@@ -1097,10 +1165,72 @@ $hyoo_budget_intro $mol_page
 				\" Keep track of your finances by grouping your expenses into categories within non-overlapping funds.
 				\⬅️ Start by creating a fund, category, and first expense.
 
+$mol_labeler $mol_list
+	rows /
+		<= Label $mol_view
+			minimal_height 32
+			sub <= label /$mol_view_content
+				<= title
+		<= Content $mol_view
+			minimal_height 24
+			sub <= content /
+
+$mol_form_field $mol_labeler
+	bids /string
+	label /
+		<= name \
+		<= Bid $mol_view
+			sub / <= bid \
+	content / <= control null
+
+$mol_row $mol_view
+
+$mol_form $mol_list
+	submit_allowed true
+	submit_blocked false
+	event *
+		^
+		keydown?event <=> keydown?event null
+	submit?event null
+	rows /
+		<= Body $mol_list
+			sub <= body <= form_fields /$mol_form_field
+		<= Foot $mol_row
+			sub <= foot <= buttons /$mol_view
+
+$hyoo_budget_person_page $mol_page
+	person $hyoo_budget_person
+		title? => title?
+	Title $mol_string_button
+		value? <=> title?
+	tools /
+		<= Close $mol_link
+			hint @ \Close panel
+			arg <= close_arg *
+			sub /
+				<= Close_icon $mol_icon_close
+	body /
+		<= Id_block $mol_form_field
+			name \Id
+			Content <= Id $mol_chip
+				title <= id \
+		<= Key_block $mol_form_field
+			name \Public Key
+			Content <= Key $mol_text_code
+				sidebar_showed true
+				text <= key \
+
 $hyoo_budget_app $mol_book2_catalog
 	param \fund
 	menu_title @ \Funds
 	menu_tools /
+		<= Profile_link $mol_link
+			hint @ \Profile
+			arg *
+				profile <= person_id \
+				fund null
+			sub /
+				<= Profile_icon $mol_icon_account
 		<= Fund_make $mol_button_minor
 			hint @ \New fund
 			click? <=> fund_make? null
@@ -1108,6 +1238,8 @@ $hyoo_budget_app $mol_book2_catalog
 				<= Fund_make_icon $mol_icon_plus
 	Menu_links_empty $mol_status title @ \Add new fund ⤴️
 	menu_foot /
+		<= Sources $mol_link_source
+			uri \https://github.com/hyoo-ru/budget.hyoo.ru/
 		<= Status $hyoo_crus_status
 		<= Lang $mol_select
 			value? <=> lang? \en
@@ -1115,8 +1247,6 @@ $hyoo_budget_app $mol_book2_catalog
 				ru \RU
 				en \EN
 		<= Lights $mol_lights_toggle
-		<= Sources $mol_link_source
-			uri \https://github.com/hyoo-ru/budget.hyoo.ru/
 	Spread* <= Fund_page* $hyoo_budget_fund_book
 		fund <= fund* $hyoo_budget_fund
 		menu_addon /
@@ -1125,3 +1255,8 @@ $hyoo_budget_app $mol_book2_catalog
 	Spread_default $hyoo_budget_intro
 	plugins /
 		<= Theme $mol_theme_auto
+	Profile_page* $hyoo_budget_person_page
+		close_arg *
+			profile null
+		person <= profile* $hyoo_budget_person
+	Placeholder null

@@ -2336,7 +2336,7 @@ declare namespace $ {
 		ReturnType< $mol_dimmer['haystack'] >
 	>
 	type $mol_link__arg_mol_book2_catalog_4 = $mol_type_enforce<
-		ReturnType< $mol_book2_catalog['arg'] >
+		ReturnType< $mol_book2_catalog['menu_link_arg'] >
 		,
 		ReturnType< $mol_link['arg'] >
 	>
@@ -2410,6 +2410,7 @@ declare namespace $ {
 		Menu_filter( ): $mol_search
 		Menu_links_empty( ): $mol_view
 		arg( id: any): Record<string, any>
+		menu_link_arg( id: any): ReturnType< $mol_book2_catalog['arg'] >
 		spread_title( id: any): string
 		Menu_link_title( id: any): $mol_dimmer
 		menu_link_content( id: any): readonly(any)[]
@@ -2464,6 +2465,15 @@ declare namespace $ {
 
 declare namespace $ {
 
+	export class $mol_icon_account extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=account.view.tree.d.ts.map
+declare namespace $ {
+
 	export class $mol_icon_plus extends $mol_icon {
 		path( ): string
 	}
@@ -2471,6 +2481,35 @@ declare namespace $ {
 }
 
 //# sourceMappingURL=plus.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_icon_script extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=script.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_icon_script_text extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=text.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_link_source extends $mol_link {
+		Icon( ): $mol_icon_script_text
+		hint( ): string
+		sub( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=source.view.tree.d.ts.map
 declare namespace $ {
     function $mol_maybe<Value>(value: Value | null | undefined): Value[];
 }
@@ -3281,9 +3320,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -3781,9 +3818,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -3830,9 +3865,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -3881,9 +3914,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -3932,9 +3963,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -3983,9 +4012,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4038,9 +4065,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4089,9 +4114,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4140,9 +4163,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4191,9 +4212,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4242,9 +4261,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4293,9 +4310,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4344,9 +4359,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4395,9 +4408,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4446,9 +4457,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4509,9 +4518,7 @@ declare namespace $ {
             units(): $hyoo_crus_sand[];
             units_of(peer: string | null): $hyoo_crus_sand[];
             filled(): boolean;
-            can_change(lord?: symbol & {
-                $hyoo_crus_ref: symbol;
-            }): boolean;
+            can_change(): boolean;
             last_change(): $mol_time_moment | null;
             author_peers(): string[];
             author_lords(): (symbol & {
@@ -4584,9 +4591,7 @@ declare namespace $ {
             units(): $hyoo_crus_sand[];
             units_of(peer: string | null): $hyoo_crus_sand[];
             filled(): boolean;
-            can_change(lord?: symbol & {
-                $hyoo_crus_ref: symbol;
-            }): boolean;
+            can_change(): boolean;
             last_change(): $mol_time_moment | null;
             author_peers(): string[];
             author_lords(): (symbol & {
@@ -4648,9 +4653,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4692,9 +4695,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4736,9 +4737,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4782,9 +4781,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4828,9 +4825,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4874,9 +4869,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4928,9 +4921,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4974,9 +4965,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5020,9 +5009,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5066,9 +5053,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5112,9 +5097,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5158,9 +5141,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5204,9 +5185,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5250,9 +5229,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5296,9 +5273,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5364,9 +5339,7 @@ declare namespace $ {
             units(): $hyoo_crus_sand[];
             units_of(peer: string | null): $hyoo_crus_sand[];
             filled(): boolean;
-            can_change(lord?: symbol & {
-                $hyoo_crus_ref: symbol;
-            }): boolean;
+            can_change(): boolean;
             last_change(): $mol_time_moment | null;
             author_peers(): string[];
             author_lords(): (symbol & {
@@ -5449,9 +5422,7 @@ declare namespace $ {
             units(): $hyoo_crus_sand[];
             units_of(peer: string | null): $hyoo_crus_sand[];
             filled(): boolean;
-            can_change(lord?: symbol & {
-                $hyoo_crus_ref: symbol;
-            }): boolean;
+            can_change(): boolean;
             last_change(): $mol_time_moment | null;
             author_peers(): string[];
             author_lords(): (symbol & {
@@ -5507,9 +5478,7 @@ declare namespace $ {
                     units(): $hyoo_crus_sand[];
                     units_of(peer: string | null): $hyoo_crus_sand[];
                     filled(): boolean;
-                    can_change(lord?: symbol & {
-                        $hyoo_crus_ref: symbol;
-                    }): boolean;
+                    can_change(): boolean;
                     last_change(): $mol_time_moment | null;
                     author_peers(): string[];
                     author_lords(): (symbol & {
@@ -5791,35 +5760,6 @@ declare namespace $.$$ {
 }
 
 declare namespace $ {
-
-	export class $mol_icon_script extends $mol_icon {
-		path( ): string
-	}
-	
-}
-
-//# sourceMappingURL=script.view.tree.d.ts.map
-declare namespace $ {
-
-	export class $mol_icon_script_text extends $mol_icon {
-		path( ): string
-	}
-	
-}
-
-//# sourceMappingURL=text.view.tree.d.ts.map
-declare namespace $ {
-
-	export class $mol_link_source extends $mol_link {
-		Icon( ): $mol_icon_script_text
-		hint( ): string
-		sub( ): readonly(any)[]
-	}
-	
-}
-
-//# sourceMappingURL=source.view.tree.d.ts.map
-declare namespace $ {
     const $hyoo_budget_transfer_base: Omit<typeof $hyoo_crus_dict, "prototype"> & (new (...args: any[]) => $mol_type_override<$hyoo_crus_dict, {
         readonly Amount: (auto?: any) => $hyoo_crus_atom_real | null;
         readonly Description: (auto?: any) => $hyoo_crus_atom_str | null;
@@ -5878,9 +5818,7 @@ declare namespace $ {
             units(): $hyoo_crus_sand[];
             units_of(peer: string | null): $hyoo_crus_sand[];
             filled(): boolean;
-            can_change(lord?: symbol & {
-                $hyoo_crus_ref: symbol;
-            }): boolean;
+            can_change(): boolean;
             last_change(): $mol_time_moment | null;
             author_peers(): string[];
             author_lords(): (symbol & {
@@ -5932,9 +5870,7 @@ declare namespace $ {
                     units(): $hyoo_crus_sand[];
                     units_of(peer: string | null): $hyoo_crus_sand[];
                     filled(): boolean;
-                    can_change(lord?: symbol & {
-                        $hyoo_crus_ref: symbol;
-                    }): boolean;
+                    can_change(): boolean;
                     last_change(): $mol_time_moment | null;
                     author_peers(): string[];
                     author_lords(): (symbol & {
@@ -6006,9 +5942,7 @@ declare namespace $ {
             units(): $hyoo_crus_sand[];
             units_of(peer: string | null): $hyoo_crus_sand[];
             filled(): boolean;
-            can_change(lord?: symbol & {
-                $hyoo_crus_ref: symbol;
-            }): boolean;
+            can_change(): boolean;
             last_change(): $mol_time_moment | null;
             author_peers(): string[];
             author_lords(): (symbol & {
@@ -6060,9 +5994,7 @@ declare namespace $ {
                     units(): $hyoo_crus_sand[];
                     units_of(peer: string | null): $hyoo_crus_sand[];
                     filled(): boolean;
-                    can_change(lord?: symbol & {
-                        $hyoo_crus_ref: symbol;
-                    }): boolean;
+                    can_change(): boolean;
                     last_change(): $mol_time_moment | null;
                     author_peers(): string[];
                     author_lords(): (symbol & {
@@ -6097,6 +6029,15 @@ declare namespace $ {
     export {};
 }
 
+declare namespace $ {
+
+	export class $mol_icon_security extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=security.view.tree.d.ts.map
 declare namespace $ {
     type $mol_blob = Blob;
     let $mol_blob: {
@@ -6189,6 +6130,15 @@ declare namespace $ {
 declare namespace $.$$ {
 }
 
+declare namespace $ {
+
+	export class $mol_icon_delete extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=delete.view.tree.d.ts.map
 declare namespace $ {
 
 	export class $mol_icon_minus extends $mol_icon {
@@ -6297,15 +6247,6 @@ declare namespace $.$$ {
     }
 }
 
-declare namespace $ {
-
-	export class $mol_icon_delete extends $mol_icon {
-		path( ): string
-	}
-	
-}
-
-//# sourceMappingURL=delete.view.tree.d.ts.map
 declare namespace $ {
 }
 
@@ -6802,40 +6743,56 @@ declare namespace $ {
 		,
 		ReturnType< $mol_number['value'] >
 	>
-	type $mol_number__Inc_hyoo_budget_transfer_row_6 = $mol_type_enforce<
+	type $mol_number__enabled_hyoo_budget_transfer_row_6 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_transfer_row['editable'] >
+		,
+		ReturnType< $mol_number['enabled'] >
+	>
+	type $mol_number__Inc_hyoo_budget_transfer_row_7 = $mol_type_enforce<
 		any
 		,
 		ReturnType< $mol_number['Inc'] >
 	>
-	type $mol_number__Dec_hyoo_budget_transfer_row_7 = $mol_type_enforce<
+	type $mol_number__Dec_hyoo_budget_transfer_row_8 = $mol_type_enforce<
 		any
 		,
 		ReturnType< $mol_number['Dec'] >
 	>
-	type $mol_string_button__hint_hyoo_budget_transfer_row_8 = $mol_type_enforce<
+	type $mol_string_button__hint_hyoo_budget_transfer_row_9 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_string_button['hint'] >
 	>
-	type $mol_string_button__value_hyoo_budget_transfer_row_9 = $mol_type_enforce<
+	type $mol_string_button__value_hyoo_budget_transfer_row_10 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_transfer_row['description'] >
 		,
 		ReturnType< $mol_string_button['value'] >
 	>
-	type $mol_date__hint_hyoo_budget_transfer_row_10 = $mol_type_enforce<
+	type $mol_string_button__enabled_hyoo_budget_transfer_row_11 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_transfer_row['editable'] >
+		,
+		ReturnType< $mol_string_button['enabled'] >
+	>
+	type $mol_date__hint_hyoo_budget_transfer_row_12 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_date['hint'] >
 	>
-	type $mol_date__value_moment_hyoo_budget_transfer_row_11 = $mol_type_enforce<
+	type $mol_date__value_moment_hyoo_budget_transfer_row_13 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_transfer_row['moment'] >
 		,
 		ReturnType< $mol_date['value_moment'] >
+	>
+	type $mol_date__enabled_hyoo_budget_transfer_row_14 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_transfer_row['editable'] >
+		,
+		ReturnType< $mol_date['enabled'] >
 	>
 	export class $hyoo_budget_transfer_row extends $mol_view {
 		amount( next?: ReturnType< ReturnType< $hyoo_budget_transfer_row['transfer'] >['amount'] > ): ReturnType< ReturnType< $hyoo_budget_transfer_row['transfer'] >['amount'] >
 		description( next?: ReturnType< ReturnType< $hyoo_budget_transfer_row['transfer'] >['description'] > ): ReturnType< ReturnType< $hyoo_budget_transfer_row['transfer'] >['description'] >
 		moment( next?: ReturnType< ReturnType< $hyoo_budget_transfer_row['transfer'] >['moment'] > ): ReturnType< ReturnType< $hyoo_budget_transfer_row['transfer'] >['moment'] >
+		editable( ): ReturnType< ReturnType< $hyoo_budget_transfer_row['transfer'] >['can_change'] >
 		Amount( ): $mol_number
 		Description( ): $mol_string_button
 		Moment( ): $mol_date
@@ -6899,102 +6856,103 @@ declare namespace $ {
 		,
 		ReturnType< $mol_button_minor['click'] >
 	>
-	type $mol_button_minor__sub_hyoo_budget_category_page_3 = $mol_type_enforce<
+	type $mol_button_minor__enabled_hyoo_budget_category_page_3 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_category_page['editable'] >
+		,
+		ReturnType< $mol_button_minor['enabled'] >
+	>
+	type $mol_button_minor__sub_hyoo_budget_category_page_4 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_minor['sub'] >
 	>
-	type $mol_check_icon__hint_hyoo_budget_category_page_4 = $mol_type_enforce<
+	type $mol_check_icon__hint_hyoo_budget_category_page_5 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_check_icon['hint'] >
 	>
-	type $mol_check_icon__checked_hyoo_budget_category_page_5 = $mol_type_enforce<
+	type $mol_check_icon__checked_hyoo_budget_category_page_6 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_category_page['visible'] >
 		,
 		ReturnType< $mol_check_icon['checked'] >
 	>
-	type $mol_check_icon__sub_hyoo_budget_category_page_6 = $mol_type_enforce<
+	type $mol_check_icon__enabled_hyoo_budget_category_page_7 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_category_page['editable'] >
+		,
+		ReturnType< $mol_check_icon['enabled'] >
+	>
+	type $mol_check_icon__sub_hyoo_budget_category_page_8 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_check_icon['sub'] >
 	>
-	type $mol_chip__title_hyoo_budget_category_page_7 = $mol_type_enforce<
+	type $mol_chip__title_hyoo_budget_category_page_9 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_category_page['ballance'] >
 		,
 		ReturnType< $mol_chip['title'] >
 	>
-	type $mol_number__hint_hyoo_budget_category_page_8 = $mol_type_enforce<
-		string
-		,
-		ReturnType< $mol_number['hint'] >
-	>
-	type $mol_number__value_hyoo_budget_category_page_9 = $mol_type_enforce<
-		ReturnType< $hyoo_budget_category_page['limit'] >
-		,
-		ReturnType< $mol_number['value'] >
-	>
-	type $mol_number__Inc_hyoo_budget_category_page_10 = $mol_type_enforce<
-		any
-		,
-		ReturnType< $mol_number['Inc'] >
-	>
-	type $mol_number__Dec_hyoo_budget_category_page_11 = $mol_type_enforce<
-		any
-		,
-		ReturnType< $mol_number['Dec'] >
-	>
-	type $mol_button_minor__hint_hyoo_budget_category_page_12 = $mol_type_enforce<
+	type $mol_button_minor__hint_hyoo_budget_category_page_10 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_button_minor['hint'] >
 	>
-	type $mol_button_minor__click_hyoo_budget_category_page_13 = $mol_type_enforce<
+	type $mol_button_minor__click_hyoo_budget_category_page_11 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_category_page['delete'] >
 		,
 		ReturnType< $mol_button_minor['click'] >
 	>
-	type $mol_button_minor__sub_hyoo_budget_category_page_14 = $mol_type_enforce<
+	type $mol_button_minor__enabled_hyoo_budget_category_page_12 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_category_page['editable'] >
+		,
+		ReturnType< $mol_button_minor['enabled'] >
+	>
+	type $mol_button_minor__sub_hyoo_budget_category_page_13 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_minor['sub'] >
 	>
-	type $hyoo_budget_transfer_row__transfer_hyoo_budget_category_page_15 = $mol_type_enforce<
+	type $hyoo_budget_transfer_row__transfer_hyoo_budget_category_page_14 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_category_page['transfer'] >
 		,
 		ReturnType< $hyoo_budget_transfer_row['transfer'] >
 	>
-	type $hyoo_budget_transfer_row__addon_hyoo_budget_category_page_16 = $mol_type_enforce<
+	type $hyoo_budget_transfer_row__addon_hyoo_budget_category_page_15 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $hyoo_budget_transfer_row['addon'] >
 	>
-	type $mol_status__title_hyoo_budget_category_page_17 = $mol_type_enforce<
+	type $mol_status__title_hyoo_budget_category_page_16 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_status['title'] >
 	>
-	type $mol_list__rows_hyoo_budget_category_page_18 = $mol_type_enforce<
+	type $mol_list__rows_hyoo_budget_category_page_17 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_category_page['transfer_list'] >
 		,
 		ReturnType< $mol_list['rows'] >
 	>
-	type $mol_list__Empty_hyoo_budget_category_page_19 = $mol_type_enforce<
+	type $mol_list__Empty_hyoo_budget_category_page_18 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_category_page['Transfer_list_empty'] >
 		,
 		ReturnType< $mol_list['Empty'] >
 	>
-	type $mol_string_button__hint_hyoo_budget_category_page_20 = $mol_type_enforce<
+	type $mol_string_button__hint_hyoo_budget_category_page_19 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_string_button['hint'] >
 	>
-	type $mol_string_button__value_hyoo_budget_category_page_21 = $mol_type_enforce<
+	type $mol_string_button__value_hyoo_budget_category_page_20 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_category_page['category_title'] >
 		,
 		ReturnType< $mol_string_button['value'] >
 	>
+	type $mol_string_button__enabled_hyoo_budget_category_page_21 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_category_page['editable'] >
+		,
+		ReturnType< $mol_string_button['enabled'] >
+	>
 	export class $hyoo_budget_category_page extends $mol_page {
+		editable( ): ReturnType< ReturnType< $hyoo_budget_category_page['category'] >['can_change'] >
 		category_title( next?: string ): string
 		transfer_make( next?: any ): any
 		Transfer_make_icon( ): $mol_icon_plus
@@ -7005,8 +6963,6 @@ declare namespace $ {
 		Visible( ): $mol_check_icon
 		ballance( ): string
 		Ballance( ): $mol_chip
-		limit( next?: number | null ): number | null
-		Limit( ): $mol_number
 		transfer( id: any): $hyoo_budget_transfer
 		delete( id: any, next?: any ): any
 		Delete_icon( id: any): $mol_icon_delete
@@ -7042,6 +6998,147 @@ declare namespace $.$$ {
 declare namespace $.$$ {
 }
 
+declare namespace $.$$ {
+    class $hyoo_crus_land_rights extends $.$hyoo_crus_land_rights {
+        gifts(): $mol_view[];
+        peer_id(id: string): string;
+        peer_name(id: string): string;
+        gift_rank(id: string, next?: keyof typeof $hyoo_crus_rank): string;
+        add_commit(): void;
+    }
+}
+
+declare namespace $ {
+
+	type $mol_string__hint_hyoo_crus_land_rights_1 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_string['hint'] >
+	>
+	type $mol_string__value_hyoo_crus_land_rights_2 = $mol_type_enforce<
+		ReturnType< $hyoo_crus_land_rights['add_key'] >
+		,
+		ReturnType< $mol_string['value'] >
+	>
+	type $mol_string__commit_hyoo_crus_land_rights_3 = $mol_type_enforce<
+		ReturnType< $hyoo_crus_land_rights['add_commit'] >
+		,
+		ReturnType< $mol_string['commit'] >
+	>
+	type $mol_button_minor__click_hyoo_crus_land_rights_4 = $mol_type_enforce<
+		ReturnType< $hyoo_crus_land_rights['add_commit'] >
+		,
+		ReturnType< $mol_button_minor['click'] >
+	>
+	type $mol_button_minor__sub_hyoo_crus_land_rights_5 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_button_minor['sub'] >
+	>
+	type $mol_view__sub_hyoo_crus_land_rights_6 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_avatar__id_hyoo_crus_land_rights_7 = $mol_type_enforce<
+		ReturnType< $hyoo_crus_land_rights['peer_id'] >
+		,
+		ReturnType< $mol_avatar['id'] >
+	>
+	type $mol_paragraph__title_hyoo_crus_land_rights_8 = $mol_type_enforce<
+		ReturnType< $hyoo_crus_land_rights['peer_name'] >
+		,
+		ReturnType< $mol_paragraph['title'] >
+	>
+	type $mol_view__sub_hyoo_crus_land_rights_9 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_select__value_hyoo_crus_land_rights_10 = $mol_type_enforce<
+		ReturnType< $hyoo_crus_land_rights['gift_rank'] >
+		,
+		ReturnType< $mol_select['value'] >
+	>
+	type $mol_select__dictionary_hyoo_crus_land_rights_11 = $mol_type_enforce<
+		({ 
+			'nil': string,
+			'get': string,
+			'reg': string,
+			'mod': string,
+			'law': string,
+		}) 
+		,
+		ReturnType< $mol_select['dictionary'] >
+	>
+	type $mol_view__sub_hyoo_crus_land_rights_12 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	export class $hyoo_crus_land_rights extends $mol_list {
+		add_key( next?: string ): string
+		add_commit( next?: any ): any
+		Add_key( ): $mol_string
+		Add_commit_icon( ): $mol_icon_plus
+		Add_commit( ): $mol_button_minor
+		Add( ): $mol_view
+		peer_id( id: any): string
+		Gift_avatar( id: any): $mol_avatar
+		peer_name( id: any): string
+		Gift_name( id: any): $mol_paragraph
+		Gift_peer( id: any): $mol_view
+		gift_rank( id: any, next?: string ): string
+		Gift_rank( id: any): $mol_select
+		Gift( id: any): $mol_view
+		gifts( ): readonly(any)[]
+		land( ): $hyoo_crus_land
+		rows( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=rights.view.tree.d.ts.map
+declare namespace $.$$ {
+}
+
+declare namespace $ {
+
+	type $mol_link__hint_hyoo_budget_fund_access_1 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_link['hint'] >
+	>
+	type $mol_link__arg_hyoo_budget_fund_access_2 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_fund_access['close_arg'] >
+		,
+		ReturnType< $mol_link['arg'] >
+	>
+	type $mol_link__sub_hyoo_budget_fund_access_3 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_link['sub'] >
+	>
+	type $hyoo_crus_land_rights__land_hyoo_budget_fund_access_4 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_fund_access['land'] >
+		,
+		ReturnType< $hyoo_crus_land_rights['land'] >
+	>
+	export class $hyoo_budget_fund_access extends $mol_page {
+		land( ): ReturnType< ReturnType< $hyoo_budget_fund_access['fund'] >['land'] >
+		close_arg( ): Record<string, any>
+		Close_icon( ): $mol_icon_close
+		Close( ): $mol_link
+		Rights( ): $hyoo_crus_land_rights
+		title( ): string
+		fund( ): $hyoo_budget_fund
+		tools( ): readonly(any)[]
+		body( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=access.view.tree.d.ts.map
 declare namespace $ {
     function $mol_promise<Result = void>(): Promise<Result> & {
         done: (res: Result | PromiseLike<Result>) => void;
@@ -7065,85 +7162,88 @@ declare namespace $ {
 
 declare namespace $ {
 
-	type $mol_button_download__hint_hyoo_budget_fund_book_1 = $mol_type_enforce<
+	type $mol_link__hint_hyoo_budget_fund_book_1 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_link['hint'] >
+	>
+	type $mol_link__arg_hyoo_budget_fund_book_2 = $mol_type_enforce<
+		({ 
+			'access': string,
+			'category': any,
+		}) 
+		,
+		ReturnType< $mol_link['arg'] >
+	>
+	type $mol_link__sub_hyoo_budget_fund_book_3 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_link['sub'] >
+	>
+	type $mol_button_download__hint_hyoo_budget_fund_book_4 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_button_download['hint'] >
 	>
-	type $mol_button_download__file_name_hyoo_budget_fund_book_2 = $mol_type_enforce<
+	type $mol_button_download__file_name_hyoo_budget_fund_book_5 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['export_file_name'] >
 		,
 		ReturnType< $mol_button_download['file_name'] >
 	>
-	type $mol_button_download__blob_hyoo_budget_fund_book_3 = $mol_type_enforce<
+	type $mol_button_download__blob_hyoo_budget_fund_book_6 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['export_blob'] >
 		,
 		ReturnType< $mol_button_download['blob'] >
 	>
-	type $mol_button_minor__hint_hyoo_budget_fund_book_4 = $mol_type_enforce<
+	type $mol_button_minor__hint_hyoo_budget_fund_book_7 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_button_minor['hint'] >
 	>
-	type $mol_button_minor__click_hyoo_budget_fund_book_5 = $mol_type_enforce<
+	type $mol_button_minor__click_hyoo_budget_fund_book_8 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['category_make'] >
 		,
 		ReturnType< $mol_button_minor['click'] >
 	>
-	type $mol_button_minor__sub_hyoo_budget_fund_book_6 = $mol_type_enforce<
+	type $mol_button_minor__enabled_hyoo_budget_fund_book_9 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_fund_book['editable'] >
+		,
+		ReturnType< $mol_button_minor['enabled'] >
+	>
+	type $mol_button_minor__sub_hyoo_budget_fund_book_10 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_minor['sub'] >
 	>
-	type $mol_view__sub_hyoo_budget_fund_book_7 = $mol_type_enforce<
+	type $mol_view__sub_hyoo_budget_fund_book_11 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_portion__portion_hyoo_budget_fund_book_8 = $mol_type_enforce<
+	type $mol_portion__portion_hyoo_budget_fund_book_12 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['category_portion'] >
 		,
 		ReturnType< $mol_portion['portion'] >
 	>
-	type $mol_check_icon__hint_hyoo_budget_fund_book_9 = $mol_type_enforce<
+	type $mol_check_icon__hint_hyoo_budget_fund_book_13 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_check_icon['hint'] >
 	>
-	type $mol_check_icon__checked_hyoo_budget_fund_book_10 = $mol_type_enforce<
+	type $mol_check_icon__checked_hyoo_budget_fund_book_14 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['visible'] >
 		,
 		ReturnType< $mol_check_icon['checked'] >
 	>
-	type $mol_check_icon__sub_hyoo_budget_fund_book_11 = $mol_type_enforce<
+	type $mol_check_icon__sub_hyoo_budget_fund_book_15 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_check_icon['sub'] >
 	>
-	type $mol_chip__title_hyoo_budget_fund_book_12 = $mol_type_enforce<
+	type $mol_chip__title_hyoo_budget_fund_book_16 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['ballance'] >
 		,
 		ReturnType< $mol_chip['title'] >
-	>
-	type $mol_number__hint_hyoo_budget_fund_book_13 = $mol_type_enforce<
-		string
-		,
-		ReturnType< $mol_number['hint'] >
-	>
-	type $mol_number__value_hyoo_budget_fund_book_14 = $mol_type_enforce<
-		ReturnType< $hyoo_budget_fund_book['limit'] >
-		,
-		ReturnType< $mol_number['value'] >
-	>
-	type $mol_number__Inc_hyoo_budget_fund_book_15 = $mol_type_enforce<
-		any
-		,
-		ReturnType< $mol_number['Inc'] >
-	>
-	type $mol_number__Dec_hyoo_budget_fund_book_16 = $mol_type_enforce<
-		any
-		,
-		ReturnType< $mol_number['Dec'] >
 	>
 	type $hyoo_budget_category_page__category_hyoo_budget_fund_book_17 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['category'] >
@@ -7170,13 +7270,33 @@ declare namespace $ {
 		,
 		ReturnType< $mol_string_button['value'] >
 	>
-	type $mol_status__title_hyoo_budget_fund_book_22 = $mol_type_enforce<
+	type $mol_string_button__enabled_hyoo_budget_fund_book_22 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_fund_book['editable'] >
+		,
+		ReturnType< $mol_string_button['enabled'] >
+	>
+	type $mol_status__title_hyoo_budget_fund_book_23 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_status['title'] >
 	>
+	type $hyoo_budget_fund_access__fund_hyoo_budget_fund_book_24 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_fund_book['fund'] >
+		,
+		ReturnType< $hyoo_budget_fund_access['fund'] >
+	>
+	type $hyoo_budget_fund_access__close_arg_hyoo_budget_fund_book_25 = $mol_type_enforce<
+		({ 
+			'access': any,
+		}) 
+		,
+		ReturnType< $hyoo_budget_fund_access['close_arg'] >
+	>
 	export class $hyoo_budget_fund_book extends $mol_book2_catalog {
+		editable( ): ReturnType< ReturnType< $hyoo_budget_fund_book['fund'] >['can_change'] >
 		fund_title( next?: string ): string
+		Access_icon( ): $mol_icon_security
+		Access_link( ): $mol_link
 		export_file_name( ): string
 		export_blob( ): $mol_blob
 		Export( ): $mol_button_download
@@ -7192,8 +7312,6 @@ declare namespace $ {
 		Visible( ): $mol_check_icon
 		ballance( ): string
 		Ballance( ): $mol_chip
-		limit( next?: number | null ): number | null
-		Limit( ): $mol_number
 		category( id: any): $hyoo_budget_category
 		category_visible( id: any, next?: boolean ): boolean
 		Category_page( id: any): $hyoo_budget_category_page
@@ -7206,6 +7324,7 @@ declare namespace $ {
 		Menu_links_empty( ): $mol_status
 		menu_foot( ): readonly(any)[]
 		Spread( id: any): ReturnType< $hyoo_budget_fund_book['Category_page'] >
+		Access_page( ): $hyoo_budget_fund_access
 	}
 	
 }
@@ -7224,6 +7343,11 @@ declare namespace $.$$ {
         category_portion(id: string): number;
         ballance(): string;
         export_blob(): Blob;
+        access(): boolean;
+        menu_link_arg(id: string): {
+            access: null;
+        };
+        pages(): any[];
     }
 }
 
@@ -7246,6 +7370,126 @@ declare namespace $.$$ {
     class $mol_theme_auto extends $.$mol_theme_auto {
         theme(): "$mol_theme_light" | "$mol_theme_dark";
     }
+}
+
+declare namespace $ {
+    const $hyoo_budget_person_base: Omit<typeof $hyoo_crus_home, "prototype"> & (new (...args: any[]) => $mol_type_override<$hyoo_crus_home, {
+        readonly Fund: (auto?: any) => {
+            remote_list(next?: readonly $hyoo_budget_fund[] | undefined): readonly $hyoo_budget_fund[];
+            remote_add(item: $hyoo_budget_fund): void;
+            make(config?: null | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_fund;
+            remote_make(config: $hyoo_crus_rank_preset): $hyoo_budget_fund;
+            local_make(idea?: number): $hyoo_budget_fund;
+            items(next?: readonly ((symbol & {
+                $hyoo_crus_ref: symbol;
+            }) | null)[] | undefined): readonly ((symbol & {
+                $hyoo_crus_ref: symbol;
+            }) | null)[];
+            items_vary(next?: readonly $hyoo_crus_vary_type[], tag?: keyof typeof $hyoo_crus_sand_tag): readonly $hyoo_crus_vary_type[];
+            splice(next: readonly $hyoo_crus_vary_type[], from?: number, to?: number, tag?: keyof typeof $hyoo_crus_sand_tag): void;
+            find(vary: $hyoo_crus_vary_type): $hyoo_crus_sand | null;
+            has(vary: $hyoo_crus_vary_type, next?: boolean, tag?: keyof typeof $hyoo_crus_sand_tag): boolean;
+            add(vary: $hyoo_crus_vary_type, tag?: keyof typeof $hyoo_crus_sand_tag): void;
+            cut(vary: $hyoo_crus_vary_type): void;
+            move(from: number, to: number): void;
+            wipe(seat: number): void;
+            node_make<Node_1 extends typeof $hyoo_crus_node>(Node: Node_1, vary: $hyoo_crus_vary_type, tag?: keyof typeof $hyoo_crus_sand_tag): InstanceType<Node_1>;
+            land(): $hyoo_crus_land;
+            head(): string;
+            land_ref(): symbol & {
+                $hyoo_crus_ref: symbol;
+            };
+            ref(): symbol & {
+                $hyoo_crus_ref: symbol;
+            };
+            toJSON(): string | undefined;
+            cast<Node_1 extends typeof $hyoo_crus_node>(Node: Node_1): InstanceType<Node_1>;
+            nodes<Node_1 extends typeof $hyoo_crus_node>(Node: Node_1 | null): readonly InstanceType<Node_1>[];
+            units(): $hyoo_crus_sand[];
+            units_of(peer: string | null): $hyoo_crus_sand[];
+            filled(): boolean;
+            can_change(): boolean;
+            last_change(): $mol_time_moment | null;
+            author_peers(): string[];
+            author_lords(): (symbol & {
+                $hyoo_crus_ref: symbol;
+            })[];
+            $: typeof $$;
+            destructor(): void;
+            toString(): string;
+            [Symbol.toStringTag]: string;
+            [$mol_ambient_ref]: $;
+        } | null;
+    }>) & {
+        schema: {
+            [x: string]: typeof $hyoo_crus_node;
+        } & {
+            readonly Fund: {
+                new (): {
+                    remote_list(next?: readonly $hyoo_budget_fund[] | undefined): readonly $hyoo_budget_fund[];
+                    remote_add(item: $hyoo_budget_fund): void;
+                    make(config?: null | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_fund;
+                    remote_make(config: $hyoo_crus_rank_preset): $hyoo_budget_fund;
+                    local_make(idea?: number): $hyoo_budget_fund;
+                    items(next?: readonly ((symbol & {
+                        $hyoo_crus_ref: symbol;
+                    }) | null)[] | undefined): readonly ((symbol & {
+                        $hyoo_crus_ref: symbol;
+                    }) | null)[];
+                    items_vary(next?: readonly $hyoo_crus_vary_type[], tag?: keyof typeof $hyoo_crus_sand_tag): readonly $hyoo_crus_vary_type[];
+                    splice(next: readonly $hyoo_crus_vary_type[], from?: number, to?: number, tag?: keyof typeof $hyoo_crus_sand_tag): void;
+                    find(vary: $hyoo_crus_vary_type): $hyoo_crus_sand | null;
+                    has(vary: $hyoo_crus_vary_type, next?: boolean, tag?: keyof typeof $hyoo_crus_sand_tag): boolean;
+                    add(vary: $hyoo_crus_vary_type, tag?: keyof typeof $hyoo_crus_sand_tag): void;
+                    cut(vary: $hyoo_crus_vary_type): void;
+                    move(from: number, to: number): void;
+                    wipe(seat: number): void;
+                    node_make<Node_1 extends typeof $hyoo_crus_node>(Node: Node_1, vary: $hyoo_crus_vary_type, tag?: keyof typeof $hyoo_crus_sand_tag): InstanceType<Node_1>;
+                    land(): $hyoo_crus_land;
+                    head(): string;
+                    land_ref(): symbol & {
+                        $hyoo_crus_ref: symbol;
+                    };
+                    ref(): symbol & {
+                        $hyoo_crus_ref: symbol;
+                    };
+                    toJSON(): string | undefined;
+                    cast<Node_1 extends typeof $hyoo_crus_node>(Node: Node_1): InstanceType<Node_1>;
+                    nodes<Node_1 extends typeof $hyoo_crus_node>(Node: Node_1 | null): readonly InstanceType<Node_1>[];
+                    units(): $hyoo_crus_sand[];
+                    units_of(peer: string | null): $hyoo_crus_sand[];
+                    filled(): boolean;
+                    can_change(): boolean;
+                    last_change(): $mol_time_moment | null;
+                    author_peers(): string[];
+                    author_lords(): (symbol & {
+                        $hyoo_crus_ref: symbol;
+                    })[];
+                    $: typeof $$;
+                    destructor(): void;
+                    toString(): string;
+                    [Symbol.toStringTag]: string;
+                    [$mol_ambient_ref]: $;
+                };
+                Value: () => typeof $hyoo_budget_fund;
+                toString(): any;
+                parse: typeof $hyoo_crus_vary_cast_ref;
+                tag: keyof typeof $hyoo_crus_sand_tag;
+                make<This extends typeof $mol_object>(this: This, config: Partial<InstanceType<This>>): InstanceType<This>;
+                $: $;
+                create<Instance>(this: new (init?: (instance: any) => void) => Instance, init?: (instance: $mol_type_writable<Instance>) => void): Instance;
+                toJSON(): any;
+                destructor(): void;
+                [Symbol.toPrimitive](): any;
+            };
+        };
+    };
+    export class $hyoo_budget_person extends $hyoo_budget_person_base {
+        fund_list(): readonly $hyoo_budget_fund[];
+        fund_make(): $hyoo_budget_fund;
+        fund_visible(budget: $hyoo_budget_fund, next?: boolean): boolean;
+    }
+    export {};
 }
 
 declare namespace $ {
@@ -8717,152 +8961,263 @@ declare namespace $.$$ {
 }
 
 declare namespace $ {
-    const $hyoo_budget_person_base: Omit<typeof $hyoo_crus_home, "prototype"> & (new (...args: any[]) => $mol_type_override<$hyoo_crus_home, {
-        readonly Fund: (auto?: any) => {
-            remote_list(next?: readonly $hyoo_budget_fund[] | undefined): readonly $hyoo_budget_fund[];
-            remote_add(item: $hyoo_budget_fund): void;
-            make(config?: null | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_fund;
-            remote_make(config: $hyoo_crus_rank_preset): $hyoo_budget_fund;
-            local_make(idea?: number): $hyoo_budget_fund;
-            items(next?: readonly ((symbol & {
-                $hyoo_crus_ref: symbol;
-            }) | null)[] | undefined): readonly ((symbol & {
-                $hyoo_crus_ref: symbol;
-            }) | null)[];
-            items_vary(next?: readonly $hyoo_crus_vary_type[], tag?: keyof typeof $hyoo_crus_sand_tag): readonly $hyoo_crus_vary_type[];
-            splice(next: readonly $hyoo_crus_vary_type[], from?: number, to?: number, tag?: keyof typeof $hyoo_crus_sand_tag): void;
-            find(vary: $hyoo_crus_vary_type): $hyoo_crus_sand | null;
-            has(vary: $hyoo_crus_vary_type, next?: boolean, tag?: keyof typeof $hyoo_crus_sand_tag): boolean;
-            add(vary: $hyoo_crus_vary_type, tag?: keyof typeof $hyoo_crus_sand_tag): void;
-            cut(vary: $hyoo_crus_vary_type): void;
-            move(from: number, to: number): void;
-            wipe(seat: number): void;
-            node_make<Node_1 extends typeof $hyoo_crus_node>(Node: Node_1, vary: $hyoo_crus_vary_type, tag?: keyof typeof $hyoo_crus_sand_tag): InstanceType<Node_1>;
-            land(): $hyoo_crus_land;
-            head(): string;
-            land_ref(): symbol & {
-                $hyoo_crus_ref: symbol;
-            };
-            ref(): symbol & {
-                $hyoo_crus_ref: symbol;
-            };
-            toJSON(): string | undefined;
-            cast<Node_1 extends typeof $hyoo_crus_node>(Node: Node_1): InstanceType<Node_1>;
-            nodes<Node_1 extends typeof $hyoo_crus_node>(Node: Node_1 | null): readonly InstanceType<Node_1>[];
-            units(): $hyoo_crus_sand[];
-            units_of(peer: string | null): $hyoo_crus_sand[];
-            filled(): boolean;
-            can_change(lord?: symbol & {
-                $hyoo_crus_ref: symbol;
-            }): boolean;
-            last_change(): $mol_time_moment | null;
-            author_peers(): string[];
-            author_lords(): (symbol & {
-                $hyoo_crus_ref: symbol;
-            })[];
-            $: typeof $$;
-            destructor(): void;
-            toString(): string;
-            [Symbol.toStringTag]: string;
-            [$mol_ambient_ref]: $;
-        } | null;
-    }>) & {
-        schema: {
-            [x: string]: typeof $hyoo_crus_node;
-        } & {
-            readonly Fund: {
-                new (): {
-                    remote_list(next?: readonly $hyoo_budget_fund[] | undefined): readonly $hyoo_budget_fund[];
-                    remote_add(item: $hyoo_budget_fund): void;
-                    make(config?: null | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_fund;
-                    remote_make(config: $hyoo_crus_rank_preset): $hyoo_budget_fund;
-                    local_make(idea?: number): $hyoo_budget_fund;
-                    items(next?: readonly ((symbol & {
-                        $hyoo_crus_ref: symbol;
-                    }) | null)[] | undefined): readonly ((symbol & {
-                        $hyoo_crus_ref: symbol;
-                    }) | null)[];
-                    items_vary(next?: readonly $hyoo_crus_vary_type[], tag?: keyof typeof $hyoo_crus_sand_tag): readonly $hyoo_crus_vary_type[];
-                    splice(next: readonly $hyoo_crus_vary_type[], from?: number, to?: number, tag?: keyof typeof $hyoo_crus_sand_tag): void;
-                    find(vary: $hyoo_crus_vary_type): $hyoo_crus_sand | null;
-                    has(vary: $hyoo_crus_vary_type, next?: boolean, tag?: keyof typeof $hyoo_crus_sand_tag): boolean;
-                    add(vary: $hyoo_crus_vary_type, tag?: keyof typeof $hyoo_crus_sand_tag): void;
-                    cut(vary: $hyoo_crus_vary_type): void;
-                    move(from: number, to: number): void;
-                    wipe(seat: number): void;
-                    node_make<Node_1 extends typeof $hyoo_crus_node>(Node: Node_1, vary: $hyoo_crus_vary_type, tag?: keyof typeof $hyoo_crus_sand_tag): InstanceType<Node_1>;
-                    land(): $hyoo_crus_land;
-                    head(): string;
-                    land_ref(): symbol & {
-                        $hyoo_crus_ref: symbol;
-                    };
-                    ref(): symbol & {
-                        $hyoo_crus_ref: symbol;
-                    };
-                    toJSON(): string | undefined;
-                    cast<Node_1 extends typeof $hyoo_crus_node>(Node: Node_1): InstanceType<Node_1>;
-                    nodes<Node_1 extends typeof $hyoo_crus_node>(Node: Node_1 | null): readonly InstanceType<Node_1>[];
-                    units(): $hyoo_crus_sand[];
-                    units_of(peer: string | null): $hyoo_crus_sand[];
-                    filled(): boolean;
-                    can_change(lord?: symbol & {
-                        $hyoo_crus_ref: symbol;
-                    }): boolean;
-                    last_change(): $mol_time_moment | null;
-                    author_peers(): string[];
-                    author_lords(): (symbol & {
-                        $hyoo_crus_ref: symbol;
-                    })[];
-                    $: typeof $$;
-                    destructor(): void;
-                    toString(): string;
-                    [Symbol.toStringTag]: string;
-                    [$mol_ambient_ref]: $;
-                };
-                Value: () => typeof $hyoo_budget_fund;
-                toString(): any;
-                parse: typeof $hyoo_crus_vary_cast_ref;
-                tag: keyof typeof $hyoo_crus_sand_tag;
-                make<This extends typeof $mol_object>(this: This, config: Partial<InstanceType<This>>): InstanceType<This>;
-                $: $;
-                create<Instance>(this: new (init?: (instance: any) => void) => Instance, init?: (instance: $mol_type_writable<Instance>) => void): Instance;
-                toJSON(): any;
-                destructor(): void;
-                [Symbol.toPrimitive](): any;
-            };
-        };
-    };
-    export class $hyoo_budget_person extends $hyoo_budget_person_base {
-        fund_list(): readonly $hyoo_budget_fund[];
-        fund_make(): $hyoo_budget_fund;
-        fund_visible(budget: $hyoo_budget_fund, next?: boolean): boolean;
-    }
-    export {};
 }
 
 declare namespace $ {
 
-	type $mol_button_minor__hint_hyoo_budget_app_1 = $mol_type_enforce<
+	type $mol_view__minimal_height_mol_labeler_1 = $mol_type_enforce<
+		number
+		,
+		ReturnType< $mol_view['minimal_height'] >
+	>
+	type $mol_view__sub_mol_labeler_2 = $mol_type_enforce<
+		ReturnType< $mol_labeler['label'] >
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_view__minimal_height_mol_labeler_3 = $mol_type_enforce<
+		number
+		,
+		ReturnType< $mol_view['minimal_height'] >
+	>
+	type $mol_view__sub_mol_labeler_4 = $mol_type_enforce<
+		ReturnType< $mol_labeler['content'] >
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	export class $mol_labeler extends $mol_list {
+		label( ): readonly($mol_view_content)[]
+		Label( ): $mol_view
+		content( ): readonly(any)[]
+		Content( ): $mol_view
+		rows( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=labeler.view.tree.d.ts.map
+declare namespace $ {
+
+	type $mol_view__sub_mol_form_field_1 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	export class $mol_form_field extends $mol_labeler {
+		name( ): string
+		bid( ): string
+		Bid( ): $mol_view
+		control( ): any
+		bids( ): readonly(string)[]
+		label( ): readonly(any)[]
+		content( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=field.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_form_field extends $.$mol_form_field {
+        bid(): string;
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+
+	export class $mol_row extends $mol_view {
+	}
+	
+}
+
+//# sourceMappingURL=row.view.tree.d.ts.map
+declare namespace $ {
+
+	type $mol_list__sub_mol_form_1 = $mol_type_enforce<
+		ReturnType< $mol_form['body'] >
+		,
+		ReturnType< $mol_list['sub'] >
+	>
+	type $mol_row__sub_mol_form_2 = $mol_type_enforce<
+		ReturnType< $mol_form['foot'] >
+		,
+		ReturnType< $mol_row['sub'] >
+	>
+	export class $mol_form extends $mol_list {
+		keydown( next?: any ): any
+		form_fields( ): readonly($mol_form_field)[]
+		body( ): ReturnType< $mol_form['form_fields'] >
+		Body( ): $mol_list
+		buttons( ): readonly($mol_view)[]
+		foot( ): ReturnType< $mol_form['buttons'] >
+		Foot( ): $mol_row
+		submit_allowed( ): boolean
+		submit_blocked( ): boolean
+		event( ): ({ 
+			keydown( next?: ReturnType< $mol_form['keydown'] > ): ReturnType< $mol_form['keydown'] >,
+		})  & ReturnType< $mol_list['event'] >
+		submit( next?: any ): any
+		rows( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=form.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_form extends $.$mol_form {
+        form_fields(): readonly $mol_form_field[];
+        submit_allowed(): boolean;
+        submit_blocked(): boolean;
+        keydown(next: KeyboardEvent): void;
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+
+	type _hyoo_budget_person_page_1 = $mol_type_enforce<
+		Parameters< $hyoo_budget_person_page['title'] >[0]
+		,
+		Parameters< ReturnType< $hyoo_budget_person_page['person'] >['title'] >[0]
+	>
+	type $mol_link__hint_hyoo_budget_person_page_2 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_link['hint'] >
+	>
+	type $mol_link__arg_hyoo_budget_person_page_3 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_person_page['close_arg'] >
+		,
+		ReturnType< $mol_link['arg'] >
+	>
+	type $mol_link__sub_hyoo_budget_person_page_4 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_link['sub'] >
+	>
+	type $mol_chip__title_hyoo_budget_person_page_5 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_person_page['id'] >
+		,
+		ReturnType< $mol_chip['title'] >
+	>
+	type $mol_form_field__name_hyoo_budget_person_page_6 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_form_field['name'] >
+	>
+	type $mol_form_field__Content_hyoo_budget_person_page_7 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_person_page['Id'] >
+		,
+		ReturnType< $mol_form_field['Content'] >
+	>
+	type $mol_text_code__sidebar_showed_hyoo_budget_person_page_8 = $mol_type_enforce<
+		boolean
+		,
+		ReturnType< $mol_text_code['sidebar_showed'] >
+	>
+	type $mol_text_code__text_hyoo_budget_person_page_9 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_person_page['key'] >
+		,
+		ReturnType< $mol_text_code['text'] >
+	>
+	type $mol_form_field__name_hyoo_budget_person_page_10 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_form_field['name'] >
+	>
+	type $mol_form_field__Content_hyoo_budget_person_page_11 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_person_page['Key'] >
+		,
+		ReturnType< $mol_form_field['Content'] >
+	>
+	type $mol_string_button__value_hyoo_budget_person_page_12 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_person_page['title'] >
+		,
+		ReturnType< $mol_string_button['value'] >
+	>
+	export class $hyoo_budget_person_page extends $mol_page {
+		title( next?: ReturnType< ReturnType< $hyoo_budget_person_page['person'] >['title'] > ): ReturnType< ReturnType< $hyoo_budget_person_page['person'] >['title'] >
+		close_arg( ): Record<string, any>
+		Close_icon( ): $mol_icon_close
+		Close( ): $mol_link
+		id( ): string
+		Id( ): $mol_chip
+		Id_block( ): $mol_form_field
+		key( ): string
+		Key( ): $mol_text_code
+		Key_block( ): $mol_form_field
+		person( ): $hyoo_budget_person
+		Title( ): $mol_string_button
+		tools( ): readonly(any)[]
+		body( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=page.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $hyoo_budget_person_page extends $.$hyoo_budget_person_page {
+        id(): string;
+        key(): string;
+    }
+}
+
+declare namespace $.$$ {
+}
+
+declare namespace $ {
+
+	type $mol_link__hint_hyoo_budget_app_1 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_link['hint'] >
+	>
+	type $mol_link__arg_hyoo_budget_app_2 = $mol_type_enforce<
+		({ 
+			'profile': ReturnType< $hyoo_budget_app['person_id'] >,
+			'fund': any,
+		}) 
+		,
+		ReturnType< $mol_link['arg'] >
+	>
+	type $mol_link__sub_hyoo_budget_app_3 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_link['sub'] >
+	>
+	type $mol_button_minor__hint_hyoo_budget_app_4 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_button_minor['hint'] >
 	>
-	type $mol_button_minor__click_hyoo_budget_app_2 = $mol_type_enforce<
+	type $mol_button_minor__click_hyoo_budget_app_5 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_app['fund_make'] >
 		,
 		ReturnType< $mol_button_minor['click'] >
 	>
-	type $mol_button_minor__sub_hyoo_budget_app_3 = $mol_type_enforce<
+	type $mol_button_minor__sub_hyoo_budget_app_6 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_minor['sub'] >
 	>
-	type $mol_select__value_hyoo_budget_app_4 = $mol_type_enforce<
+	type $mol_link_source__uri_hyoo_budget_app_7 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_link_source['uri'] >
+	>
+	type $mol_select__value_hyoo_budget_app_8 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_app['lang'] >
 		,
 		ReturnType< $mol_select['value'] >
 	>
-	type $mol_select__dictionary_hyoo_budget_app_5 = $mol_type_enforce<
+	type $mol_select__dictionary_hyoo_budget_app_9 = $mol_type_enforce<
 		({ 
 			'ru': string,
 			'en': string,
@@ -8870,44 +9225,55 @@ declare namespace $ {
 		,
 		ReturnType< $mol_select['dictionary'] >
 	>
-	type $mol_link_source__uri_hyoo_budget_app_6 = $mol_type_enforce<
-		string
-		,
-		ReturnType< $mol_link_source['uri'] >
-	>
-	type $hyoo_budget_fund_book__fund_hyoo_budget_app_7 = $mol_type_enforce<
+	type $hyoo_budget_fund_book__fund_hyoo_budget_app_10 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_app['fund'] >
 		,
 		ReturnType< $hyoo_budget_fund_book['fund'] >
 	>
-	type $hyoo_budget_fund_book__menu_addon_hyoo_budget_app_8 = $mol_type_enforce<
+	type $hyoo_budget_fund_book__menu_addon_hyoo_budget_app_11 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $hyoo_budget_fund_book['menu_addon'] >
 	>
-	type $hyoo_budget_fund_book__visible_hyoo_budget_app_9 = $mol_type_enforce<
+	type $hyoo_budget_fund_book__visible_hyoo_budget_app_12 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_app['fund_visible'] >
 		,
 		ReturnType< $hyoo_budget_fund_book['visible'] >
 	>
-	type $mol_status__title_hyoo_budget_app_10 = $mol_type_enforce<
+	type $mol_status__title_hyoo_budget_app_13 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_status['title'] >
 	>
+	type $hyoo_budget_person_page__close_arg_hyoo_budget_app_14 = $mol_type_enforce<
+		({ 
+			'profile': any,
+		}) 
+		,
+		ReturnType< $hyoo_budget_person_page['close_arg'] >
+	>
+	type $hyoo_budget_person_page__person_hyoo_budget_app_15 = $mol_type_enforce<
+		ReturnType< $hyoo_budget_app['profile'] >
+		,
+		ReturnType< $hyoo_budget_person_page['person'] >
+	>
 	export class $hyoo_budget_app extends $mol_book2_catalog {
+		person_id( ): string
+		Profile_icon( ): $mol_icon_account
+		Profile_link( ): $mol_link
 		fund_make( next?: any ): any
 		Fund_make_icon( ): $mol_icon_plus
 		Fund_make( ): $mol_button_minor
+		Sources( ): $mol_link_source
 		Status( ): $hyoo_crus_status
 		lang( next?: string ): string
 		Lang( ): $mol_select
 		Lights( ): $mol_lights_toggle
-		Sources( ): $mol_link_source
 		fund( id: any): $hyoo_budget_fund
 		fund_visible( id: any, next?: boolean ): boolean
 		Fund_page( id: any): $hyoo_budget_fund_book
 		Theme( ): $mol_theme_auto
+		profile( id: any): $hyoo_budget_person
 		param( ): string
 		menu_title( ): string
 		menu_tools( ): readonly(any)[]
@@ -8916,6 +9282,8 @@ declare namespace $ {
 		Spread( id: any): ReturnType< $hyoo_budget_app['Fund_page'] >
 		Spread_default( ): $hyoo_budget_intro
 		plugins( ): readonly(any)[]
+		Profile_page( id: any): $hyoo_budget_person_page
+		Placeholder( ): any
 	}
 	
 }
@@ -8924,11 +9292,17 @@ declare namespace $ {
 declare namespace $.$$ {
     class $hyoo_budget_app extends $.$hyoo_budget_app {
         person(): $hyoo_budget_person;
+        person_id(): string;
         spread_ids(): string[];
         fund_make(): void;
         fund(id: string): $hyoo_budget_fund;
         fund_visible(id: string, next?: boolean): boolean;
         lang(next?: string): string;
+        menu_link_arg(id: string): {
+            profile: null;
+        };
+        profile(): $hyoo_budget_person;
+        pages(): any[];
     }
 }
 

@@ -6828,6 +6828,9 @@ var $;
 		arg(id){
 			return {};
 		}
+		menu_link_arg(id){
+			return (this.arg(id));
+		}
 		spread_title(id){
 			return "";
 		}
@@ -6842,7 +6845,7 @@ var $;
 		}
 		Menu_link(id){
 			const obj = new this.$.$mol_link();
-			(obj.arg) = () => ((this.arg(id)));
+			(obj.arg) = () => ((this.menu_link_arg(id)));
 			(obj.sub) = () => ((this.menu_link_content(id)));
 			return obj;
 		}
@@ -7044,11 +7047,63 @@ var $;
 })($ || ($ = {}));
 
 ;
+	($.$mol_icon_account) = class $mol_icon_account extends ($.$mol_icon) {
+		path(){
+			return "M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
 	($.$mol_icon_plus) = class $mol_icon_plus extends ($.$mol_icon) {
 		path(){
 			return "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z";
 		}
 	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_icon_script) = class $mol_icon_script extends ($.$mol_icon) {
+		path(){
+			return "M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2H8C6.3,2 5,3.3 5,5V16H16V17C16,17.6 16.4,18 17,18H18V5C18,4.4 18.4,4 19,4C19.6,4 20,4.4 20,5V6H22V5C22,3.3 20.7,2 19,2Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_icon_script_text) = class $mol_icon_script_text extends ($.$mol_icon) {
+		path(){
+			return "M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2C20.7,2 22,3.3 22,5V6H20V5C20,4.4 19.6,4 19,4C18.4,4 18,4.4 18,5V18H17C16.4,18 16,17.6 16,17V16H5V5C5,3.3 6.3,2 8,2H19M8,6V8H15V6H8M8,10V12H14V10H8Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_link_source) = class $mol_link_source extends ($.$mol_link) {
+		Icon(){
+			const obj = new this.$.$mol_icon_script_text();
+			return obj;
+		}
+		hint(){
+			return (this.$.$mol_locale.text("$mol_link_source_hint"));
+		}
+		sub(){
+			return [(this.Icon())];
+		}
+	};
+	($mol_mem(($.$mol_link_source.prototype), "Icon"));
 
 
 ;
@@ -9369,8 +9424,8 @@ var $;
         filled() {
             return this.units().length > 0;
         }
-        can_change(lord = this.land().auth().lord()) {
-            return this.land().lord_rank(lord) >= $hyoo_crus_rank.reg;
+        can_change() {
+            return this.land().lord_rank(this.land().auth().lord()) >= $hyoo_crus_rank.reg;
         }
         last_change() {
             const land = this.land();
@@ -13415,47 +13470,6 @@ var $;
 })($ || ($ = {}));
 
 ;
-	($.$mol_icon_script) = class $mol_icon_script extends ($.$mol_icon) {
-		path(){
-			return "M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2H8C6.3,2 5,3.3 5,5V16H16V17C16,17.6 16.4,18 17,18H18V5C18,4.4 18.4,4 19,4C19.6,4 20,4.4 20,5V6H22V5C22,3.3 20.7,2 19,2Z";
-		}
-	};
-
-
-;
-"use strict";
-
-;
-	($.$mol_icon_script_text) = class $mol_icon_script_text extends ($.$mol_icon) {
-		path(){
-			return "M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2C20.7,2 22,3.3 22,5V6H20V5C20,4.4 19.6,4 19,4C18.4,4 18,4.4 18,5V18H17C16.4,18 16,17.6 16,17V16H5V5C5,3.3 6.3,2 8,2H19M8,6V8H15V6H8M8,10V12H14V10H8Z";
-		}
-	};
-
-
-;
-"use strict";
-
-;
-	($.$mol_link_source) = class $mol_link_source extends ($.$mol_link) {
-		Icon(){
-			const obj = new this.$.$mol_icon_script_text();
-			return obj;
-		}
-		hint(){
-			return (this.$.$mol_locale.text("$mol_link_source_hint"));
-		}
-		sub(){
-			return [(this.Icon())];
-		}
-	};
-	($mol_mem(($.$mol_link_source.prototype), "Icon"));
-
-
-;
-"use strict";
-
-;
 "use strict";
 var $;
 (function ($) {
@@ -13549,6 +13563,17 @@ var $;
     ], $hyoo_budget_fund.prototype, "ballance", null);
     $.$hyoo_budget_fund = $hyoo_budget_fund;
 })($ || ($ = {}));
+
+;
+	($.$mol_icon_security) = class $mol_icon_security extends ($.$mol_icon) {
+		path(){
+			return "M12,12H19C18.47,16.11 15.72,19.78 12,20.92V12H5V6.3L12,3.19M12,1L3,5V11C3,16.55 6.84,21.73 12,23C17.16,21.73 21,16.55 21,11V5L12,1Z";
+		}
+	};
+
+
+;
+"use strict";
 
 ;
 "use strict";
@@ -13710,6 +13735,17 @@ var $;
         });
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));
+
+;
+	($.$mol_icon_delete) = class $mol_icon_delete extends ($.$mol_icon) {
+		path(){
+			return "M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z";
+		}
+	};
+
+
+;
+"use strict";
 
 ;
 	($.$mol_icon_minus) = class $mol_icon_minus extends ($.$mol_icon) {
@@ -13896,17 +13932,6 @@ var $;
         $$.$mol_number = $mol_number;
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));
-
-;
-	($.$mol_icon_delete) = class $mol_icon_delete extends ($.$mol_icon) {
-		path(){
-			return "M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z";
-		}
-	};
-
-
-;
-"use strict";
 
 ;
 	($.$mol_string_button) = class $mol_string_button extends ($.$mol_string) {};
@@ -14744,10 +14769,14 @@ var $;
 		moment(next){
 			return (this.transfer().moment(next));
 		}
+		editable(){
+			return (this.transfer().can_change());
+		}
 		Amount(){
 			const obj = new this.$.$mol_number();
 			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_transfer_row_Amount_hint")));
 			(obj.value) = (next) => ((this.amount(next)));
+			(obj.enabled) = () => ((this.editable()));
 			(obj.Inc) = () => (null);
 			(obj.Dec) = () => (null);
 			return obj;
@@ -14756,12 +14785,14 @@ var $;
 			const obj = new this.$.$mol_string_button();
 			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_transfer_row_Description_hint")));
 			(obj.value) = (next) => ((this.description(next)));
+			(obj.enabled) = () => ((this.editable()));
 			return obj;
 		}
 		Moment(){
 			const obj = new this.$.$mol_date();
 			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_transfer_row_Moment_hint")));
 			(obj.value_moment) = (next) => ((this.moment(next)));
+			(obj.enabled) = () => ((this.editable()));
 			return obj;
 		}
 		addon(){
@@ -14867,6 +14898,9 @@ var $;
 
 ;
 	($.$hyoo_budget_category_page) = class $hyoo_budget_category_page extends ($.$mol_page) {
+		editable(){
+			return (this.category().can_change());
+		}
 		category_title(next){
 			if(next !== undefined) return next;
 			return "";
@@ -14883,6 +14917,7 @@ var $;
 			const obj = new this.$.$mol_button_minor();
 			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_category_page_Transfer_make_hint")));
 			(obj.click) = (next) => ((this.transfer_make(next)));
+			(obj.enabled) = () => ((this.editable()));
 			(obj.sub) = () => ([(this.Transfer_make_icon())]);
 			return obj;
 		}
@@ -14901,6 +14936,7 @@ var $;
 			const obj = new this.$.$mol_check_icon();
 			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_category_page_Visible_hint")));
 			(obj.checked) = (next) => ((this.visible(next)));
+			(obj.enabled) = () => ((this.editable()));
 			(obj.sub) = () => ([(this.Visible_icon())]);
 			return obj;
 		}
@@ -14910,18 +14946,6 @@ var $;
 		Ballance(){
 			const obj = new this.$.$mol_chip();
 			(obj.title) = () => ((this.ballance()));
-			return obj;
-		}
-		limit(next){
-			if(next !== undefined) return next;
-			return null;
-		}
-		Limit(){
-			const obj = new this.$.$mol_number();
-			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_category_page_Limit_hint")));
-			(obj.value) = (next) => ((this.limit(next)));
-			(obj.Inc) = () => (null);
-			(obj.Dec) = () => (null);
 			return obj;
 		}
 		transfer(id){
@@ -14940,6 +14964,7 @@ var $;
 			const obj = new this.$.$mol_button_minor();
 			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_category_page_Delete_hint")));
 			(obj.click) = (next) => ((this.delete(id, next)));
+			(obj.enabled) = () => ((this.editable()));
 			(obj.sub) = () => ([(this.Delete_icon(id))]);
 			return obj;
 		}
@@ -14974,17 +14999,14 @@ var $;
 			const obj = new this.$.$mol_string_button();
 			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_category_page_Title_hint")));
 			(obj.value) = (next) => ((this.category_title(next)));
+			(obj.enabled) = () => ((this.editable()));
 			return obj;
 		}
 		tools(){
 			return [(this.Transfer_make()), ...(this.addon())];
 		}
 		foot(){
-			return [
-				(this.Visible()), 
-				(this.Ballance()), 
-				(this.Limit())
-			];
+			return [(this.Visible()), (this.Ballance())];
 		}
 		body(){
 			return [(this.Transfer_list())];
@@ -14998,8 +15020,6 @@ var $;
 	($mol_mem(($.$hyoo_budget_category_page.prototype), "Visible_icon"));
 	($mol_mem(($.$hyoo_budget_category_page.prototype), "Visible"));
 	($mol_mem(($.$hyoo_budget_category_page.prototype), "Ballance"));
-	($mol_mem(($.$hyoo_budget_category_page.prototype), "limit"));
-	($mol_mem(($.$hyoo_budget_category_page.prototype), "Limit"));
 	($mol_mem_key(($.$hyoo_budget_category_page.prototype), "transfer"));
 	($mol_mem_key(($.$hyoo_budget_category_page.prototype), "delete"));
 	($mol_mem_key(($.$hyoo_budget_category_page.prototype), "Delete_icon"));
@@ -15123,10 +15143,235 @@ var $;
 })($ || ($ = {}));
 
 ;
+	($.$hyoo_crus_land_rights) = class $hyoo_crus_land_rights extends ($.$mol_list) {
+		add_key(next){
+			if(next !== undefined) return next;
+			return "";
+		}
+		add_commit(next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		Add_key(){
+			const obj = new this.$.$mol_string();
+			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_crus_land_rights_Add_key_hint")));
+			(obj.value) = (next) => ((this.add_key(next)));
+			(obj.commit) = (next) => ((this.add_commit(next)));
+			return obj;
+		}
+		Add_commit_icon(){
+			const obj = new this.$.$mol_icon_plus();
+			return obj;
+		}
+		Add_commit(){
+			const obj = new this.$.$mol_button_minor();
+			(obj.click) = (next) => ((this.add_commit(next)));
+			(obj.sub) = () => ([(this.Add_commit_icon())]);
+			return obj;
+		}
+		Add(){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.Add_key()), (this.Add_commit())]);
+			return obj;
+		}
+		peer_id(id){
+			return "";
+		}
+		Gift_avatar(id){
+			const obj = new this.$.$mol_avatar();
+			(obj.id) = () => ((this.peer_id(id)));
+			return obj;
+		}
+		peer_name(id){
+			return "";
+		}
+		Gift_name(id){
+			const obj = new this.$.$mol_paragraph();
+			(obj.title) = () => ((this.peer_name(id)));
+			return obj;
+		}
+		Gift_peer(id){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.Gift_avatar(id)), (this.Gift_name(id))]);
+			return obj;
+		}
+		gift_rank(id, next){
+			if(next !== undefined) return next;
+			return "nil";
+		}
+		Gift_rank(id){
+			const obj = new this.$.$mol_select();
+			(obj.value) = (next) => ((this.gift_rank(id, next)));
+			(obj.dictionary) = () => ({
+				"nil": (this.$.$mol_locale.text("$hyoo_crus_land_rights_Gift_rank_dictionary_nil")), 
+				"get": (this.$.$mol_locale.text("$hyoo_crus_land_rights_Gift_rank_dictionary_get")), 
+				"reg": (this.$.$mol_locale.text("$hyoo_crus_land_rights_Gift_rank_dictionary_reg")), 
+				"mod": (this.$.$mol_locale.text("$hyoo_crus_land_rights_Gift_rank_dictionary_mod")), 
+				"law": (this.$.$mol_locale.text("$hyoo_crus_land_rights_Gift_rank_dictionary_law"))
+			});
+			return obj;
+		}
+		Gift(id){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.Gift_peer(id)), (this.Gift_rank(id))]);
+			return obj;
+		}
+		gifts(){
+			return [(this.Gift("0"))];
+		}
+		land(){
+			const obj = new this.$.$hyoo_crus_land();
+			return obj;
+		}
+		rows(){
+			return [(this.Add()), ...(this.gifts())];
+		}
+	};
+	($mol_mem(($.$hyoo_crus_land_rights.prototype), "add_key"));
+	($mol_mem(($.$hyoo_crus_land_rights.prototype), "add_commit"));
+	($mol_mem(($.$hyoo_crus_land_rights.prototype), "Add_key"));
+	($mol_mem(($.$hyoo_crus_land_rights.prototype), "Add_commit_icon"));
+	($mol_mem(($.$hyoo_crus_land_rights.prototype), "Add_commit"));
+	($mol_mem(($.$hyoo_crus_land_rights.prototype), "Add"));
+	($mol_mem_key(($.$hyoo_crus_land_rights.prototype), "Gift_avatar"));
+	($mol_mem_key(($.$hyoo_crus_land_rights.prototype), "Gift_name"));
+	($mol_mem_key(($.$hyoo_crus_land_rights.prototype), "Gift_peer"));
+	($mol_mem_key(($.$hyoo_crus_land_rights.prototype), "gift_rank"));
+	($mol_mem_key(($.$hyoo_crus_land_rights.prototype), "Gift_rank"));
+	($mol_mem_key(($.$hyoo_crus_land_rights.prototype), "Gift"));
+	($mol_mem(($.$hyoo_crus_land_rights.prototype), "land"));
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $hyoo_crus_land_rights extends $.$hyoo_crus_land_rights {
+            gifts() {
+                const self = this.land().ref();
+                return [...this.land().gift.keys()]
+                    .filter(ref => ref.description && (self !== ref))
+                    .map(ref => this.Gift(ref.description));
+            }
+            peer_id(id) {
+                return id;
+            }
+            peer_name(id) {
+                return this.$.$hyoo_crus_glob.Node($hyoo_crus_ref(id), $hyoo_crus_entity).title() || id;
+            }
+            gift_rank(id, next) {
+                return $hyoo_crus_rank[this.land().lord_rank($hyoo_crus_ref(id), next && $hyoo_crus_rank[next])];
+            }
+            add_commit() {
+                const auth = $hyoo_crus_auth.from(this.add_key());
+                this.land().give(auth, $hyoo_crus_rank.get);
+                this.add_key('');
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $hyoo_crus_land_rights.prototype, "gifts", null);
+        __decorate([
+            $mol_mem_key
+        ], $hyoo_crus_land_rights.prototype, "gift_rank", null);
+        $$.$hyoo_crus_land_rights = $hyoo_crus_land_rights;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        $mol_style_define($hyoo_crus_land_rights, {
+            Gift_peer: {
+                flex: {
+                    grow: 1,
+                },
+                padding: $mol_gap.text,
+                gap: $mol_gap.text,
+            },
+            Gift_rank: {
+                flex: {
+                    grow: 0,
+                },
+            },
+        });
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+	($.$hyoo_budget_fund_access) = class $hyoo_budget_fund_access extends ($.$mol_page) {
+		land(){
+			return (this.fund().land());
+		}
+		close_arg(){
+			return {};
+		}
+		Close_icon(){
+			const obj = new this.$.$mol_icon_close();
+			return obj;
+		}
+		Close(){
+			const obj = new this.$.$mol_link();
+			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_fund_access_Close_hint")));
+			(obj.arg) = () => ((this.close_arg()));
+			(obj.sub) = () => ([(this.Close_icon())]);
+			return obj;
+		}
+		Rights(){
+			const obj = new this.$.$hyoo_crus_land_rights();
+			(obj.land) = () => ((this.land()));
+			return obj;
+		}
+		title(){
+			return (this.$.$mol_locale.text("$hyoo_budget_fund_access_title"));
+		}
+		fund(){
+			const obj = new this.$.$hyoo_budget_fund();
+			return obj;
+		}
+		tools(){
+			return [(this.Close())];
+		}
+		body(){
+			return [(this.Rights())];
+		}
+	};
+	($mol_mem(($.$hyoo_budget_fund_access.prototype), "Close_icon"));
+	($mol_mem(($.$hyoo_budget_fund_access.prototype), "Close"));
+	($mol_mem(($.$hyoo_budget_fund_access.prototype), "Rights"));
+	($mol_mem(($.$hyoo_budget_fund_access.prototype), "fund"));
+
+
+;
+"use strict";
+
+;
 	($.$hyoo_budget_fund_book) = class $hyoo_budget_fund_book extends ($.$mol_book2_catalog) {
+		editable(){
+			return (this.fund().can_change());
+		}
 		fund_title(next){
 			if(next !== undefined) return next;
 			return "";
+		}
+		Access_icon(){
+			const obj = new this.$.$mol_icon_security();
+			return obj;
+		}
+		Access_link(){
+			const obj = new this.$.$mol_link();
+			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_fund_book_Access_link_hint")));
+			(obj.arg) = () => ({"access": "", "category": null});
+			(obj.sub) = () => ([(this.Access_icon())]);
+			return obj;
 		}
 		export_file_name(){
 			return "xxx.csv";
@@ -15154,6 +15399,7 @@ var $;
 			const obj = new this.$.$mol_button_minor();
 			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_fund_book_Category_make_hint")));
 			(obj.click) = (next) => ((this.category_make(next)));
+			(obj.enabled) = () => ((this.editable()));
 			(obj.sub) = () => ([(this.Category_make_icon())]);
 			return obj;
 		}
@@ -15196,18 +15442,6 @@ var $;
 			(obj.title) = () => ((this.ballance()));
 			return obj;
 		}
-		limit(next){
-			if(next !== undefined) return next;
-			return null;
-		}
-		Limit(){
-			const obj = new this.$.$mol_number();
-			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_fund_book_Limit_hint")));
-			(obj.value) = (next) => ((this.limit(next)));
-			(obj.Inc) = () => (null);
-			(obj.Dec) = () => (null);
-			return obj;
-		}
 		category(id){
 			const obj = new this.$.$hyoo_budget_category();
 			return obj;
@@ -15237,10 +15471,12 @@ var $;
 			const obj = new this.$.$mol_string_button();
 			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_fund_book_Menu_title_hint")));
 			(obj.value) = (next) => ((this.fund_title(next)));
+			(obj.enabled) = () => ((this.editable()));
 			return obj;
 		}
 		menu_tools(){
 			return [
+				(this.Access_link()), 
 				(this.Export()), 
 				(this.Category_make()), 
 				...(this.menu_addon())
@@ -15259,17 +15495,21 @@ var $;
 			return obj;
 		}
 		menu_foot(){
-			return [
-				(this.Visible()), 
-				(this.Ballance()), 
-				(this.Limit())
-			];
+			return [(this.Visible()), (this.Ballance())];
 		}
 		Spread(id){
 			return (this.Category_page(id));
 		}
+		Access_page(){
+			const obj = new this.$.$hyoo_budget_fund_access();
+			(obj.fund) = () => ((this.fund()));
+			(obj.close_arg) = () => ({"access": null});
+			return obj;
+		}
 	};
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "fund_title"));
+	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Access_icon"));
+	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Access_link"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "export_blob"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Export"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "category_make"));
@@ -15281,14 +15521,13 @@ var $;
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Visible_icon"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Visible"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Ballance"));
-	($mol_mem(($.$hyoo_budget_fund_book.prototype), "limit"));
-	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Limit"));
 	($mol_mem_key(($.$hyoo_budget_fund_book.prototype), "category"));
 	($mol_mem_key(($.$hyoo_budget_fund_book.prototype), "category_visible"));
 	($mol_mem_key(($.$hyoo_budget_fund_book.prototype), "Category_page"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "fund"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Menu_title"));
 	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Menu_links_empty"));
+	($mol_mem(($.$hyoo_budget_fund_book.prototype), "Access_page"));
 
 
 ;
@@ -15407,6 +15646,21 @@ var $;
                 const csv = this.$.$mol_csv_serial(data, '\t');
                 return new $mol_blob([csv]);
             }
+            access() {
+                return this.$.$mol_state_arg.value('access') !== null;
+            }
+            menu_link_arg(id) {
+                return {
+                    ...super.menu_link_arg(id),
+                    access: null,
+                };
+            }
+            pages() {
+                return [
+                    ...super.pages(),
+                    ...this.access() ? [this.Access_page()] : [],
+                ];
+            }
         }
         __decorate([
             $mol_mem
@@ -15426,6 +15680,12 @@ var $;
         __decorate([
             $mol_mem
         ], $hyoo_budget_fund_book.prototype, "export_blob", null);
+        __decorate([
+            $mol_mem
+        ], $hyoo_budget_fund_book.prototype, "access", null);
+        __decorate([
+            $mol_mem_key
+        ], $hyoo_budget_fund_book.prototype, "menu_link_arg", null);
         $$.$hyoo_budget_fund_book = $hyoo_budget_fund_book;
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));
@@ -15498,6 +15758,32 @@ var $;
         }
         $$.$mol_theme_auto = $mol_theme_auto;
     })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    class $hyoo_budget_person extends $hyoo_crus_home.with({
+        Fund: $hyoo_crus_list_ref_to(() => $hyoo_budget_fund),
+    }) {
+        fund_list() {
+            return this.Fund()?.remote_list() ?? [];
+        }
+        fund_make() {
+            return this.Fund(null).make({});
+        }
+        fund_visible(budget, next) {
+            return this.Fund(next)?.has(budget.ref(), next) ?? false;
+        }
+    }
+    __decorate([
+        $mol_mem
+    ], $hyoo_budget_person.prototype, "fund_list", null);
+    __decorate([
+        $mol_action
+    ], $hyoo_budget_person.prototype, "fund_make", null);
+    $.$hyoo_budget_person = $hyoo_budget_person;
 })($ || ($ = {}));
 
 ;
@@ -18086,7 +18372,338 @@ var $;
 })($ || ($ = {}));
 
 ;
+	($.$mol_labeler) = class $mol_labeler extends ($.$mol_list) {
+		label(){
+			return [(this.title())];
+		}
+		Label(){
+			const obj = new this.$.$mol_view();
+			(obj.minimal_height) = () => (32);
+			(obj.sub) = () => ((this.label()));
+			return obj;
+		}
+		content(){
+			return [];
+		}
+		Content(){
+			const obj = new this.$.$mol_view();
+			(obj.minimal_height) = () => (24);
+			(obj.sub) = () => ((this.content()));
+			return obj;
+		}
+		rows(){
+			return [(this.Label()), (this.Content())];
+		}
+	};
+	($mol_mem(($.$mol_labeler.prototype), "Label"));
+	($mol_mem(($.$mol_labeler.prototype), "Content"));
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/labeler/labeler.view.css", "[mol_labeler] {\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: stretch;\n\tcursor: inherit;\n}\n\n[mol_labeler_label] {\n\tmin-height: 2rem;\n\tcolor: var(--mol_theme_shade);\n\tpadding: .5rem .75rem 0;\n\tgap: 0 var(--mol_gap_block);\n\tflex-wrap: wrap;\n}\n\n[mol_labeler_content] {\n\tdisplay: flex;\n\tpadding: var(--mol_gap_text);\n}\n");
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
+	($.$mol_form_field) = class $mol_form_field extends ($.$mol_labeler) {
+		name(){
+			return "";
+		}
+		bid(){
+			return "";
+		}
+		Bid(){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.bid())]);
+			return obj;
+		}
+		control(){
+			return null;
+		}
+		bids(){
+			return [];
+		}
+		label(){
+			return [(this.name()), (this.Bid())];
+		}
+		content(){
+			return [(this.control())];
+		}
+	};
+	($mol_mem(($.$mol_form_field.prototype), "Bid"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_form_field extends $.$mol_form_field {
+            bid() {
+                return this.bids().filter(Boolean)[0] ?? '';
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $mol_form_field.prototype, "bid", null);
+        $$.$mol_form_field = $mol_form_field;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/form/field/field.view.css", "[mol_form_field] {\n\talign-items: stretch;\n}\n\n[mol_form_field_bid] {\n\tcolor: var(--mol_theme_focus);\n\tdisplay: inline-block;\n\ttext-shadow: 0 0;\n}\n\n[mol_form_field_content] {\n\tborder-radius: var(--mol_gap_round);\n}\n");
+})($ || ($ = {}));
+
+;
+	($.$mol_row) = class $mol_row extends ($.$mol_view) {};
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/row/row.view.css", "[mol_row] {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\talign-items: flex-start;\n\talign-content: flex-start;\n\tjustify-content: flex-start;\n\tpadding: var(--mol_gap_block);\n\tgap: var(--mol_gap_block);\n\tflex: 0 0 auto;\n\tbox-sizing: border-box;\n\tmax-width: 100%;\n}\n\n[mol_row] > * {\n\tmax-width: 100%;\n}\n");
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
+	($.$mol_form) = class $mol_form extends ($.$mol_list) {
+		keydown(next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		form_fields(){
+			return [];
+		}
+		body(){
+			return (this.form_fields());
+		}
+		Body(){
+			const obj = new this.$.$mol_list();
+			(obj.sub) = () => ((this.body()));
+			return obj;
+		}
+		buttons(){
+			return [];
+		}
+		foot(){
+			return (this.buttons());
+		}
+		Foot(){
+			const obj = new this.$.$mol_row();
+			(obj.sub) = () => ((this.foot()));
+			return obj;
+		}
+		submit_allowed(){
+			return true;
+		}
+		submit_blocked(){
+			return false;
+		}
+		event(){
+			return {...(super.event()), "keydown": (next) => (this.keydown(next))};
+		}
+		submit(next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		rows(){
+			return [(this.Body()), (this.Foot())];
+		}
+	};
+	($mol_mem(($.$mol_form.prototype), "keydown"));
+	($mol_mem(($.$mol_form.prototype), "Body"));
+	($mol_mem(($.$mol_form.prototype), "Foot"));
+	($mol_mem(($.$mol_form.prototype), "submit"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_form extends $.$mol_form {
+            form_fields() {
+                return [...this.view_find(view => view instanceof $mol_form_field)]
+                    .map(path => path[path.length - 1]);
+            }
+            submit_allowed() {
+                return this.form_fields().every(field => !field.bid());
+            }
+            submit_blocked() {
+                return !this.submit_allowed();
+            }
+            keydown(next) {
+                if (next.ctrlKey && next.keyCode === $mol_keyboard_code.enter && !this.submit_blocked())
+                    this.submit(event);
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $mol_form.prototype, "form_fields", null);
+        __decorate([
+            $mol_mem
+        ], $mol_form.prototype, "submit_allowed", null);
+        $$.$mol_form = $mol_form;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/form/form.view.css", "[mol_form] {\r\n\tgap: var(--mol_gap_block);\r\n}\r\n\r\n[mol_form_body] {\r\n\tgap: var(--mol_gap_block);\r\n}");
+})($ || ($ = {}));
+
+;
+	($.$hyoo_budget_person_page) = class $hyoo_budget_person_page extends ($.$mol_page) {
+		title(next){
+			return (this.person().title(next));
+		}
+		close_arg(){
+			return {};
+		}
+		Close_icon(){
+			const obj = new this.$.$mol_icon_close();
+			return obj;
+		}
+		Close(){
+			const obj = new this.$.$mol_link();
+			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_person_page_Close_hint")));
+			(obj.arg) = () => ((this.close_arg()));
+			(obj.sub) = () => ([(this.Close_icon())]);
+			return obj;
+		}
+		id(){
+			return "";
+		}
+		Id(){
+			const obj = new this.$.$mol_chip();
+			(obj.title) = () => ((this.id()));
+			return obj;
+		}
+		Id_block(){
+			const obj = new this.$.$mol_form_field();
+			(obj.name) = () => ("Id");
+			(obj.Content) = () => ((this.Id()));
+			return obj;
+		}
+		key(){
+			return "";
+		}
+		Key(){
+			const obj = new this.$.$mol_text_code();
+			(obj.sidebar_showed) = () => (true);
+			(obj.text) = () => ((this.key()));
+			return obj;
+		}
+		Key_block(){
+			const obj = new this.$.$mol_form_field();
+			(obj.name) = () => ("Public Key");
+			(obj.Content) = () => ((this.Key()));
+			return obj;
+		}
+		person(){
+			const obj = new this.$.$hyoo_budget_person();
+			return obj;
+		}
+		Title(){
+			const obj = new this.$.$mol_string_button();
+			(obj.value) = (next) => ((this.title(next)));
+			return obj;
+		}
+		tools(){
+			return [(this.Close())];
+		}
+		body(){
+			return [(this.Id_block()), (this.Key_block())];
+		}
+	};
+	($mol_mem(($.$hyoo_budget_person_page.prototype), "Close_icon"));
+	($mol_mem(($.$hyoo_budget_person_page.prototype), "Close"));
+	($mol_mem(($.$hyoo_budget_person_page.prototype), "Id"));
+	($mol_mem(($.$hyoo_budget_person_page.prototype), "Id_block"));
+	($mol_mem(($.$hyoo_budget_person_page.prototype), "Key"));
+	($mol_mem(($.$hyoo_budget_person_page.prototype), "Key_block"));
+	($mol_mem(($.$hyoo_budget_person_page.prototype), "person"));
+	($mol_mem(($.$hyoo_budget_person_page.prototype), "Title"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $hyoo_budget_person_page extends $.$hyoo_budget_person_page {
+            id() {
+                return this.person().ref().description;
+            }
+            key() {
+                return this.person().land().key()?.toString() ?? '';
+            }
+        }
+        $$.$hyoo_budget_person_page = $hyoo_budget_person_page;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        $mol_style_define($hyoo_budget_person_page, {
+            flex: {
+                basis: `20rem`,
+            },
+            margin: {
+                left: 'auto',
+            },
+            Key: {
+                wordBreak: 'break-all',
+            },
+        });
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
 	($.$hyoo_budget_app) = class $hyoo_budget_app extends ($.$mol_book2_catalog) {
+		person_id(){
+			return "";
+		}
+		Profile_icon(){
+			const obj = new this.$.$mol_icon_account();
+			return obj;
+		}
+		Profile_link(){
+			const obj = new this.$.$mol_link();
+			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_app_Profile_link_hint")));
+			(obj.arg) = () => ({"profile": (this.person_id()), "fund": null});
+			(obj.sub) = () => ([(this.Profile_icon())]);
+			return obj;
+		}
 		fund_make(next){
 			if(next !== undefined) return next;
 			return null;
@@ -18100,6 +18717,11 @@ var $;
 			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_budget_app_Fund_make_hint")));
 			(obj.click) = (next) => ((this.fund_make(next)));
 			(obj.sub) = () => ([(this.Fund_make_icon())]);
+			return obj;
+		}
+		Sources(){
+			const obj = new this.$.$mol_link_source();
+			(obj.uri) = () => ("https://github.com/hyoo-ru/budget.hyoo.ru/");
 			return obj;
 		}
 		Status(){
@@ -18118,11 +18740,6 @@ var $;
 		}
 		Lights(){
 			const obj = new this.$.$mol_lights_toggle();
-			return obj;
-		}
-		Sources(){
-			const obj = new this.$.$mol_link_source();
-			(obj.uri) = () => ("https://github.com/hyoo-ru/budget.hyoo.ru/");
 			return obj;
 		}
 		fund(id){
@@ -18144,6 +18761,10 @@ var $;
 			const obj = new this.$.$mol_theme_auto();
 			return obj;
 		}
+		profile(id){
+			const obj = new this.$.$hyoo_budget_person();
+			return obj;
+		}
 		param(){
 			return "fund";
 		}
@@ -18151,7 +18772,7 @@ var $;
 			return (this.$.$mol_locale.text("$hyoo_budget_app_menu_title"));
 		}
 		menu_tools(){
-			return [(this.Fund_make())];
+			return [(this.Profile_link()), (this.Fund_make())];
 		}
 		Menu_links_empty(){
 			const obj = new this.$.$mol_status();
@@ -18160,10 +18781,10 @@ var $;
 		}
 		menu_foot(){
 			return [
+				(this.Sources()), 
 				(this.Status()), 
 				(this.Lang()), 
-				(this.Lights()), 
-				(this.Sources())
+				(this.Lights())
 			];
 		}
 		Spread(id){
@@ -18176,48 +18797,35 @@ var $;
 		plugins(){
 			return [(this.Theme())];
 		}
+		Profile_page(id){
+			const obj = new this.$.$hyoo_budget_person_page();
+			(obj.close_arg) = () => ({"profile": null});
+			(obj.person) = () => ((this.profile(id)));
+			return obj;
+		}
+		Placeholder(){
+			return null;
+		}
 	};
+	($mol_mem(($.$hyoo_budget_app.prototype), "Profile_icon"));
+	($mol_mem(($.$hyoo_budget_app.prototype), "Profile_link"));
 	($mol_mem(($.$hyoo_budget_app.prototype), "fund_make"));
 	($mol_mem(($.$hyoo_budget_app.prototype), "Fund_make_icon"));
 	($mol_mem(($.$hyoo_budget_app.prototype), "Fund_make"));
+	($mol_mem(($.$hyoo_budget_app.prototype), "Sources"));
 	($mol_mem(($.$hyoo_budget_app.prototype), "Status"));
 	($mol_mem(($.$hyoo_budget_app.prototype), "lang"));
 	($mol_mem(($.$hyoo_budget_app.prototype), "Lang"));
 	($mol_mem(($.$hyoo_budget_app.prototype), "Lights"));
-	($mol_mem(($.$hyoo_budget_app.prototype), "Sources"));
 	($mol_mem_key(($.$hyoo_budget_app.prototype), "fund"));
 	($mol_mem_key(($.$hyoo_budget_app.prototype), "fund_visible"));
 	($mol_mem_key(($.$hyoo_budget_app.prototype), "Fund_page"));
 	($mol_mem(($.$hyoo_budget_app.prototype), "Theme"));
+	($mol_mem_key(($.$hyoo_budget_app.prototype), "profile"));
 	($mol_mem(($.$hyoo_budget_app.prototype), "Menu_links_empty"));
 	($mol_mem(($.$hyoo_budget_app.prototype), "Spread_default"));
+	($mol_mem_key(($.$hyoo_budget_app.prototype), "Profile_page"));
 
-
-;
-"use strict";
-var $;
-(function ($) {
-    class $hyoo_budget_person extends $hyoo_crus_home.with({
-        Fund: $hyoo_crus_list_ref_to(() => $hyoo_budget_fund),
-    }) {
-        fund_list() {
-            return this.Fund()?.remote_list() ?? [];
-        }
-        fund_make() {
-            return this.Fund(null).make({});
-        }
-        fund_visible(budget, next) {
-            return this.Fund(next)?.has(budget.ref(), next) ?? false;
-        }
-    }
-    __decorate([
-        $mol_mem
-    ], $hyoo_budget_person.prototype, "fund_list", null);
-    __decorate([
-        $mol_action
-    ], $hyoo_budget_person.prototype, "fund_make", null);
-    $.$hyoo_budget_person = $hyoo_budget_person;
-})($ || ($ = {}));
 
 ;
 "use strict";
@@ -18231,6 +18839,9 @@ var $;
         class $hyoo_budget_app extends $.$hyoo_budget_app {
             person() {
                 return this.$.$hyoo_crus_glob.home($hyoo_budget_person);
+            }
+            person_id() {
+                return this.person().ref().description;
             }
             spread_ids() {
                 return this.person().fund_list().map(budget => budget.ref().description).reverse();
@@ -18250,10 +18861,32 @@ var $;
             lang(next) {
                 return this.$.$mol_locale.lang(next);
             }
+            menu_link_arg(id) {
+                return {
+                    ...super.menu_link_arg(id),
+                    profile: null,
+                };
+            }
+            profile() {
+                const id = this.$.$mol_state_arg.value('profile');
+                if (!id)
+                    return null;
+                const ref = $hyoo_crus_ref(id);
+                return this.$.$hyoo_crus_glob.Node(ref, $hyoo_budget_person);
+            }
+            pages() {
+                return [
+                    ...super.pages(),
+                    ...this.profile() ? [this.Profile_page(this.profile())] : [],
+                ];
+            }
         }
         __decorate([
             $mol_mem
         ], $hyoo_budget_app.prototype, "person", null);
+        __decorate([
+            $mol_mem
+        ], $hyoo_budget_app.prototype, "person_id", null);
         __decorate([
             $mol_mem
         ], $hyoo_budget_app.prototype, "spread_ids", null);
@@ -18263,6 +18896,12 @@ var $;
         __decorate([
             $mol_mem_key
         ], $hyoo_budget_app.prototype, "fund_visible", null);
+        __decorate([
+            $mol_mem_key
+        ], $hyoo_budget_app.prototype, "menu_link_arg", null);
+        __decorate([
+            $mol_mem
+        ], $hyoo_budget_app.prototype, "profile", null);
         $$.$hyoo_budget_app = $hyoo_budget_app;
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));
