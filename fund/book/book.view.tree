@@ -32,6 +32,7 @@ $hyoo_budget_fund_book $mol_book2_catalog
 			sub / <= category_ballance* 0
 		<= Category_portion* $mol_portion
 			portion <= category_portion* 0
+			attr * hyoo_budget_fund_book_category_mood <= category_mood* \positive
 	Menu_links_empty $mol_status
 		title @ \Add new category ⤴️
 	menu_foot /

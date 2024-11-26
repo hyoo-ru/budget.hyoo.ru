@@ -42,7 +42,12 @@ namespace $.$$ {
 
 		@ $mol_mem_key
 		category_portion( id: string ) {
-			return this.category_ballance( id ) / this.fund().ballance()
+			return Math.abs( this.category_ballance( id ) ) / this.fund().volatility()
+		}
+
+		@ $mol_mem_key
+		category_mood( id: string ) {
+			return this.category_ballance( id ) >= 0 ? 'positive' : 'negative'
 		}
 
 		ballance() {

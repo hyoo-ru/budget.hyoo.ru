@@ -7,7 +7,7 @@ namespace $ {
 	}) {
 		
 		amount( next?: number ) {
-			return this.Amount( next )?.val( next ) ?? 0
+			return this.Amount( next )?.val( next ) ?? Number.NaN
 		}
 
 		description( next?: string ) {

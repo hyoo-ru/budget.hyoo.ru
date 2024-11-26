@@ -28,6 +28,12 @@ namespace $ {
 				.reduce( ( ballance, category )=> ballance + category.ballance(), 0 )
 		}
 
+		@ $mol_mem
+		volatility() {
+			return this.category_list()
+				.reduce( ( ballance, category )=> Math.max( ballance, Math.abs( category.ballance() ) ), 0 )
+		}
+
 	}
 
 }

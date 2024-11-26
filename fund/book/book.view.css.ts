@@ -36,6 +36,15 @@ namespace $.$$ {
 				shrink: 0,
 				basis: `5rem`,
 			},
+			'[hyoo_budget_fund_book_category_mood]': {
+				negative: {
+					$mol_portion_indicator: {
+						background: {
+							color: $mol_theme.special,
+						},
+					},
+				},
+			},
 		},
 		
 	} )

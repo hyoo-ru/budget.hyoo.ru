@@ -1,5 +1,5 @@
 {
-	"$hyoo_budget_transfer_row_Amount_hint": "Сколько",
+	"$hyoo_budget_transfer_row_Amount_hint": "Сумма",
 	"$hyoo_budget_transfer_row_Description_hint": "Описание",
 	"$hyoo_budget_transfer_row_Moment_hint": "Момент списания"
 }

@@ -28,7 +28,7 @@ namespace $ {
 		@ $mol_mem
 		ballance() {
 			return this.transfer_list()
-				.reduce( ( ballance, transfer )=> ballance + transfer.amount(), 0 )
+				.reduce( ( ballance, transfer )=> ballance + ( transfer.amount() || 0 ), 0 )
 		}
 
 	}
