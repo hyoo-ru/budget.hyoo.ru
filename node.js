@@ -13492,7 +13492,7 @@ var $;
         Moment: $hyoo_crus_atom_time,
     }) {
         amount(next) {
-            return this.Amount(next)?.val(next) ?? 0;
+            return this.Amount(next)?.val(next) ?? Number.NaN;
         }
         description(next) {
             return this.Description(next)?.val(next) ?? '';
@@ -13528,7 +13528,7 @@ var $;
         }
         ballance() {
             return this.transfer_list()
-                .reduce((ballance, transfer) => ballance + transfer.amount(), 0);
+                .reduce((ballance, transfer) => ballance + (transfer.amount() || 0), 0);
         }
     }
     __decorate([
@@ -13567,6 +13567,10 @@ var $;
             return this.category_list()
                 .reduce((ballance, category) => ballance + category.ballance(), 0);
         }
+        volatility() {
+            return this.category_list()
+                .reduce((ballance, category) => Math.max(ballance, Math.abs(category.ballance())), 0);
+        }
     }
     __decorate([
         $mol_mem
@@ -13574,6 +13578,9 @@ var $;
     __decorate([
         $mol_mem
     ], $hyoo_budget_fund.prototype, "ballance", null);
+    __decorate([
+        $mol_mem
+    ], $hyoo_budget_fund.prototype, "volatility", null);
     $.$hyoo_budget_fund = $hyoo_budget_fund;
 })($ || ($ = {}));
 
@@ -13669,7 +13676,7 @@ var $;
 		indicator_width_style(){
 			return "0";
 		}
-		indicator(){
+		Indicator(){
 			const obj = new this.$.$mol_portion_indicator();
 			(obj.width_style) = () => ((this.indicator_width_style()));
 			return obj;
@@ -13678,10 +13685,10 @@ var $;
 			return 0;
 		}
 		sub(){
-			return [(this.indicator())];
+			return [(this.Indicator())];
 		}
 	};
-	($mol_mem(($.$mol_portion.prototype), "indicator"));
+	($mol_mem(($.$mol_portion.prototype), "Indicator"));
 
 
 ;
@@ -15459,9 +15466,13 @@ var $;
 		category_portion(id){
 			return 0;
 		}
+		category_mood(id){
+			return "positive";
+		}
 		Category_portion(id){
 			const obj = new this.$.$mol_portion();
 			(obj.portion) = () => ((this.category_portion(id)));
+			(obj.attr) = () => ({"hyoo_budget_fund_book_category_mood": (this.category_mood(id))});
 			return obj;
 		}
 		visible(next){
@@ -15675,7 +15686,10 @@ var $;
                 return this.category(id).ballance();
             }
             category_portion(id) {
-                return this.category_ballance(id) / this.fund().ballance();
+                return Math.abs(this.category_ballance(id)) / this.fund().volatility();
+            }
+            category_mood(id) {
+                return this.category_ballance(id) >= 0 ? 'positive' : 'negative';
             }
             ballance() {
                 return super.ballance().replace('{value}', this.fund().ballance().toLocaleString());
@@ -15722,6 +15736,9 @@ var $;
         __decorate([
             $mol_mem_key
         ], $hyoo_budget_fund_book.prototype, "category_portion", null);
+        __decorate([
+            $mol_mem_key
+        ], $hyoo_budget_fund_book.prototype, "category_mood", null);
         __decorate([
             $mol_mem
         ], $hyoo_budget_fund_book.prototype, "export_blob", null);
@@ -15770,6 +15787,15 @@ var $;
                     grow: 0,
                     shrink: 0,
                     basis: `5rem`,
+                },
+                '[hyoo_budget_fund_book_category_mood]': {
+                    negative: {
+                        $mol_portion_indicator: {
+                            background: {
+                                color: $mol_theme.special,
+                            },
+                        },
+                    },
                 },
             },
         });

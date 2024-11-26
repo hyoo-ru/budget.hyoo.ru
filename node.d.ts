@@ -6266,6 +6266,7 @@ declare namespace $ {
         category_make(): $hyoo_budget_category;
         category_visible(category: $hyoo_budget_category, next?: boolean): boolean;
         ballance(): number;
+        volatility(): number;
     }
     export {};
 }
@@ -6333,7 +6334,7 @@ declare namespace $ {
 	>
 	export class $mol_portion extends $mol_view {
 		indicator_width_style( ): string
-		indicator( ): $mol_portion_indicator
+		Indicator( ): $mol_portion_indicator
 		portion( ): number
 		sub( ): readonly(any)[]
 	}
@@ -7467,67 +7468,74 @@ declare namespace $ {
 		,
 		ReturnType< $mol_portion['portion'] >
 	>
-	type $mol_check_icon__hint_hyoo_budget_fund_book_13 = $mol_type_enforce<
+	type $mol_portion__attr_hyoo_budget_fund_book_13 = $mol_type_enforce<
+		({ 
+			'hyoo_budget_fund_book_category_mood': ReturnType< $hyoo_budget_fund_book['category_mood'] >,
+		}) 
+		,
+		ReturnType< $mol_portion['attr'] >
+	>
+	type $mol_check_icon__hint_hyoo_budget_fund_book_14 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_check_icon['hint'] >
 	>
-	type $mol_check_icon__checked_hyoo_budget_fund_book_14 = $mol_type_enforce<
+	type $mol_check_icon__checked_hyoo_budget_fund_book_15 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['visible'] >
 		,
 		ReturnType< $mol_check_icon['checked'] >
 	>
-	type $mol_check_icon__sub_hyoo_budget_fund_book_15 = $mol_type_enforce<
+	type $mol_check_icon__sub_hyoo_budget_fund_book_16 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_check_icon['sub'] >
 	>
-	type $mol_chip__title_hyoo_budget_fund_book_16 = $mol_type_enforce<
+	type $mol_chip__title_hyoo_budget_fund_book_17 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['ballance'] >
 		,
 		ReturnType< $mol_chip['title'] >
 	>
-	type $hyoo_budget_category_page__category_hyoo_budget_fund_book_17 = $mol_type_enforce<
+	type $hyoo_budget_category_page__category_hyoo_budget_fund_book_18 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['category'] >
 		,
 		ReturnType< $hyoo_budget_category_page['category'] >
 	>
-	type $hyoo_budget_category_page__addon_hyoo_budget_fund_book_18 = $mol_type_enforce<
+	type $hyoo_budget_category_page__addon_hyoo_budget_fund_book_19 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $hyoo_budget_category_page['addon'] >
 	>
-	type $hyoo_budget_category_page__visible_hyoo_budget_fund_book_19 = $mol_type_enforce<
+	type $hyoo_budget_category_page__visible_hyoo_budget_fund_book_20 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['category_visible'] >
 		,
 		ReturnType< $hyoo_budget_category_page['visible'] >
 	>
-	type $mol_string_button__hint_hyoo_budget_fund_book_20 = $mol_type_enforce<
+	type $mol_string_button__hint_hyoo_budget_fund_book_21 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_string_button['hint'] >
 	>
-	type $mol_string_button__value_hyoo_budget_fund_book_21 = $mol_type_enforce<
+	type $mol_string_button__value_hyoo_budget_fund_book_22 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['fund_title'] >
 		,
 		ReturnType< $mol_string_button['value'] >
 	>
-	type $mol_string_button__enabled_hyoo_budget_fund_book_22 = $mol_type_enforce<
+	type $mol_string_button__enabled_hyoo_budget_fund_book_23 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['editable'] >
 		,
 		ReturnType< $mol_string_button['enabled'] >
 	>
-	type $mol_status__title_hyoo_budget_fund_book_23 = $mol_type_enforce<
+	type $mol_status__title_hyoo_budget_fund_book_24 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_status['title'] >
 	>
-	type $hyoo_budget_fund_access__fund_hyoo_budget_fund_book_24 = $mol_type_enforce<
+	type $hyoo_budget_fund_access__fund_hyoo_budget_fund_book_25 = $mol_type_enforce<
 		ReturnType< $hyoo_budget_fund_book['fund'] >
 		,
 		ReturnType< $hyoo_budget_fund_access['fund'] >
 	>
-	type $hyoo_budget_fund_access__close_arg_hyoo_budget_fund_book_25 = $mol_type_enforce<
+	type $hyoo_budget_fund_access__close_arg_hyoo_budget_fund_book_26 = $mol_type_enforce<
 		({ 
 			'access': any,
 		}) 
@@ -7548,6 +7556,7 @@ declare namespace $ {
 		category_ballance( id: any): number
 		Category_ballance( id: any): $mol_view
 		category_portion( id: any): number
+		category_mood( id: any): string
 		Category_portion( id: any): $mol_portion
 		visible( next?: boolean ): boolean
 		Visible_icon( ): $mol_icon_eye
@@ -7583,6 +7592,7 @@ declare namespace $.$$ {
         category_visible(id: string, next?: boolean): boolean;
         category_ballance(id: string): any;
         category_portion(id: string): number;
+        category_mood(id: string): "positive" | "negative";
         ballance(): string;
         export_blob(): Blob;
         access(): boolean;
