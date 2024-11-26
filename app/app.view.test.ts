@@ -1,7 +1,7 @@
 namespace $.$$ {
 	$mol_test({
 		
-		async "Fund creation"( $ ) {
+		async "Fund making"( $ ) {
 
 			const app = $hyoo_budget_app.make({ $ })
 			$mol_assert_equal( app.menu_links().length, 0 )
@@ -9,7 +9,7 @@ namespace $.$$ {
 			await $mol_wire_async( app.Fund_make() ).click( new MouseEvent( 'click' ) )
 			$mol_assert_equal( app.menu_links().length, 1 )
 			
-			const fund = app.fund( app.spread_ids()[0] )
+			const fund = app.person().fund_list()[0]
 
 			$mol_assert_equal( fund.title(), '' )
 			$mol_assert_equal( fund.category_list(), [] )
