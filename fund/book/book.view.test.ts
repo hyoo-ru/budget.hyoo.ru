@@ -2,7 +2,7 @@ namespace $ {
 	
 	$mol_test({
 		
-		'Category making'( $ ) {
+		'Category making and hiding'( $ ) {
 			
 			const land = $hyoo_crus_land.make({ $ })
 			const fund = land.Data( $hyoo_budget_fund )
@@ -17,8 +17,15 @@ namespace $ {
 			$mol_assert_equal( category.title(), '' )
 			$mol_assert_equal( category.transfer_list(), [] )
 			$mol_assert_equal( category.ballance(), 0 )
-			
+
 			$mol_assert_equal( land.ref(), fund.land().ref(), category.land().ref() )
+
+			const spread = book.Spread( category.ref().description )
+			$mol_assert_equal( book.pages(), [ book.Menu(), spread ] )
+			
+			$mol_assert_equal( spread.Visible().checked(), true )
+			spread.Visible().checked( false )
+			$mol_assert_equal( book.menu_links().length, 0 )
 
 		},
 

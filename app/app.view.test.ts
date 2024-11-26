@@ -1,7 +1,7 @@
 namespace $.$$ {
 	$mol_test({
 		
-		async "Fund making"( $ ) {
+		async "Fund making and hiding"( $ ) {
 
 			const app = $hyoo_budget_app.make({ $ })
 			$mol_assert_equal( app.menu_links().length, 0 )
@@ -19,6 +19,13 @@ namespace $.$$ {
 			$mol_assert_equal( fund.can_change(), true )
 			$mol_assert_equal( fund.land().lord_rank( $hyoo_crus_ref('') ), $hyoo_crus_rank.nil )
 			
+			const spread = app.Spread( fund.ref().description )
+			$mol_assert_equal( app.pages(), [ app.Menu(), spread.Menu() ] )
+			
+			$mol_assert_equal( spread.Visible().checked(), true )
+			spread.Visible().checked( false )
+			$mol_assert_equal( app.menu_links().length, 0 )
+
 		},
 		
 	})
