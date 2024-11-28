@@ -10747,7 +10747,7 @@ var $;
                 return $hyoo_crus_rank.law;
             const prev = this.gift.get(lord)?.rank()
                 ?? this.gift.get($hyoo_crus_ref(''))?.rank()
-                ?? $hyoo_crus_rank.get;
+                ?? (this.encrypted() ? $hyoo_crus_rank.nil : $hyoo_crus_rank.get);
             if (next === undefined)
                 return prev;
             if (next === prev)
@@ -11011,7 +11011,6 @@ var $;
         }
         sand_ordered({ head, peer }) {
             this.sync();
-            this.secret();
             const queue = peer
                 ? [...this.sand.get(head)?.get(peer)?.values() ?? []]
                 : [...this.sand.get(head)?.values() ?? []].flatMap(units => [...units.values()]);
@@ -12083,8 +12082,8 @@ var $;
                 this.add(item.ref());
             }
             make(config) {
-                if (config === null) {
-                    const self = this.land().self_make();
+                if (config === null || typeof config === 'number') {
+                    const self = this.land().self_make(config || undefined);
                     const node = this.land().Node(Value()).Item(self);
                     this.splice([node.ref()]);
                     return node;
@@ -15199,7 +15198,7 @@ var $;
 			const obj = new this.$.$mol_string();
 			(obj.hint) = () => ((this.$.$mol_locale.text("$hyoo_crus_land_rights_Add_key_hint")));
 			(obj.value) = (next) => ((this.add_key(next)));
-			(obj.commit) = (next) => ((this.add_commit(next)));
+			(obj.submit) = (next) => ((this.add_commit(next)));
 			return obj;
 		}
 		Add_commit_icon(){
@@ -16254,8 +16253,8 @@ var $;
         'code-docs': /\/\/\/.*?$/,
         'code-comment-block': /(?:\/\*[^]*?\*\/|\/\+[^]*?\+\/|<![^]*?>)/,
         'code-link': /(?:\w+:\/\/|#)\S+?(?=\s|\\\\|""|$)/,
-        'code-comment-inline': /\/\/.*?(?:$|\/\/)/,
-        'code-string': /(?:".*?"|'.*?'|`.*?`|\/.+?\/[dygimsu]*(?!\p{Letter})|(?:^|[ \t])\\[^\n]*\n)/u,
+        'code-comment-inline': /\/\/.*?(?:$|\/\/)|- \\.*/,
+        'code-string': /(?:".*?"|'.*?'|`.*?`|\/.+?\/[dygimsu]*(?!\p{Letter})|[ \t]*\\[^\n]*)/u,
         'code-number': /[+-]?(?:\d*\.)?\d+\w*/,
         'code-call': /\.?\w+ *(?=\()/,
         'code-sexpr': /\((\w+ )/,
@@ -16263,7 +16262,7 @@ var $;
         'code-keyword': /\b(throw|readonly|unknown|keyof|typeof|never|from|class|struct|interface|type|function|extends|implements|module|namespace|import|export|include|require|var|val|let|const|for|do|while|until|in|out|of|new|if|then|else|switch|case|this|return|async|await|yield|try|catch|break|continue|get|set|public|private|protected|string|boolean|number|null|undefined|true|false|void|int|float|ref)\b/,
         'code-global': /[$]+\w*|\b[A-Z][a-z0-9]+[A-Z]\w*/,
         'code-word': /\w+/,
-        'code-decorator': /@\s*\S+/,
+        'code-decorator': /@.+/,
         'code-tag': /<\/?[\w-]+\/?>?|&\w+;/,
         'code-punctuation': /[\-\[\]\{\}\(\)<=>~!\?@#%&\*_\+\\\/\|;:\.,\^]+?/,
     });
@@ -20501,6 +20500,41 @@ var $;
 "use strict";
 var $;
 (function ($_1) {
+    $mol_test_mocks.push($ => {
+        $.$mol_after_work = $mol_after_mock_timeout;
+    });
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($_1) {
+    var $$;
+    (function ($$) {
+        $mol_test_mocks.push($ => {
+            $.$mol_wait_timeout = function $mol_wait_timeout_mock(timeout) { };
+            $.$mol_wait_timeout_async = async function $mol_wait_timeout_async_mock(timeout) { };
+        });
+    })($$ = $_1.$$ || ($_1.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($_1) {
+    var $$;
+    (function ($$) {
+        $mol_test_mocks.push($ => {
+            $.$mol_wait_rest = function $mol_wait_rest_mock() { };
+            $.$mol_wait_rest_async = async function $mol_wait_rest_async_mock() { };
+        });
+    })($$ = $_1.$$ || ($_1.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($_1) {
     $mol_test({
         'test types'($) {
             class A {
@@ -20519,7 +20553,7 @@ var $;
                 static last = [];
                 static send(next) {
                     $mol_wire_sync(this.first).push(next);
-                    this.$.$mol_wait_timeout(0);
+                    $$.$mol_wait_timeout(0);
                     this.last.push(next);
                 }
             }
@@ -20528,15 +20562,15 @@ var $;
             const promise = name('jin');
             $.$mol_after_mock_warp();
             await promise;
-            $mol_assert_like(NameLogger.first, ['john', 'jin']);
-            $mol_assert_like(NameLogger.last, ['jin']);
+            $mol_assert_equal(NameLogger.first, ['john', 'jin']);
+            $mol_assert_equal(NameLogger.last, ['jin']);
         },
         async 'Latest function calls wins'($) {
             const first = [];
             const last = [];
             function send_name(next) {
                 $mol_wire_sync(first).push(next);
-                $.$mol_wait_timeout(0);
+                $$.$mol_wait_timeout(0);
                 last.push(next);
             }
             const name = $mol_wire_async(send_name);
@@ -20544,8 +20578,8 @@ var $;
             const promise = name('jin');
             $.$mol_after_mock_warp();
             await promise;
-            $mol_assert_like(first, ['john', 'jin']);
-            $mol_assert_like(last, ['jin']);
+            $mol_assert_equal(first, ['john', 'jin']);
+            $mol_assert_equal(last, ['jin']);
         },
     });
 })($ || ($ = {}));
@@ -22332,6 +22366,28 @@ var $;
             },
         });
     })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_test_mocks.push(context => {
+        class $mol_state_arg_mock extends $mol_state_arg {
+            static $ = context;
+            static href(next) { return next || ''; }
+            static go(next) {
+                this.href(this.link(next));
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $mol_state_arg_mock, "href", null);
+        __decorate([
+            $mol_action
+        ], $mol_state_arg_mock, "go", null);
+        context.$mol_state_arg = $mol_state_arg_mock;
+    });
 })($ || ($ = {}));
 
 ;
@@ -24521,15 +24577,6 @@ var $;
 ;
 "use strict";
 var $;
-(function ($_1) {
-    $mol_test_mocks.push($ => {
-        $.$mol_after_work = $mol_after_mock_timeout;
-    });
-})($ || ($ = {}));
-
-;
-"use strict";
-var $;
 (function ($) {
     function $mol_csv_parse(text, delimiter = ',') {
         var lines = text.split(/\r?\n/g);
@@ -24564,6 +24611,32 @@ var $;
         'parse & serial'() {
             const csv = 'foo,bar\n"123","456"\n"x""xx","y""y""y"';
             $mol_assert_like($mol_csv_serial($mol_csv_parse(csv)), csv);
+        },
+    });
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($_1) {
+    $mol_test({
+        'Category making and hiding'($) {
+            const land = $hyoo_crus_land.make({ $ });
+            const fund = land.Data($hyoo_budget_fund);
+            const book = $hyoo_budget_fund_book.make({ $, fund: () => fund });
+            $mol_assert_equal(book.menu_links().length, 0);
+            book.Category_make().click(new $mol_dom_context.MouseEvent('click'));
+            $mol_assert_equal(book.menu_links().length, 1);
+            const category = fund.category_list()[0];
+            $mol_assert_equal(category.title(), '');
+            $mol_assert_equal(category.transfer_list(), []);
+            $mol_assert_equal(category.ballance(), 0);
+            $mol_assert_equal(land.ref(), fund.land().ref(), category.land().ref());
+            const spread = book.Spread(category.ref().description);
+            $mol_assert_equal(book.pages(), [book.Menu(), spread]);
+            $mol_assert_equal(spread.Visible().checked(), true);
+            spread.Visible().checked(false);
+            $mol_assert_equal(book.menu_links().length, 0);
         },
     });
 })($ || ($ = {}));
@@ -24620,6 +24693,35 @@ var $;
             $mol_assert_equal($mol_state_session.value(key), null);
         },
     });
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($_1) {
+    var $$;
+    (function ($$) {
+        $mol_test({
+            async "Fund making and hiding"($) {
+                const app = $hyoo_budget_app.make({ $ });
+                $mol_assert_equal(app.menu_links().length, 0);
+                await $mol_wire_async(app.Fund_make()).click(new $mol_dom_context.MouseEvent('click'));
+                $mol_assert_equal(app.menu_links().length, 1);
+                const fund = app.person().fund_list()[0];
+                $mol_assert_equal(fund.title(), '');
+                $mol_assert_equal(fund.category_list(), []);
+                $mol_assert_equal(fund.ballance(), 0);
+                $mol_assert_equal(fund.volatility(), 0);
+                $mol_assert_equal(fund.can_change(), true);
+                $mol_assert_equal(fund.land().lord_rank($hyoo_crus_ref('')), $hyoo_crus_rank.nil);
+                const spread = app.Spread(fund.ref().description);
+                $mol_assert_equal(app.pages(), [app.Menu(), spread.Menu()]);
+                $mol_assert_equal(spread.Visible().checked(), true);
+                spread.Visible().checked(false);
+                $mol_assert_equal(app.menu_links().length, 0);
+            },
+        });
+    })($$ = $_1.$$ || ($_1.$$ = {}));
 })($ || ($ = {}));
 
 
