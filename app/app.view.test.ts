@@ -6,7 +6,7 @@ namespace $.$$ {
 			const app = $hyoo_budget_app.make({ $ })
 			$mol_assert_equal( app.menu_links().length, 0 )
 
-			await $mol_wire_async( app.Fund_make() ).click( new MouseEvent( 'click' ) )
+			await $mol_wire_async( app.Fund_make() ).click( new $mol_dom_context.MouseEvent( 'click' ) )
 			$mol_assert_equal( app.menu_links().length, 1 )
 			
 			const fund = app.person().fund_list()[0]

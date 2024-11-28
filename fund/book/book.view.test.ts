@@ -9,7 +9,7 @@ namespace $ {
 			const book = $hyoo_budget_fund_book.make({ $, fund: ()=> fund })
 			$mol_assert_equal( book.menu_links().length, 0 )
 			
-			book.Category_make().click( new MouseEvent( 'click' ) )
+			book.Category_make().click( new $mol_dom_context.MouseEvent( 'click' ) )
 			$mol_assert_equal( book.menu_links().length, 1 )
 			
 			const category = fund.category_list()[0]
