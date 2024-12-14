@@ -15283,6 +15283,9 @@ var $;
 			(obj.sub) = () => ([(this.Category_make_icon())]);
 			return obj;
 		}
+		menu_addon(){
+			return [];
+		}
 		category_ballance(id){
 			return 0;
 		}

@@ -6020,7 +6020,7 @@ declare namespace $ {
     export class $hyoo_budget_transfer extends $hyoo_budget_transfer_base {
         amount(next?: number): number;
         description(next?: string): string;
-        moment(next?: $mol_time_moment | null): $mol_time_moment | null;
+        moment(next?: $mol_time_moment | null): $mol_time_moment;
     }
     export {};
 }
@@ -7555,6 +7555,7 @@ declare namespace $ {
 		category_make( next?: any ): any
 		Category_make_icon( ): $mol_icon_plus
 		Category_make( ): $mol_button_minor
+		menu_addon( ): readonly(any)[]
 		category_ballance( id: any): number
 		Category_ballance( id: any): $mol_view
 		category_portion( id: any): number
