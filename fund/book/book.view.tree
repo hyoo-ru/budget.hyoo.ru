@@ -25,7 +25,7 @@ $hyoo_budget_fund_book $mol_book2_catalog
 			enabled <= editable
 			sub /
 				<= Category_make_icon $mol_icon_plus
-		^ menu_addon
+		^ menu_addon /
 	menu_link_content* /
 		<= Menu_link_title*
 		<= Category_ballance* $mol_view
