@@ -341,7 +341,6 @@
   "dependencies": {
     "jsdom": "*",
     "chokidar": "*",
-    "pg": "*",
-    "undici": "*"
+    "pg": "*"
   }
 }

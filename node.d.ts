@@ -7823,7 +7823,7 @@ declare namespace $.$$ {
 declare namespace $ {
     class $mol_syntax2<Lexems extends {
         [name: string]: RegExp;
-    }> {
+    } = {}> {
         lexems: Lexems;
         constructor(lexems: Lexems);
         rules: Array<{
