@@ -2859,6 +2859,7 @@ declare namespace $ {
         $hyoo_crus_ref: symbol;
     });
     type $hyoo_crus_ref = typeof $hyoo_crus_ref.Value;
+    function $hyoo_crus_ref_check(val: string): string;
     function $hyoo_crus_ref_lord(ref: $hyoo_crus_ref): symbol & {
         $hyoo_crus_ref: symbol;
     };
@@ -4621,7 +4622,7 @@ declare namespace $ {
         new (): {
             remote_list(next?: Vals): Vals;
             remote_add(item: Vals[number]): void;
-            make(config?: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): Vals[number];
+            make(config: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): Vals[number];
             remote_make(config: $hyoo_crus_rank_preset): Vals[number];
             local_make(idea?: number): Vals[number];
             items(next?: readonly ((symbol & {
@@ -6034,7 +6035,7 @@ declare namespace $ {
         readonly Transfer: (auto?: any) => {
             remote_list(next?: readonly $hyoo_budget_transfer[] | undefined): readonly $hyoo_budget_transfer[];
             remote_add(item: $hyoo_budget_transfer): void;
-            make(config?: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_transfer;
+            make(config: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_transfer;
             remote_make(config: $hyoo_crus_rank_preset): $hyoo_budget_transfer;
             local_make(idea?: number): $hyoo_budget_transfer;
             items(next?: readonly ((symbol & {
@@ -6087,7 +6088,7 @@ declare namespace $ {
                 new (): {
                     remote_list(next?: readonly $hyoo_budget_transfer[] | undefined): readonly $hyoo_budget_transfer[];
                     remote_add(item: $hyoo_budget_transfer): void;
-                    make(config?: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_transfer;
+                    make(config: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_transfer;
                     remote_make(config: $hyoo_crus_rank_preset): $hyoo_budget_transfer;
                     local_make(idea?: number): $hyoo_budget_transfer;
                     items(next?: readonly ((symbol & {
@@ -6160,7 +6161,7 @@ declare namespace $ {
         readonly Category: (auto?: any) => {
             remote_list(next?: readonly $hyoo_budget_category[] | undefined): readonly $hyoo_budget_category[];
             remote_add(item: $hyoo_budget_category): void;
-            make(config?: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_category;
+            make(config: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_category;
             remote_make(config: $hyoo_crus_rank_preset): $hyoo_budget_category;
             local_make(idea?: number): $hyoo_budget_category;
             items(next?: readonly ((symbol & {
@@ -6213,7 +6214,7 @@ declare namespace $ {
                 new (): {
                     remote_list(next?: readonly $hyoo_budget_category[] | undefined): readonly $hyoo_budget_category[];
                     remote_add(item: $hyoo_budget_category): void;
-                    make(config?: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_category;
+                    make(config: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_category;
                     remote_make(config: $hyoo_crus_rank_preset): $hyoo_budget_category;
                     local_make(idea?: number): $hyoo_budget_category;
                     items(next?: readonly ((symbol & {
@@ -7635,7 +7636,7 @@ declare namespace $ {
         readonly Fund: (auto?: any) => {
             remote_list(next?: readonly $hyoo_budget_fund[] | undefined): readonly $hyoo_budget_fund[];
             remote_add(item: $hyoo_budget_fund): void;
-            make(config?: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_fund;
+            make(config: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_fund;
             remote_make(config: $hyoo_crus_rank_preset): $hyoo_budget_fund;
             local_make(idea?: number): $hyoo_budget_fund;
             items(next?: readonly ((symbol & {
@@ -7687,7 +7688,7 @@ declare namespace $ {
                 new (): {
                     remote_list(next?: readonly $hyoo_budget_fund[] | undefined): readonly $hyoo_budget_fund[];
                     remote_add(item: $hyoo_budget_fund): void;
-                    make(config?: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_fund;
+                    make(config: null | number | $hyoo_crus_rank_preset | $hyoo_crus_land): $hyoo_budget_fund;
                     remote_make(config: $hyoo_crus_rank_preset): $hyoo_budget_fund;
                     local_make(idea?: number): $hyoo_budget_fund;
                     items(next?: readonly ((symbol & {
