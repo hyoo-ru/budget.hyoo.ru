@@ -3,29 +3,29 @@ namespace $.$$ {
 
 		@ $mol_mem
 		person() {
-			return this.$.$hyoo_crus_glob.home( $hyoo_budget_person )
+			return this.$.$giper_baza_glob.home( $hyoo_budget_person )
 		}
 		
 		@ $mol_mem
 		person_id() {
-			return this.person().ref().description!
+			return this.person().link().str
 		}
 		
 		@ $mol_mem
 		spread_ids() {
-			return this.person().fund_list().map( budget => budget.ref().description! ).reverse()
+			return this.person().fund_list().map( budget => budget.link().str ).reverse()
 		}
 
 		fund_make() {
 			const fund = this.person().fund_make()
-			this.$.$mol_state_arg.go({ fund: fund.ref().description! })
+			this.$.$mol_state_arg.go({ fund: fund.link().str })
 			this.$.$mol_wait_timeout( 700 )
-			this.Fund_page( fund.ref().description! ).Menu_title().focused( true )
+			this.Fund_page( fund.link().str ).Menu_title().focused( true )
 		}
 
 		@ $mol_mem_key
 		fund( id: string ) {
-			return this.$.$hyoo_crus_glob.Node( $hyoo_crus_ref( id ), $hyoo_budget_fund )
+			return this.$.$giper_baza_glob.Pawn( new $giper_baza_link( id ), $hyoo_budget_fund )
 		}
 		
 		@ $mol_mem_key
@@ -51,8 +51,7 @@ namespace $.$$ {
 			const id = this.$.$mol_state_arg.value( 'profile' )
 			if( !id ) return null!
 
-			const ref = $hyoo_crus_ref( id )
-			return this.$.$hyoo_crus_glob.Node( ref, $hyoo_budget_person )
+			return this.$.$giper_baza_glob.Pawn( new $giper_baza_link( id ), $hyoo_budget_person )
 
 		}
 

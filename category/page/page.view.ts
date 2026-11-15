@@ -2,11 +2,11 @@ namespace $.$$ {
 	export class $hyoo_budget_category_page extends $.$hyoo_budget_category_page {
 		
 		title() {
-			return super.title() || `Category ${ $hyoo_crus_ref_head( this.category().ref() ) }`
+			return super.title() || `Category ${ this.category().link().head().str }`
 		}
 		
-		category_title( next?: string ) {
-			return this.category().title( next )
+		category_name( next?: string ) {
+			return this.category().name( next )
 		}
 
 		limit( next?: number ) {
@@ -15,12 +15,12 @@ namespace $.$$ {
 		
 		@ $mol_mem
 		transfer_list() {
-			return this.category().transfer_list().map( transfer => this.Transfer_row( transfer.ref().description! ) ).reverse()
+			return this.category().transfer_list().map( transfer => this.Transfer_row( transfer.link().str ) ).reverse()
 		}
 
 		@ $mol_mem_key
 		transfer( id: string ) {
-			return this.$.$hyoo_crus_glob.Node( $hyoo_crus_ref( id ), $hyoo_budget_transfer )
+			return this.$.$giper_baza_glob.Pawn( new $giper_baza_link( id ), $hyoo_budget_transfer )
 		}
 
 		delete( id: string ) {

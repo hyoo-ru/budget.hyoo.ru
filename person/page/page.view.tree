@@ -1,9 +1,9 @@
 $hyoo_budget_person_page $mol_page
 	person $hyoo_budget_person
-		title? => title?
+		name? => name?
 	Title $mol_string_button
 		hint @ \Name
-		value? <=> title?
+		value? <=> name?
 	tools /
 		<= Close $mol_link
 			hint @ \Close panel

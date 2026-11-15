@@ -1,8 +1,8 @@
 namespace $ {
 
-	export class $hyoo_budget_category extends $hyoo_crus_entity.with({
-		Limit: $hyoo_crus_atom_real,
-		Transfer: $hyoo_crus_list_ref_to( ()=> $hyoo_budget_transfer ),
+	export class $hyoo_budget_category extends $giper_baza_flex_subj.with({
+		Limit: $giper_baza_atom_real,
+		Transfer: $giper_baza_list_link.to( ()=> $hyoo_budget_transfer ),
 	}) {
 
 		limit( next?: number ) {
@@ -22,7 +22,7 @@ namespace $ {
 		}
 		
 		transfer_visible( transfer: $hyoo_budget_transfer, next?: boolean ) {
-			return this.Transfer( next )?.has( transfer.ref(), next ) ?? false
+			return this.Transfer( next )?.has( transfer.link(), next ) ?? false
 		}
 
 		@ $mol_mem

@@ -18,7 +18,7 @@ $hyoo_budget_app $mol_book2_catalog
 	menu_foot /
 		<= Sources $mol_link_source
 			uri \https://github.com/hyoo-ru/budget.hyoo.ru/
-		<= Status $hyoo_crus_status
+		<= Status $giper_baza_status
 		<= Lang $mol_select
 			value? <=> lang? \en
 			dictionary *

@@ -1,7 +1,7 @@
 namespace $ {
 	
-	export class $hyoo_budget_person extends $hyoo_crus_home.with({
-		Fund: $hyoo_crus_list_ref_to( ()=> $hyoo_budget_fund ),
+	export class $hyoo_budget_person extends $giper_baza_flex_subj.with({
+		Fund: $giper_baza_list_link.to( ()=> $hyoo_budget_fund ),
 	}) {
 
 		@ $mol_mem
@@ -11,11 +11,11 @@ namespace $ {
 		
 		@ $mol_action
 		fund_make() {
-			return this.Fund( null )!.make({})
+			return this.Fund( null )!.make([])
 		}
 
 		fund_visible( budget: $hyoo_budget_fund, next?: boolean ) {
-			return this.Fund( next )?.has( budget.ref(), next ) ?? false
+			return this.Fund( next )?.has( budget.link(), next ) ?? false
 		}
 
 	}

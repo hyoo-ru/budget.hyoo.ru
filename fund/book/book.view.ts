@@ -2,11 +2,11 @@ namespace $.$$ {
 	export class $hyoo_budget_fund_book extends $.$hyoo_budget_fund_book {
 		
 		menu_title() {
-			return super.menu_title() || `Fund ${ $hyoo_crus_ref_peer( this.fund().ref() ) }`
+			return super.menu_title() || `Fund ${ this.fund().link().peer().str }`
 		}
 
-		fund_title( next?: string ) {
-			return this.fund().title( next )
+		fund_name( next?: string ) {
+			return this.fund().name( next )
 		}
 		
 		limit( next?: number ) {
@@ -15,19 +15,19 @@ namespace $.$$ {
 
 		@ $mol_mem
 		spread_ids() {
-			return this.fund().category_list().map( category => category.ref().description! ).reverse()
+			return this.fund().category_list().map( category => category.link().str ).reverse()
 		}
 
 		category_make() {
 			const category = this.fund().category_make()
-			this.$.$mol_state_arg.go({ category: category.ref().description! })
+			this.$.$mol_state_arg.go({ category: category.link().str })
 			this.$.$mol_wait_timeout( 700 )
-			this.Category_page( category.ref().description! ).Title().focused( true )
+			this.Category_page( category.link().str ).Title().focused( true )
 		}
 
 		@ $mol_mem_key
 		category( id: string ) {
-			return this.$.$hyoo_crus_glob.Node( $hyoo_crus_ref( id ), $hyoo_budget_category )
+			return this.$.$giper_baza_glob.Pawn( new $giper_baza_link( id ), $hyoo_budget_category )
 		}
 		
 		@ $mol_mem_key
@@ -55,12 +55,17 @@ namespace $.$$ {
 		}
 
 		@ $mol_mem
+		export_file_name() {
+			return ( this.fund_name() || this.fund().link().str ) + '.csv'
+		}
+
+		@ $mol_mem
 		export_blob() {
 			
 			const data = this.fund().category_list().flatMap(
 				category => category.transfer_list().map( transfer => ({
-					id: transfer.ref().description!,
-					category: category.title(),
+					id: transfer.link().head().str,
+					category: category.name(),
 					amount: transfer.amount(),
 					description: transfer.description(),
 					moment: transfer.moment(),

@@ -11,15 +11,16 @@ namespace $.$$ {
 			
 			const fund = app.person().fund_list()[0]
 
-			$mol_assert_equal( fund.title(), '' )
+			$mol_assert_equal( fund.name(), '' )
 			$mol_assert_equal( fund.category_list(), [] )
 			$mol_assert_equal( fund.ballance(), 0 )
 			$mol_assert_equal( fund.volatility(), 0 )
 
 			$mol_assert_equal( fund.can_change(), true )
-			$mol_assert_equal( fund.land().lord_rank( $hyoo_crus_ref('') ), $hyoo_crus_rank.nil )
+			$mol_assert_equal( fund.land().encrypted(), true )
+			$mol_assert_equal( fund.land().lord_rank( $giper_baza_link.hole ), $giper_baza_rank_deny )
 			
-			const spread = app.Spread( fund.ref().description )
+			const spread = app.Spread( fund.link().str )
 			$mol_assert_equal( app.pages(), [ app.Menu(), spread.Menu() ] )
 			
 			$mol_assert_equal( spread.Visible().checked(), true )

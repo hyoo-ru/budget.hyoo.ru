@@ -1,9 +1,9 @@
 namespace $ {
 	
-	export class $hyoo_budget_transfer extends $hyoo_crus_dict.with({
-		Amount: $hyoo_crus_atom_real,
-		Description: $hyoo_crus_atom_str,
-		Moment: $hyoo_crus_atom_time,
+	export class $hyoo_budget_transfer extends $giper_baza_flex_subj.with({
+		Amount: $giper_baza_atom_real,
+		Description: $giper_baza_atom_text,
+		Moment: $giper_baza_atom_time,
 	}) {
 		
 		amount( next?: number ) {

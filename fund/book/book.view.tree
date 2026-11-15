@@ -2,10 +2,10 @@ $hyoo_budget_fund_book $mol_book2_catalog
 	param \category
 	fund $hyoo_budget_fund
 		can_change => editable
-	menu_title <= fund_title
+	menu_title <= fund_name
 	Menu_title $mol_string_button
-		hint @ \fund title
-		value? <=> fund_title? \
+		hint @ \fund name
+		value? <=> fund_name? \
 		enabled <= editable
 	menu_tools /
 		<= Access_link $mol_link

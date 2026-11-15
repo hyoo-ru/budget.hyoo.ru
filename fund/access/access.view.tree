@@ -9,5 +9,5 @@ $hyoo_budget_fund_access $mol_page
 			sub /
 				<= Close_icon $mol_icon_close
 	body /
-		<= Rights $hyoo_crus_land_rights
+		<= Rights $giper_baza_land_rights
 			land <= land

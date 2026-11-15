@@ -1,8 +1,8 @@
 namespace $ {
 	
-	export class $hyoo_budget_fund extends $hyoo_crus_entity.with({
-		Limit: $hyoo_crus_atom_real,
-		Category: $hyoo_crus_list_ref_to( ()=> $hyoo_budget_category ),
+	export class $hyoo_budget_fund extends $giper_baza_flex_subj.with({
+		Limit: $giper_baza_atom_real,
+		Category: $giper_baza_list_link.to( ()=> $hyoo_budget_category ),
 	}) {
 		
 		limit( next?: number ) {
@@ -19,7 +19,7 @@ namespace $ {
 		}
 		
 		category_visible( category: $hyoo_budget_category, next?: boolean ) {
-			return this.Category( next )?.has( category.ref(), next ) ?? false
+			return this.Category( next )?.has( category.link(), next ) ?? false
 		}
 
 		@ $mol_mem
